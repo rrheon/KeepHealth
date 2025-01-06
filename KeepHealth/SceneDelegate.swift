@@ -16,7 +16,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-    guard let _ = (scene as? UIWindowScene) else { return }
+    
+    // 1. scene 캡처
+    guard let windowSecene = (scene as? UIWindowScene) else { return }
+    
+    // 2. window scene을 가져오는 windowScene을 생성자를 사용해서 UIWindow를 생성
+    let window = UIWindow(windowScene: windowSecene)
+    
+    // 3. view 계층을 프로그래밍 방식으로 만들기
+    let rootVC = DietListViewController()
+    
+    
+    // 4. viewController로 window의 root view controller를 설정
+    window.rootViewController = rootVC
+    
+    self.window = window
+    
+    // 5. window를 설정하고 makeKeyAndVisible()
+    window.makeKeyAndVisible()
   }
 
   func sceneDidDisconnect(_ scene: UIScene) {
