@@ -1,0 +1,568 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		EE58E51A2D2C081B000C4760 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE58E4FB2D2C081A000C4760 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE58E5022D2C081A000C4760;
+			remoteInfo = KeepHealth;
+		};
+		EE58E5242D2C081B000C4760 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE58E4FB2D2C081A000C4760 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE58E5022D2C081A000C4760;
+			remoteInfo = KeepHealth;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EE58E5032D2C081A000C4760 /* KeepHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeepHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE58E5192D2C081B000C4760 /* KeepHealthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeepHealthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE58E5232D2C081B000C4760 /* KeepHealthUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeepHealthUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		EE58E52B2D2C081B000C4760 /* Exceptions for "KeepHealth" folder in "KeepHealth" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = EE58E5022D2C081A000C4760 /* KeepHealth */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		EE58E5052D2C081A000C4760 /* KeepHealth */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				EE58E52B2D2C081B000C4760 /* Exceptions for "KeepHealth" folder in "KeepHealth" target */,
+			);
+			path = KeepHealth;
+			sourceTree = "<group>";
+		};
+		EE58E51C2D2C081B000C4760 /* KeepHealthTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = KeepHealthTests;
+			sourceTree = "<group>";
+		};
+		EE58E5262D2C081B000C4760 /* KeepHealthUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = KeepHealthUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EE58E5002D2C081A000C4760 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE58E5162D2C081B000C4760 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE58E5202D2C081B000C4760 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EE58E4FA2D2C081A000C4760 = {
+			isa = PBXGroup;
+			children = (
+				EE58E5052D2C081A000C4760 /* KeepHealth */,
+				EE58E51C2D2C081B000C4760 /* KeepHealthTests */,
+				EE58E5262D2C081B000C4760 /* KeepHealthUITests */,
+				EE58E5042D2C081A000C4760 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EE58E5042D2C081A000C4760 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE58E5032D2C081A000C4760 /* KeepHealth.app */,
+				EE58E5192D2C081B000C4760 /* KeepHealthTests.xctest */,
+				EE58E5232D2C081B000C4760 /* KeepHealthUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EE58E5022D2C081A000C4760 /* KeepHealth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE58E52C2D2C081B000C4760 /* Build configuration list for PBXNativeTarget "KeepHealth" */;
+			buildPhases = (
+				EE58E4FF2D2C081A000C4760 /* Sources */,
+				EE58E5002D2C081A000C4760 /* Frameworks */,
+				EE58E5012D2C081A000C4760 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				EE58E5052D2C081A000C4760 /* KeepHealth */,
+			);
+			name = KeepHealth;
+			packageProductDependencies = (
+			);
+			productName = KeepHealth;
+			productReference = EE58E5032D2C081A000C4760 /* KeepHealth.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EE58E5182D2C081B000C4760 /* KeepHealthTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE58E5312D2C081B000C4760 /* Build configuration list for PBXNativeTarget "KeepHealthTests" */;
+			buildPhases = (
+				EE58E5152D2C081B000C4760 /* Sources */,
+				EE58E5162D2C081B000C4760 /* Frameworks */,
+				EE58E5172D2C081B000C4760 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE58E51B2D2C081B000C4760 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				EE58E51C2D2C081B000C4760 /* KeepHealthTests */,
+			);
+			name = KeepHealthTests;
+			packageProductDependencies = (
+			);
+			productName = KeepHealthTests;
+			productReference = EE58E5192D2C081B000C4760 /* KeepHealthTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EE58E5222D2C081B000C4760 /* KeepHealthUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE58E5342D2C081B000C4760 /* Build configuration list for PBXNativeTarget "KeepHealthUITests" */;
+			buildPhases = (
+				EE58E51F2D2C081B000C4760 /* Sources */,
+				EE58E5202D2C081B000C4760 /* Frameworks */,
+				EE58E5212D2C081B000C4760 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE58E5252D2C081B000C4760 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				EE58E5262D2C081B000C4760 /* KeepHealthUITests */,
+			);
+			name = KeepHealthUITests;
+			packageProductDependencies = (
+			);
+			productName = KeepHealthUITests;
+			productReference = EE58E5232D2C081B000C4760 /* KeepHealthUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EE58E4FB2D2C081A000C4760 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					EE58E5022D2C081A000C4760 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					EE58E5182D2C081B000C4760 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = EE58E5022D2C081A000C4760;
+					};
+					EE58E5222D2C081B000C4760 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = EE58E5022D2C081A000C4760;
+					};
+				};
+			};
+			buildConfigurationList = EE58E4FE2D2C081A000C4760 /* Build configuration list for PBXProject "KeepHealth" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EE58E4FA2D2C081A000C4760;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = EE58E5042D2C081A000C4760 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EE58E5022D2C081A000C4760 /* KeepHealth */,
+				EE58E5182D2C081B000C4760 /* KeepHealthTests */,
+				EE58E5222D2C081B000C4760 /* KeepHealthUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EE58E5012D2C081A000C4760 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE58E5172D2C081B000C4760 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE58E5212D2C081B000C4760 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EE58E4FF2D2C081A000C4760 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE58E5152D2C081B000C4760 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE58E51F2D2C081B000C4760 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EE58E51B2D2C081B000C4760 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE58E5022D2C081A000C4760 /* KeepHealth */;
+			targetProxy = EE58E51A2D2C081B000C4760 /* PBXContainerItemProxy */;
+		};
+		EE58E5252D2C081B000C4760 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE58E5022D2C081A000C4760 /* KeepHealth */;
+			targetProxy = EE58E5242D2C081B000C4760 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		EE58E52D2D2C081B000C4760 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KeepHealth/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongheon.KeepHealth;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EE58E52E2D2C081B000C4760 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KeepHealth/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongheon.KeepHealth;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EE58E52F2D2C081B000C4760 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EE58E5302D2C081B000C4760 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EE58E5322D2C081B000C4760 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongheon.KeepHealthTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeepHealth.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KeepHealth";
+			};
+			name = Debug;
+		};
+		EE58E5332D2C081B000C4760 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongheon.KeepHealthTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeepHealth.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KeepHealth";
+			};
+			name = Release;
+		};
+		EE58E5352D2C081B000C4760 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongheon.KeepHealthUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KeepHealth;
+			};
+			name = Debug;
+		};
+		EE58E5362D2C081B000C4760 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongheon.KeepHealthUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KeepHealth;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EE58E4FE2D2C081A000C4760 /* Build configuration list for PBXProject "KeepHealth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE58E52F2D2C081B000C4760 /* Debug */,
+				EE58E5302D2C081B000C4760 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE58E52C2D2C081B000C4760 /* Build configuration list for PBXNativeTarget "KeepHealth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE58E52D2D2C081B000C4760 /* Debug */,
+				EE58E52E2D2C081B000C4760 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE58E5312D2C081B000C4760 /* Build configuration list for PBXNativeTarget "KeepHealthTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE58E5322D2C081B000C4760 /* Debug */,
+				EE58E5332D2C081B000C4760 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE58E5342D2C081B000C4760 /* Build configuration list for PBXNativeTarget "KeepHealthUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE58E5352D2C081B000C4760 /* Debug */,
+				EE58E5362D2C081B000C4760 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EE58E4FB2D2C081A000C4760 /* Project object */;
+}
