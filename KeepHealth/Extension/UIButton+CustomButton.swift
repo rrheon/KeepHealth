@@ -7,6 +7,17 @@
 
 import UIKit
 
+/// 평가 제목 enum
+enum RateTitle: String {
+  case good     = "Good"
+  case normal   = "Normal"
+  case bad      = "Bad"
+  
+  var rateTitle: String {
+    return self.rawValue
+  }
+}
+
 extension UIButton {
   
   /// KFButton 생성
@@ -20,7 +31,7 @@ extension UIButton {
     buttonTitle: String,
     backgroundColor: UIColor,
     buttonImageName: String = "",
-    tintColor: UIColor
+    tintColor: UIColor = .white
   ) -> UIButton {
     let button = UIButton()
     button.setTitle(buttonTitle, for: .normal)

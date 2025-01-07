@@ -8,18 +8,32 @@
 import UIKit
 
 import Then
+import RxCocoa
 
 /// 식단목록 VC
-class DietListViewController: UIViewController {
+class DietListViewController: UIViewController, UICollectionViewDelegate {
 
   
   /// 날짜 선택 버튼
   private lazy var selectDateButton = UIButton.makeKFMainButton(
     buttonTitle: "Today",
     backgroundColor: UIColor(hexCode: KHColorList.mainGreen.rawValue),
-    buttonImageName: "chevron.down",
-    tintColor: .white)
+    buttonImageName: "chevron.down"
+  )
 
+  
+  /// 식단 리스트
+  private var dietCollectionView: UICollectionView {
+    let flowLayout = UICollectionViewFlowLayout()
+    flowLayout.scrollDirection = .vertical
+    flowLayout.minimumLineSpacing = 10
+    
+    let view = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+    view.backgroundColor = .white
+    view.clipsToBounds = false
+    
+    return view
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -28,9 +42,14 @@ class DietListViewController: UIViewController {
     self.title = "식단 목록"
     
     setupLayout()
+    
+    dietCollectionView.delegate = self
+    dietCollectionView.register(
+      DietListCell.self,
+      forCellWithReuseIdentifier: DietListCell.cellID
+    )
   } // viewDidLoad
 
-  
   
   /// layout 설정
   func setupLayout(){
@@ -43,6 +62,16 @@ class DietListViewController: UIViewController {
       selectDateButton.heightAnchor.constraint(equalToConstant: 40),
       selectDateButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 100)
     ])
+  }
+}
+
+extension DietListViewController: UICollectionViewDelegateFlowLayout {
+  func collectionView(
+    _ collectionView: UICollectionView,
+    layout collectionViewLayout: UICollectionViewLayout,
+    sizeForItemAt indexPath: IndexPath
+  ) -> CGSize {
+    return CGSize(width: self.view.bounds.width / 2 - 10, height: 50)
   }
 }
 

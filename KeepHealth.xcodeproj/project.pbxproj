@@ -8,29 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		EE58E5862D2C09CF000C4760 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = EE58E5852D2C09CF000C4760 /* Then */; };
+		EE58E5982D2C2606000C4760 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = EE58E5972D2C2606000C4760 /* RxCocoa */; };
+		EE58E59A2D2C2606000C4760 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = EE58E5992D2C2606000C4760 /* RxRelay */; };
+		EE58E59C2D2C2606000C4760 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EE58E59B2D2C2606000C4760 /* RxSwift */; };
+		EE58E59E2D2C2606000C4760 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = EE58E59D2D2C2606000C4760 /* RxTest */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		EE58E51A2D2C081B000C4760 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EE58E4FB2D2C081A000C4760 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EE58E5022D2C081A000C4760;
-			remoteInfo = KeepHealth;
-		};
-		EE58E5242D2C081B000C4760 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EE58E4FB2D2C081A000C4760 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EE58E5022D2C081A000C4760;
-			remoteInfo = KeepHealth;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		EE58E5032D2C081A000C4760 /* KeepHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeepHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE58E5192D2C081B000C4760 /* KeepHealthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeepHealthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE58E5232D2C081B000C4760 /* KeepHealthUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeepHealthUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -52,16 +37,6 @@
 			path = KeepHealth;
 			sourceTree = "<group>";
 		};
-		EE58E51C2D2C081B000C4760 /* KeepHealthTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = KeepHealthTests;
-			sourceTree = "<group>";
-		};
-		EE58E5262D2C081B000C4760 /* KeepHealthUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = KeepHealthUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,21 +44,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE58E59E2D2C2606000C4760 /* RxTest in Frameworks */,
+				EE58E59A2D2C2606000C4760 /* RxRelay in Frameworks */,
+				EE58E5982D2C2606000C4760 /* RxCocoa in Frameworks */,
+				EE58E59C2D2C2606000C4760 /* RxSwift in Frameworks */,
 				EE58E5862D2C09CF000C4760 /* Then in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EE58E5162D2C081B000C4760 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EE58E5202D2C081B000C4760 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,8 +59,6 @@
 			isa = PBXGroup;
 			children = (
 				EE58E5052D2C081A000C4760 /* KeepHealth */,
-				EE58E51C2D2C081B000C4760 /* KeepHealthTests */,
-				EE58E5262D2C081B000C4760 /* KeepHealthUITests */,
 				EE58E5042D2C081A000C4760 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -104,8 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				EE58E5032D2C081A000C4760 /* KeepHealth.app */,
-				EE58E5192D2C081B000C4760 /* KeepHealthTests.xctest */,
-				EE58E5232D2C081B000C4760 /* KeepHealthUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,56 +92,14 @@
 			name = KeepHealth;
 			packageProductDependencies = (
 				EE58E5852D2C09CF000C4760 /* Then */,
+				EE58E5972D2C2606000C4760 /* RxCocoa */,
+				EE58E5992D2C2606000C4760 /* RxRelay */,
+				EE58E59B2D2C2606000C4760 /* RxSwift */,
+				EE58E59D2D2C2606000C4760 /* RxTest */,
 			);
 			productName = KeepHealth;
 			productReference = EE58E5032D2C081A000C4760 /* KeepHealth.app */;
 			productType = "com.apple.product-type.application";
-		};
-		EE58E5182D2C081B000C4760 /* KeepHealthTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EE58E5312D2C081B000C4760 /* Build configuration list for PBXNativeTarget "KeepHealthTests" */;
-			buildPhases = (
-				EE58E5152D2C081B000C4760 /* Sources */,
-				EE58E5162D2C081B000C4760 /* Frameworks */,
-				EE58E5172D2C081B000C4760 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EE58E51B2D2C081B000C4760 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				EE58E51C2D2C081B000C4760 /* KeepHealthTests */,
-			);
-			name = KeepHealthTests;
-			packageProductDependencies = (
-			);
-			productName = KeepHealthTests;
-			productReference = EE58E5192D2C081B000C4760 /* KeepHealthTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		EE58E5222D2C081B000C4760 /* KeepHealthUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EE58E5342D2C081B000C4760 /* Build configuration list for PBXNativeTarget "KeepHealthUITests" */;
-			buildPhases = (
-				EE58E51F2D2C081B000C4760 /* Sources */,
-				EE58E5202D2C081B000C4760 /* Frameworks */,
-				EE58E5212D2C081B000C4760 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EE58E5252D2C081B000C4760 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				EE58E5262D2C081B000C4760 /* KeepHealthUITests */,
-			);
-			name = KeepHealthUITests;
-			packageProductDependencies = (
-			);
-			productName = KeepHealthUITests;
-			productReference = EE58E5232D2C081B000C4760 /* KeepHealthUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -195,14 +114,6 @@
 					EE58E5022D2C081A000C4760 = {
 						CreatedOnToolsVersion = 16.2;
 					};
-					EE58E5182D2C081B000C4760 = {
-						CreatedOnToolsVersion = 16.2;
-						TestTargetID = EE58E5022D2C081A000C4760;
-					};
-					EE58E5222D2C081B000C4760 = {
-						CreatedOnToolsVersion = 16.2;
-						TestTargetID = EE58E5022D2C081A000C4760;
-					};
 				};
 			};
 			buildConfigurationList = EE58E4FE2D2C081A000C4760 /* Build configuration list for PBXProject "KeepHealth" */;
@@ -216,7 +127,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				EE58E5372D2C08B7000C4760 /* XCRemoteSwiftPackageReference "Then" */,
-				EE58E5872D2C0A00000C4760 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				EE58E5962D2C2606000C4760 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EE58E5042D2C081A000C4760 /* Products */;
@@ -224,28 +135,12 @@
 			projectRoot = "";
 			targets = (
 				EE58E5022D2C081A000C4760 /* KeepHealth */,
-				EE58E5182D2C081B000C4760 /* KeepHealthTests */,
-				EE58E5222D2C081B000C4760 /* KeepHealthUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		EE58E5012D2C081A000C4760 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EE58E5172D2C081B000C4760 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EE58E5212D2C081B000C4760 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -262,34 +157,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EE58E5152D2C081B000C4760 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EE58E51F2D2C081B000C4760 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		EE58E51B2D2C081B000C4760 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EE58E5022D2C081A000C4760 /* KeepHealth */;
-			targetProxy = EE58E51A2D2C081B000C4760 /* PBXContainerItemProxy */;
-		};
-		EE58E5252D2C081B000C4760 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EE58E5022D2C081A000C4760 /* KeepHealth */;
-			targetProxy = EE58E5242D2C081B000C4760 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		EE58E52D2D2C081B000C4760 /* Debug */ = {
@@ -463,74 +331,6 @@
 			};
 			name = Release;
 		};
-		EE58E5322D2C081B000C4760 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yongheon.KeepHealthTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeepHealth.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KeepHealth";
-			};
-			name = Debug;
-		};
-		EE58E5332D2C081B000C4760 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yongheon.KeepHealthTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeepHealth.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KeepHealth";
-			};
-			name = Release;
-		};
-		EE58E5352D2C081B000C4760 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yongheon.KeepHealthUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = KeepHealth;
-			};
-			name = Debug;
-		};
-		EE58E5362D2C081B000C4760 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yongheon.KeepHealthUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = KeepHealth;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -552,24 +352,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EE58E5312D2C081B000C4760 /* Build configuration list for PBXNativeTarget "KeepHealthTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EE58E5322D2C081B000C4760 /* Debug */,
-				EE58E5332D2C081B000C4760 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EE58E5342D2C081B000C4760 /* Build configuration list for PBXNativeTarget "KeepHealthUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EE58E5352D2C081B000C4760 /* Debug */,
-				EE58E5362D2C081B000C4760 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -581,7 +363,7 @@
 				minimumVersion = 3.0.0;
 			};
 		};
-		EE58E5872D2C0A00000C4760 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+		EE58E5962D2C2606000C4760 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
 			requirement = {
@@ -596,6 +378,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EE58E5372D2C08B7000C4760 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		EE58E5972D2C2606000C4760 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE58E5962D2C2606000C4760 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		EE58E5992D2C2606000C4760 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE58E5962D2C2606000C4760 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		EE58E59B2D2C2606000C4760 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE58E5962D2C2606000C4760 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		EE58E59D2D2C2606000C4760 /* RxTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE58E5962D2C2606000C4760 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
