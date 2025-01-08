@@ -7,6 +7,8 @@
 
 import UIKit
 
+import RealmSwift
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -14,6 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
+    
+    // Get on-disk location of the default Realm
+    let realm = try! Realm()
+    print("Realm is located at:", realm.configuration.fileURL!)
+    
     return true
   }
 

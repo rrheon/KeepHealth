@@ -7,33 +7,37 @@
 
 import UIKit
 
+import RxFlow
+import RxSwift
+import RxCocoa
+import RxRelay
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
   var window: UIWindow?
-
+  let disposeBag = DisposeBag()
+  var coordinator = FlowCoordinator()
+  
 
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
     // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     
-    // 1. scene 캡처
     guard let windowSecene = (scene as? UIWindowScene) else { return }
     
-    // 2. window scene을 가져오는 windowScene을 생성자를 사용해서 UIWindow를 생성
-    let window = UIWindow(windowScene: windowSecene)
+    let appFlow = AppFlow() // 흐름
+    let appStepper = AppStepper() // 흐름 트리거
     
-    // 3. view 계층을 프로그래밍 방식으로 만들기
-    let rootVC = DietListViewController()
+    // 흐름 & 흐름 트리거 연결되었음
+    self.coordinator.coordinate(flow: appFlow, with: appStepper)
     
-    
-    // 4. viewController로 window의 root view controller를 설정
-    window.rootViewController = rootVC
-    
-    self.window = window
-    
-    // 5. window를 설정하고 makeKeyAndVisible()
-    window.makeKeyAndVisible()
+    Flows.use(appFlow, when: .created, block: { rootVC in
+        let window = UIWindow(windowScene: windowSecene)
+        window.rootViewController = rootVC
+        self.window = window
+        window.makeKeyAndVisible()
+    })
   }
 
   func sceneDidDisconnect(_ scene: UIScene) {
