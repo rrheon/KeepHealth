@@ -31,6 +31,10 @@
 		EE58E6DC2D2EC2B4000C4760 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = EE58E6DB2D2EC2B4000C4760 /* RxRelay */; };
 		EE58E6DE2D2EC2B4000C4760 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EE58E6DD2D2EC2B4000C4760 /* RxSwift */; };
 		EE58E6E12D2EC2C0000C4760 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = EE58E6E02D2EC2C0000C4760 /* Then */; };
+		EE58E6E32D2FB723000C4760 /* UICollectionViewCell+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6E22D2FB723000C4760 /* UICollectionViewCell+Ext.swift */; };
+		EE58E6E92D2FB966000C4760 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EE58E6E82D2FB966000C4760 /* SnapKit */; };
+		EE58E6EF2D2FC378000C4760 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6EC2D2FC378000C4760 /* PopupView.swift */; };
+		EE58E6F02D2FC378000C4760 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6ED2D2FC378000C4760 /* PopupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +90,9 @@
 		EE58E64E2D2D2D76000C4760 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EE58E69F2D2E4891000C4760 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		EE58E6A12D2E49A0000C4760 /* DietEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietEntity.swift; sourceTree = "<group>"; };
+		EE58E6E22D2FB723000C4760 /* UICollectionViewCell+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Ext.swift"; sourceTree = "<group>"; };
+		EE58E6EC2D2FC378000C4760 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
+		EE58E6ED2D2FC378000C4760 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -109,6 +116,7 @@
 				EE58E6DA2D2EC2B4000C4760 /* RxCocoa in Frameworks */,
 				EE58E6E12D2EC2C0000C4760 /* Then in Frameworks */,
 				EE58E6D72D2EC2A2000C4760 /* RxFlow in Frameworks */,
+				EE58E6E92D2FB966000C4760 /* SnapKit in Frameworks */,
 				EE58E6DE2D2EC2B4000C4760 /* RxSwift in Frameworks */,
 				EE58E6DC2D2EC2B4000C4760 /* RxRelay in Frameworks */,
 				EE58E6D42D2EC26D000C4760 /* RealmSwift in Frameworks */,
@@ -158,6 +166,7 @@
 				EE58E6372D2D2D76000C4760 /* Notification+Name.swift */,
 				EE58E6382D2D2D76000C4760 /* UIButton+CustomButton.swift */,
 				EE58E6392D2D2D76000C4760 /* UIColor+Ext.swift */,
+				EE58E6E22D2FB723000C4760 /* UICollectionViewCell+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -206,6 +215,7 @@
 				EE58E6432D2D2D76000C4760 /* DietScene */,
 				EE58E6462D2D2D76000C4760 /* ScoreScene */,
 				EE58E63E2D2D2D76000C4760 /* AddDietScene */,
+				EE58E6EE2D2FC378000C4760 /* PopupScene */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -224,6 +234,15 @@
 				EE58E64D2D2D2D76000C4760 /* LaunchScreen.storyboard */,
 			);
 			path = KeepHealth;
+			sourceTree = "<group>";
+		};
+		EE58E6EE2D2FC378000C4760 /* PopupScene */ = {
+			isa = PBXGroup;
+			children = (
+				EE58E6ED2D2FC378000C4760 /* PopupViewController.swift */,
+				EE58E6EC2D2FC378000C4760 /* PopupView.swift */,
+			);
+			path = PopupScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +269,7 @@
 				EE58E6DB2D2EC2B4000C4760 /* RxRelay */,
 				EE58E6DD2D2EC2B4000C4760 /* RxSwift */,
 				EE58E6E02D2EC2C0000C4760 /* Then */,
+				EE58E6E82D2FB966000C4760 /* SnapKit */,
 			);
 			productName = KeepHealth;
 			productReference = EE58E5032D2C081A000C4760 /* KeepHealth.app */;
@@ -338,6 +358,7 @@
 				EE58E6D52D2EC2A2000C4760 /* XCRemoteSwiftPackageReference "RxFlow" */,
 				EE58E6D82D2EC2B4000C4760 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				EE58E6DF2D2EC2C0000C4760 /* XCRemoteSwiftPackageReference "Then" */,
+				EE58E6E72D2FB966000C4760 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EE58E5042D2C081A000C4760 /* Products */;
@@ -384,7 +405,10 @@
 			files = (
 				EE58E6502D2D2D76000C4760 /* Notification+Name.swift in Sources */,
 				EE58E6512D2D2D76000C4760 /* UIButton+CustomButton.swift in Sources */,
+				EE58E6EF2D2FC378000C4760 /* PopupView.swift in Sources */,
+				EE58E6F02D2FC378000C4760 /* PopupViewController.swift in Sources */,
 				EE58E6A02D2E4891000C4760 /* RealmManager.swift in Sources */,
+				EE58E6E32D2FB723000C4760 /* UICollectionViewCell+Ext.swift in Sources */,
 				EE58E6522D2D2D76000C4760 /* UIColor+Ext.swift in Sources */,
 				EE58E6532D2D2D76000C4760 /* DietCellModel.swift in Sources */,
 				EE58E6542D2D2D76000C4760 /* AddDietViewController.swift in Sources */,
@@ -765,6 +789,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		EE58E6E72D2FB966000C4760 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -797,6 +829,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EE58E6DF2D2EC2C0000C4760 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		EE58E6E82D2FB966000C4760 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE58E6E72D2FB966000C4760 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

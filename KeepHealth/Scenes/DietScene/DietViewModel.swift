@@ -6,11 +6,11 @@
 //
 
 import Foundation
+
 import RxFlow
 import RxCocoa
 import RxSwift
 import RxRelay
-import UIKit
 import RealmSwift
 
 /// 식단 ViewModel
@@ -32,7 +32,7 @@ class DietViewModel: Stepper {
   
   /// 현재날짜 가져오기
   func getCurrentDate() -> String{
-    var formatter = DateFormatter()
+    let formatter = DateFormatter()
     formatter.dateFormat = "yyyy-MM-dd"
     return formatter.string(from: Date())
   }

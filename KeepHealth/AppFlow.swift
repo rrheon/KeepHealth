@@ -78,6 +78,8 @@ class AppFlow: Flow {
       return navToAddDietScreen()
     case .dietEditIsRequired(let dietData):
       return navToAddDietScreen(dietData: dietData)
+    case .popupIsRequired:
+      return presentPopupScreen()
     default:
       return .none
     }
@@ -125,6 +127,13 @@ class AppFlow: Flow {
     vc.dietVM = self.viewModel
     self.rootViewController.pushViewController(vc, animated: true)
     return .one(flowContributor: .contribute(withNextPresentable: vc, withNextStepper: self.viewModel))
+  }
+  
+  func presentPopupScreen() -> FlowContributors {
+    let vc = PopupViewController(popupType: .add)
+    vc.modalPresentationStyle = .overFullScreen
+    rootViewController.present(vc, animated: false)
+    return .none
   }
 }
 

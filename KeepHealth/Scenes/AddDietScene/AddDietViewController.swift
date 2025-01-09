@@ -49,6 +49,9 @@ class AddDietViewController: UIViewController {
   private lazy var dietContentTextView = UITextView().then {
     $0.text = "식단을 입력해주세요."
     $0.textColor = .lightGray
+    $0.layer.borderColor = UIColor.lightGray.cgColor
+    $0.layer.borderWidth = 1.0
+    $0.layer.cornerRadius = 10
   }
   
   private lazy var dietRatingTitleLabel = UILabel().then {
@@ -66,6 +69,7 @@ class AddDietViewController: UIViewController {
   
   private lazy var addDietButton = UIButton.makeKFMainButton(buttonTitle: "식단 추가하기",
                                                              backgroundColor: KHColorList.mainGray.color)
+
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -75,18 +79,14 @@ class AddDietViewController: UIViewController {
     self.view.backgroundColor = KHColorList.backgroundGray.color
     
     setupLayout()
-    
-    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-    
-    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-    
-    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-    view.addGestureRecognizer(tap)
+
+    registerNotifications()
     
     dietContentTextView.delegate = self
     dietContentTextView.isScrollEnabled = false
     
     addDietButton.addTarget(self, action: #selector(addNewDietOrEdit), for: .touchUpInside)
+    addDietButton.isEnabled = false
     
     // 개별 데이터가 있으면 편집
     if let data: DietEntity = dietVM?.dietData {
@@ -94,11 +94,32 @@ class AddDietViewController: UIViewController {
     }
   }// viewDidLoad
   
+  // 노티피케이션 해제
   deinit {
     NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
     NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
   }
   
+  
+  /// 노티피케이션 및 탭 재스쳐 등록
+  fileprivate func registerNotifications() {
+    // 키보드 보이기 전
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(keyboardWillShow),
+                                           name: UIResponder.keyboardWillShowNotification,
+                                           object: nil)
+    
+    // 키보드 들어가기 전
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(keyboardWillHide),
+                                           name: UIResponder.keyboardWillHideNotification,
+                                           object: nil)
+    
+    // 탭 제스쳐
+    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                             action: #selector(dismissKeyboard))
+    view.addGestureRecognizer(tap)
+  }
   
   /// 키보드 올라갈 때 높이 조절
   /// - Parameter notification:notification
@@ -109,7 +130,6 @@ class AddDietViewController: UIViewController {
       }
     }
   }
-  
   
   /// 키보드 내려갈 때 높이 조절
   /// - Parameter notification: notification
@@ -211,30 +231,31 @@ class AddDietViewController: UIViewController {
   
   /// 새로운 식단 추가 , 편잡
   @objc func addNewDietOrEdit(){
-    let dietTpye: String = DietType.fromIndex(selectDietTypeSegment.selectedSegmentIndex)
-    let dietRate: String = RateTitle.fromIndex(selectDietRateSegment.selectedSegmentIndex)
-    let dietContent: String = dietContentTextView.text
+    dietVM?.steps.accept(AppStep.popupIsRequired)
+    //    let dietTpye: String = DietType.fromIndex(selectDietTypeSegment.selectedSegmentIndex)
+//    let dietRate: String = RateTitle.fromIndex(selectDietRateSegment.selectedSegmentIndex)
+//    let dietContent: String = dietContentTextView.text
+//    
+//    if let dietDate: String = dietVM?.getCurrentDate(), self.title == "식단 추가" {
+//      RealmManager
+//        .shared
+//        .makeNewDiet(dietImage: nil,
+//                     dietType: dietTpye,
+//                     dietContent: dietContent,
+//                     dietRate: dietRate,
+//                     dietDate: dietDate)
+//    } else {
+//      print(#fileID, #function, #line," - 22")
+//      RealmManager
+//        .shared
+//        .editCurrentDiet(dietUUID: dietVM?.dietData?.dietID,
+//                         dietImage: nil,
+//                         dietType: dietTpye,
+//                         dietContent: dietContent,
+//                         dietRate: dietRate)
+//    }
     
-    if let dietDate: String = dietVM?.getCurrentDate(), self.title == "식단 추가" {
-      RealmManager
-        .shared
-        .makeNewDiet(dietImage: nil,
-                     dietType: dietTpye,
-                     dietContent: dietContent,
-                     dietRate: dietRate,
-                     dietDate: dietDate)
-    } else {
-      print(#fileID, #function, #line," - 22")
-      RealmManager
-        .shared
-        .editCurrentDiet(dietUUID: dietVM?.dietData?.dietID,
-                         dietImage: nil,
-                         dietType: dietTpye,
-                         dietContent: dietContent,
-                         dietRate: dietRate)
-    }
-    
-    self.navigationController?.popViewController(animated: true)
+//    self.navigationController?.popViewController(animated: true)
   }
   
   
@@ -248,7 +269,10 @@ class AddDietViewController: UIViewController {
     self.title = "식단 수정"
     addDietButton.setTitle("식단 수정하기", for: .normal)
     
-    navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(deleteCurrentDiet))
+    navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "trash"),
+                                                        style: .plain,
+                                                        target: self,
+                                                        action: #selector(deleteCurrentDiet))
   }
   
   
@@ -261,7 +285,7 @@ class AddDietViewController: UIViewController {
 }
 
 extension AddDietViewController: UITextViewDelegate {
-  // MARK: textview 높이 자동조절
+  // MARK: textview 높이 동적조절
   func textViewDidChange(_ textView: UITextView) {
     let size = CGSize(width: view.frame.width, height: .infinity)
     let estimatedSize = textView.sizeThatFits(size)
@@ -276,6 +300,30 @@ extension AddDietViewController: UITextViewDelegate {
       } else {
         constraint.constant = estimatedSize.height
       }
+    }
+  }
+  
+  
+  /// 처음 textView 입력 시작 시 placeHolder지우고 text 색상 , 테두리 색상 변경
+  /// - Parameter textView: textView
+  func textViewDidBeginEditing(_ textView: UITextView) {
+    textView.layer.borderColor = UIColor.black.cgColor
+    
+    if textView.textColor == .lightGray {
+      textView.text = nil
+      textView.textColor = UIColor.black
+    }
+  }
+  
+  
+  func textViewDidChangeSelection(_ textView: UITextView) {
+    // 텍스트가 비어있지 않은 경우 버튼 활성화
+    if textView.text != "식단을 입력해주세요." && textView.text != "" {
+      addDietButton.isEnabled = true
+      addDietButton.backgroundColor = KHColorList.mainGreen.color
+    } else {
+      addDietButton.isEnabled = false
+      addDietButton.backgroundColor = KHColorList.mainGray.color
     }
   }
 }

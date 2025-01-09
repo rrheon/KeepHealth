@@ -12,10 +12,7 @@ import Then
 
 /// 식단리스트 셀
 class DietListCell: UICollectionViewCell {
-  static var cellID: String {
-    String(describing: Self.self)
-  }
-  
+
   private lazy var dietImageView = UIImageView().then {
     $0.image = UIImage(systemName: "")
     $0.backgroundColor = .black
