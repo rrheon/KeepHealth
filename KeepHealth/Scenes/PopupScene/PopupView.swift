@@ -12,19 +12,23 @@ import Then
 
 /// 팝업 종류
 enum PopupCase {
-  case add      // 추가 팝업
-  case edit     // 수정 팝업
-  case confirm  // 확인 팝업
-  case delete   // 삭제 팝업
+  case add           // 추가 팝업
+  case edit          // 수정 팝업
+  case confirmAdd    // 추가확인 팝업
+  case confirmDelte  // 삭제확인 팝업
+  case confirmEdit   // 수정확인 팝업
+  case delete        // 삭제 팝업
   
   
   /// 팝업 title
   var titleContent: String {
     switch self {
-    case .add:      return "식단을 추가할까요?"
-    case .edit:     return "식단을 수정할까요?"
-    case .confirm:  return "식단이 이미 존재합니다."
-    case .delete:   return "식단을 삭제할까요?"
+    case .add:          return "식단을 추가할까요?"
+    case .edit:         return "식단을 수정할까요?"
+    case .confirmAdd:   return "식단을 추가했습니다!"
+    case .confirmDelte: return "식단을 삭제했습니다!"
+    case .confirmEdit:  return "식단을 수정했습니다!"
+    case .delete:       return "식단을 삭제할까요?"
     }
   }
   
@@ -34,8 +38,8 @@ enum PopupCase {
     switch self {
     case .add:      return "추가하기"
     case .edit:     return "수정하기"
-    case .confirm:  return "확인"
     case .delete:   return "삭제하기"
+    default:        return "확인"
     }
   }
 }
@@ -43,6 +47,8 @@ enum PopupCase {
 
 /// 팝업 뷰
 class PopupView: UIView {
+  
+  var popupType: PopupCase? = nil
   
   // 팝업 컨테이너 뷰
   private lazy var containerView = UIView().then {
@@ -91,10 +97,20 @@ class PopupView: UIView {
     
     self.backgroundColor = .clear
     
+    self.popupType = popupCase
+    
     self.popupTitleLabel.text = popupCase.titleContent
     self.popupRightButton.setTitle(popupCase.buttonContent, for: .normal)
     
+    
+    popupLeftButton.addAction(UIAction { _ in
+      DietViewModel.shared.steps.accept(AppStep.dismissIsRequired)
+    }, for: .touchUpInside)
+    
     setupLayout()
+    setupPopupUI(popupType: popupCase)
+    
+    popupRightButton.addTarget(self, action: #selector(setupButtonAction), for: .touchUpInside)
   }
   
   /// layout 설정
@@ -131,6 +147,37 @@ class PopupView: UIView {
       $0.top.equalTo(popupTitleLabel.snp.bottom).offset(30)
       $0.leading.equalTo(containerView.snp.leading).offset(20)
       $0.trailing.equalTo(containerView.snp.trailing).offset(-20)
+    }
+  }
+  
+  /// 팝업 타입별로 UI 설정
+  /// - Parameter popupType: popupCase
+  func setupPopupUI(popupType: PopupCase){
+    popupTitleLabel.text = popupType.titleContent
+    popupRightButton.setTitle(popupType.buttonContent, for: .normal)
+    
+    // 팝업 타입이 확인인 경우 왼쪽 버튼 숨김처리
+    if popupType == .confirmAdd || popupType == .confirmEdit || popupType == .confirmDelte  {
+      popupLeftButton.isHidden = true
+    }
+  }
+  
+  
+  /// 버튼 Actions 설정
+  @objc func setupButtonAction(){
+    guard let _popupType = popupType else { return }
+    setupButtonActions(popupType: _popupType)
+  }
+  
+  
+  /// 버튼 Actions 설정
+  /// - Parameter popupType: 팝업종류 - PopupCase
+  func setupButtonActions(popupType: PopupCase){
+    switch popupType {
+    case .add:    return DietViewModel.shared.makeNewDiet()
+    case .edit:   return DietViewModel.shared.editDiet()
+    case .delete: return DietViewModel.shared.deleteDeit()
+    default:      return DietViewModel.shared.confirmButtonAction()
     }
   }
 }

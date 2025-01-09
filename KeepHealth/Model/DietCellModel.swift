@@ -30,12 +30,3 @@ enum DietType: String, CaseIterable {
     return DietType.allCases.firstIndex(where: { $0.rawValue == value })
   }
 }
-
-struct DietCellModel {
-  let dietCellPK: UUID
-  let dietImage: String
-  let dietType: DietType
-  let dietContent: String
-  let dietRate: RateTitle
-  let dietDate: String
-}

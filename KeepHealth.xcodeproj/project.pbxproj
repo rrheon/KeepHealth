@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE4CE1422D30179100DE3054 /* DietModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CE1412D30179100DE3054 /* DietModel.swift */; };
 		EE58E6502D2D2D76000C4760 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6372D2D2D76000C4760 /* Notification+Name.swift */; };
 		EE58E6512D2D2D76000C4760 /* UIButton+CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6382D2D2D76000C4760 /* UIButton+CustomButton.swift */; };
 		EE58E6522D2D2D76000C4760 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6392D2D2D76000C4760 /* UIColor+Ext.swift */; };
 		EE58E6532D2D2D76000C4760 /* DietCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E63B2D2D2D76000C4760 /* DietCellModel.swift */; };
-		EE58E6542D2D2D76000C4760 /* AddDietViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E63D2D2D2D76000C4760 /* AddDietViewController.swift */; };
+		EE58E6542D2D2D76000C4760 /* MangementDietViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E63D2D2D2D76000C4760 /* MangementDietViewController.swift */; };
 		EE58E6552D2D2D76000C4760 /* DietFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E63F2D2D2D76000C4760 /* DietFlow.swift */; };
 		EE58E6562D2D2D76000C4760 /* DietListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6402D2D2D76000C4760 /* DietListCell.swift */; };
 		EE58E6572D2D2D76000C4760 /* DietListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6412D2D2D76000C4760 /* DietListViewController.swift */; };
@@ -68,6 +69,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EE4CE1412D30179100DE3054 /* DietModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietModel.swift; sourceTree = "<group>"; };
 		EE58E5032D2C081A000C4760 /* KeepHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeepHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE58E5192D2C081B000C4760 /* KeepHealthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeepHealthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE58E5232D2C081B000C4760 /* KeepHealthUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeepHealthUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,7 +77,7 @@
 		EE58E6382D2D2D76000C4760 /* UIButton+CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+CustomButton.swift"; sourceTree = "<group>"; };
 		EE58E6392D2D2D76000C4760 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		EE58E63B2D2D2D76000C4760 /* DietCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietCellModel.swift; sourceTree = "<group>"; };
-		EE58E63D2D2D2D76000C4760 /* AddDietViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDietViewController.swift; sourceTree = "<group>"; };
+		EE58E63D2D2D2D76000C4760 /* MangementDietViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangementDietViewController.swift; sourceTree = "<group>"; };
 		EE58E63F2D2D2D76000C4760 /* DietFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietFlow.swift; sourceTree = "<group>"; };
 		EE58E6402D2D2D76000C4760 /* DietListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietListCell.swift; sourceTree = "<group>"; };
 		EE58E6412D2D2D76000C4760 /* DietListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietListViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 		EE58E63C2D2D2D76000C4760 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EE4CE1412D30179100DE3054 /* DietModel.swift */,
 				EE58E63B2D2D2D76000C4760 /* DietCellModel.swift */,
 				EE58E6A12D2E49A0000C4760 /* DietEntity.swift */,
 				EE58E69F2D2E4891000C4760 /* RealmManager.swift */,
@@ -184,7 +187,7 @@
 		EE58E63E2D2D2D76000C4760 /* AddDietScene */ = {
 			isa = PBXGroup;
 			children = (
-				EE58E63D2D2D2D76000C4760 /* AddDietViewController.swift */,
+				EE58E63D2D2D2D76000C4760 /* MangementDietViewController.swift */,
 			);
 			path = AddDietScene;
 			sourceTree = "<group>";
@@ -411,7 +414,7 @@
 				EE58E6E32D2FB723000C4760 /* UICollectionViewCell+Ext.swift in Sources */,
 				EE58E6522D2D2D76000C4760 /* UIColor+Ext.swift in Sources */,
 				EE58E6532D2D2D76000C4760 /* DietCellModel.swift in Sources */,
-				EE58E6542D2D2D76000C4760 /* AddDietViewController.swift in Sources */,
+				EE58E6542D2D2D76000C4760 /* MangementDietViewController.swift in Sources */,
 				EE58E6552D2D2D76000C4760 /* DietFlow.swift in Sources */,
 				EE58E6562D2D2D76000C4760 /* DietListCell.swift in Sources */,
 				EE58E6572D2D2D76000C4760 /* DietListViewController.swift in Sources */,
@@ -420,6 +423,7 @@
 				EE58E65A2D2D2D76000C4760 /* ScoreViewController.swift in Sources */,
 				EE58E65B2D2D2D76000C4760 /* AppDelegate.swift in Sources */,
 				EE58E65C2D2D2D76000C4760 /* AppFlow.swift in Sources */,
+				EE4CE1422D30179100DE3054 /* DietModel.swift in Sources */,
 				EE58E6A22D2E49A0000C4760 /* DietEntity.swift in Sources */,
 				EE58E65D2D2D2D76000C4760 /* SceneDelegate.swift in Sources */,
 			);

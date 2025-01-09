@@ -45,8 +45,10 @@ enum AppStep: Step {
   case dietAddIsRequired                          // 식단 추가화면
   case dietEditIsRequired(dietData: DietEntity)  // 식단 편집화면
   case calenderIsRequired                        // 캘린더화면
-  case popupIsRequired                           // 팝업화면
+  case popupIsRequired(popupType: PopupCase)     // 팝업화면
   case howToUseIsRequired                        // 사용방법 화면
+  case dismissIsRequired
+  case popIsRequired
 }
 
 
@@ -78,8 +80,12 @@ class AppFlow: Flow {
       return navToAddDietScreen()
     case .dietEditIsRequired(let dietData):
       return navToAddDietScreen(dietData: dietData)
-    case .popupIsRequired:
-      return presentPopupScreen()
+    case .popupIsRequired(let popupType):
+      return presentPopupScreen(popupType: popupType)
+    case .dismissIsRequired:
+      return dismissCurrnetScene()
+    case .popIsRequired:
+      return popCurrnetScene()
     default:
       return .none
     }
@@ -122,17 +128,36 @@ class AppFlow: Flow {
   func navToAddDietScreen(dietData: DietEntity? = nil) -> FlowContributors {
     print(#fileID, #function, #line," - <#comment#>")
 
-    let vc = AddDietViewController()
+    let vc = MangementDietViewController()
     viewModel.dietData = dietData
     vc.dietVM = self.viewModel
     self.rootViewController.pushViewController(vc, animated: true)
     return .one(flowContributor: .contribute(withNextPresentable: vc, withNextStepper: self.viewModel))
   }
+
   
-  func presentPopupScreen() -> FlowContributors {
-    let vc = PopupViewController(popupType: .add)
+  /// 팝업뷰 띄우기
+  /// - Parameter popupType: 팝업 뷰 타입 /  추가(add), 수정(edit), 확인(confrim), 삭제(delete)
+  /// - Returns:none
+  func presentPopupScreen(popupType: PopupCase) -> FlowContributors {
+    let vc = PopupViewController(popupType: popupType)
     vc.modalPresentationStyle = .overFullScreen
     rootViewController.present(vc, animated: false)
+    return .none
+  }
+  
+  
+  /// 현재 위치에서 dismiss
+  /// - Returns: none
+  func dismissCurrnetScene() -> FlowContributors{
+    rootViewController.dismiss(animated: true)
+    return .none
+  }
+  
+  /// 현재 위치에서 pop
+  /// - Returns: none
+  func popCurrnetScene() -> FlowContributors{
+    rootViewController.popViewController(animated: true)
     return .none
   }
 }

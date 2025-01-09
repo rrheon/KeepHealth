@@ -13,13 +13,20 @@ import RxSwift
 import RxRelay
 import RealmSwift
 
+
 /// 식단 ViewModel
 class DietViewModel: Stepper {
   static let shared = DietViewModel()
   var steps: PublishRelay<Step> = PublishRelay()
 
+  // collectionView 표시를 위한 식단 리스트
   var dietList: BehaviorRelay<[DietEntity]> = BehaviorRelay<[DietEntity]>(value: [])
+  
+  // 개별 식단 데이터
   var dietData: DietEntity? = nil
+  
+  // 식단 관리를 위한 데이터 - 추가, 편집
+  var managementDietData: DietManagementModel? = nil
   
   init() {
     self.dietList.accept(RealmManager.shared.fetchSomeDateDiet())
@@ -55,4 +62,63 @@ class DietViewModel: Stepper {
       }
     }
   }
+  
+  
+  /// 팝업 케이스 가져오기
+  /// - Parameter title: vc 제목
+  /// - Returns: PopupCase - 팝업종류
+  func getPopupCase(_ title: String) -> PopupCase {
+    switch title {
+    case ManageDietVCType.add.vcTitle:
+      return PopupCase.add
+    case ManageDietVCType.edit.vcTitle:
+      return PopupCase.edit
+    default:
+      return PopupCase.delete
+    }
+  }
+  
+  // MARK: - 식단 CRUD 후 화면이동
+  
+  /// 식단 생성
+  func makeNewDiet(){
+    RealmManager.shared.makeNewDiet(dietImage: managementDietData?.dietImage,
+                                    dietType: managementDietData?.dietType,
+                                    dietContent: managementDietData?.dietContent,
+                                    dietRate: managementDietData?.dietRate,
+                                    dietDate: getCurrentDate())
+    
+    steps.accept(AppStep.dismissIsRequired)
+    steps.accept(AppStep.popupIsRequired(popupType: .confirmAdd))
+  }
+  
+  /// 식단 수정
+  func editDiet(){
+    RealmManager.shared.editCurrentDiet(dietUUID: dietData?.dietID,
+                                        dietImage: managementDietData?.dietImage,
+                                        dietType: managementDietData?.dietType,
+                                        dietContent: managementDietData?.dietContent,
+                                        dietRate: managementDietData?.dietRate)
+    
+    steps.accept(AppStep.popupIsRequired(popupType: .confirmEdit))
+  }
+
+  
+  /// 식단 삭제
+  func deleteDeit(){
+    if let deletingDietID = dietData?.dietID {
+      RealmManager.shared.deleteCurrentDiet(dietUUID: deletingDietID)
+      
+      steps.accept(AppStep.dismissIsRequired)
+      steps.accept(AppStep.popupIsRequired(popupType: .confirmDelte))
+    }
+  }
+  
+  
+  /// 확인버튼 액션 - 팝업닫고 push된 화면 닫기
+  func confirmButtonAction(){
+    steps.accept(AppStep.dismissIsRequired)
+    steps.accept(AppStep.popIsRequired)
+  }
+
 }

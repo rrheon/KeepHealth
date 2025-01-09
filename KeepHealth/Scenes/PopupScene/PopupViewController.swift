@@ -20,9 +20,12 @@ class PopupViewController: UIViewController {
   // edit - 취소 수정
   // conrfirm - 확인
   // delete - 삭제
-  
+    
   private lazy var popupView: PopupView? = nil
   
+  
+  /// init 초기화
+  /// - Parameter popupType: 추가(add), 수정(edit), 확인(confrim), 삭제(delete)
   init(popupType: PopupCase){
     super.init(nibName: nil, bundle: nil)
     

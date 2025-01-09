@@ -11,8 +11,22 @@ import RxFlow
 import RxRelay
 import Then
 
-/// 식단 추가 VC
-class AddDietViewController: UIViewController {
+
+/// 식단 페이지 종류
+enum ManageDietVCType {
+  case add
+  case edit
+  
+  var vcTitle: String {
+    switch self {
+    case .add:  return "식단 추가"
+    case .edit: return "식단 수정"
+    }
+  }
+}
+
+/// 식단 관리 VC
+class MangementDietViewController: UIViewController {
   var dietVM: DietViewModel? = nil
   
   private lazy var selectDietTypeSegment: UISegmentedControl = {
@@ -75,7 +89,7 @@ class AddDietViewController: UIViewController {
     super.viewDidLoad()
     
     self.navigationController?.navigationBar.isHidden = false
-    self.title = "식단 추가"
+    self.title = ManageDietVCType.add.vcTitle
     self.view.backgroundColor = KHColorList.backgroundGray.color
     
     setupLayout()
@@ -85,8 +99,10 @@ class AddDietViewController: UIViewController {
     dietContentTextView.delegate = self
     dietContentTextView.isScrollEnabled = false
     
-    addDietButton.addTarget(self, action: #selector(addNewDietOrEdit), for: .touchUpInside)
+    addDietButton.addTarget(self, action: #selector(managementDietAction), for: .touchUpInside)
     addDietButton.isEnabled = false
+    
+    setupNavigationItem()
     
     // 개별 데이터가 있으면 편집
     if let data: DietEntity = dietVM?.dietData {
@@ -100,6 +116,72 @@ class AddDietViewController: UIViewController {
     NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
   }
   
+  
+  /// layout 설정
+  func setupLayout(){
+    [
+      selectDietTypeSegment,
+      dietImageTitleLabel,
+      addDietImageButton,
+      dietContentTitleLabel,
+      dietContentTextView,
+      dietRatingTitleLabel,
+      selectDietRateSegment,
+      addDietButton
+    ].forEach {
+      view.addSubview($0)
+      $0.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    NSLayoutConstraint.activate([
+      // 식단 타입 세그먼트
+      selectDietTypeSegment.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
+      selectDietTypeSegment.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+      selectDietTypeSegment.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+      selectDietTypeSegment.heightAnchor.constraint(equalToConstant: 50),
+      
+      // 식단이미지 제목 라벨
+      dietImageTitleLabel.topAnchor.constraint(equalTo: selectDietTypeSegment.bottomAnchor, constant: 20),
+      dietImageTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+      dietImageTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -10),
+      
+      // 식단이미지 추가 버튼
+      addDietImageButton.topAnchor.constraint(equalTo: dietImageTitleLabel.bottomAnchor, constant: 20),
+      addDietImageButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+      addDietImageButton.heightAnchor.constraint(equalToConstant: 42),
+      addDietImageButton.widthAnchor.constraint(equalToConstant: 42),
+      
+      // 식단내용 제목 라벨
+      dietContentTitleLabel.topAnchor.constraint(equalTo: addDietImageButton.bottomAnchor, constant: 40),
+      dietContentTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+      dietContentTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -10),
+      
+      // 식단내용 텍스트뷰
+      dietContentTextView.topAnchor.constraint(equalTo: dietContentTitleLabel.bottomAnchor, constant: 10),
+      dietContentTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+      dietContentTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+      dietContentTextView.heightAnchor.constraint(equalToConstant: 50),
+      
+      // 식단평가 제목라벨
+      dietRatingTitleLabel.topAnchor.constraint(equalTo: dietContentTextView.bottomAnchor, constant: 20),
+      dietRatingTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+      dietRatingTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -10),
+      
+      // 식단평가 세그먼트
+      selectDietRateSegment.topAnchor.constraint(equalTo: dietRatingTitleLabel.bottomAnchor, constant: 10),
+      selectDietRateSegment.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+      selectDietRateSegment.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+      selectDietRateSegment.heightAnchor.constraint(equalToConstant: 50),
+      
+      addDietButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
+      addDietButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+      addDietButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+      addDietButton.heightAnchor.constraint(equalToConstant: 50)
+    ])
+  }
+  
+  
+  // MARK: - functions
   
   /// 노티피케이션 및 탭 재스쳐 등록
   fileprivate func registerNotifications() {
@@ -149,71 +231,6 @@ class AddDietViewController: UIViewController {
     self.navigationController?.navigationBar.isHidden = true
   }
   
-  /// layout 설정
-  func setupLayout(){
-    [
-      selectDietTypeSegment,
-      dietImageTitleLabel,
-      addDietImageButton,
-      dietContentTitleLabel,
-      dietContentTextView,
-      dietRatingTitleLabel,
-      selectDietRateSegment,
-      addDietButton
-    ].forEach {
-      view.addSubview($0)
-      $0.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    NSLayoutConstraint.activate([
-      // 식단 타입 세그먼트
-      selectDietTypeSegment.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
-      selectDietTypeSegment.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-      selectDietTypeSegment.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-      selectDietTypeSegment.heightAnchor.constraint(equalToConstant: 50),
-      
-      // 식단이미지 제목 라벨
-      dietImageTitleLabel.topAnchor.constraint(equalTo: selectDietTypeSegment.bottomAnchor, constant: 20),
-      dietImageTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-      dietImageTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -10),
-      
-      // 식단이미지 추가 버튼
-      addDietImageButton.topAnchor.constraint(equalTo: dietImageTitleLabel.bottomAnchor, constant: 20),
-      addDietImageButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-      addDietImageButton.heightAnchor.constraint(equalToConstant: 42),
-      addDietImageButton.widthAnchor.constraint(equalToConstant: 42),
-      
-      // 식단내용 제목 라벨
-      dietContentTitleLabel.topAnchor.constraint(equalTo: addDietImageButton.bottomAnchor, constant: 60),
-      dietContentTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-      dietContentTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -10),
-      
-      // 식단내용 텍스트뷰
-      dietContentTextView.topAnchor.constraint(equalTo: dietContentTitleLabel.bottomAnchor, constant: 10),
-      dietContentTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-      dietContentTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-      dietContentTextView.heightAnchor.constraint(equalToConstant: 50),
-      
-      // 식단평가 제목라벨
-      dietRatingTitleLabel.topAnchor.constraint(equalTo: dietContentTextView.bottomAnchor, constant: 20),
-      dietRatingTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-      dietRatingTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -10),
-      
-      // 식단평가 세그먼트
-      selectDietRateSegment.topAnchor.constraint(equalTo: dietRatingTitleLabel.bottomAnchor, constant: 10),
-      selectDietRateSegment.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-      selectDietRateSegment.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-      selectDietRateSegment.heightAnchor.constraint(equalToConstant: 50),
-      
-      addDietButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
-      addDietButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-      addDietButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-      addDietButton.heightAnchor.constraint(equalToConstant: 50)
-    ])
-  }
-  
-  // MARK: - functions
-  
   /// 식단 종류 및 평가 선택 시
   /// - Parameter sender: UISegmentedControl
   @objc func selectSegment(sender: UISegmentedControl) {
@@ -229,35 +246,23 @@ class AddDietViewController: UIViewController {
     }
   }
   
-  /// 새로운 식단 추가 , 편잡
-  @objc func addNewDietOrEdit(){
-    dietVM?.steps.accept(AppStep.popupIsRequired)
-    //    let dietTpye: String = DietType.fromIndex(selectDietTypeSegment.selectedSegmentIndex)
-//    let dietRate: String = RateTitle.fromIndex(selectDietRateSegment.selectedSegmentIndex)
-//    let dietContent: String = dietContentTextView.text
-//    
-//    if let dietDate: String = dietVM?.getCurrentDate(), self.title == "식단 추가" {
-//      RealmManager
-//        .shared
-//        .makeNewDiet(dietImage: nil,
-//                     dietType: dietTpye,
-//                     dietContent: dietContent,
-//                     dietRate: dietRate,
-//                     dietDate: dietDate)
-//    } else {
-//      print(#fileID, #function, #line," - 22")
-//      RealmManager
-//        .shared
-//        .editCurrentDiet(dietUUID: dietVM?.dietData?.dietID,
-//                         dietImage: nil,
-//                         dietType: dietTpye,
-//                         dietContent: dietContent,
-//                         dietRate: dietRate)
-//    }
+  /// 식단 추가 수정 action
+  @objc func managementDietAction(){
+    guard let popupType: PopupCase = dietVM?.getPopupCase(self.title ?? "") else { return }
+    dietVM?.steps.accept(AppStep.popupIsRequired(popupType: popupType))
     
-//    self.navigationController?.popViewController(animated: true)
+    let dietTpye: String = DietType.fromIndex(selectDietTypeSegment.selectedSegmentIndex)
+    let dietRate: String = RateTitle.fromIndex(selectDietRateSegment.selectedSegmentIndex)
+    let dietContent: String = dietContentTextView.text
+    let dietDate: String? = dietVM?.getCurrentDate()
+    
+    dietVM?.managementDietData = DietManagementModel(dietTpye, dietRate, dietContent, dietDate, nil)
   }
   
+  /// 식단 삭제
+  @objc func deleteDietAction(){
+    dietVM?.steps.accept(AppStep.popupIsRequired(popupType: .delete))
+  }
   
   /// 편집 시 데이터 추가
   func updateEditDietScreen(data: DietEntity){
@@ -266,25 +271,37 @@ class AddDietViewController: UIViewController {
     selectDietTypeSegment.selectedSegmentIndex = DietType.fromString(data.dietType ?? "") ?? 0
     selectDietRateSegment.selectedSegmentIndex = RateTitle.fromString(data.dietRate ?? "") ?? 0
     
-    self.title = "식단 수정"
+    self.title = ManageDietVCType.edit.vcTitle
     addDietButton.setTitle("식단 수정하기", for: .normal)
     
     navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "trash"),
                                                         style: .plain,
                                                         target: self,
-                                                        action: #selector(deleteCurrentDiet))
+                                                        action: #selector(deleteDietAction))
+    navigationItem.rightBarButtonItem?.tintColor = .black
   }
   
   
-  ///  현재 식단 삭제
-  @objc func deleteCurrentDiet(){
-    guard let deletingDietID = dietVM?.dietData?.dietID else { return }
-    RealmManager.shared.deleteCurrentDiet(dietUUID: deletingDietID)
-    self.navigationController?.popViewController(animated: true)
+  /// 네비게이션 아이템 설정
+  func setupNavigationItem(){
+    navigationItem.leftBarButtonItem = UIBarButtonItem(
+      image: UIImage(systemName: "chevron.left"),
+      style: .plain,
+      target: self,
+      action: #selector(backButtonTapped)
+    )
+    
+    navigationItem.leftBarButtonItem?.tintColor = .black
+  }
+
+  
+  /// 뒤로가기 버튼 탭
+  @objc private func backButtonTapped() {
+    dietVM?.steps.accept(AppStep.popIsRequired)
   }
 }
 
-extension AddDietViewController: UITextViewDelegate {
+extension MangementDietViewController: UITextViewDelegate {
   // MARK: textview 높이 동적조절
   func textViewDidChange(_ textView: UITextView) {
     let size = CGSize(width: view.frame.width, height: .infinity)
