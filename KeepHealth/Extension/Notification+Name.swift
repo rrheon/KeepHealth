@@ -14,4 +14,7 @@ extension Notification.Name {
   
   /// 식단 수정화면으로 이동
   static let navToEditDietEvent = Notification.Name("navToEditDietEvent")
+  
+  /// 캘린더화면 띄우기
+  static let present = Notification.Name("navToEditDietEvent")
 }

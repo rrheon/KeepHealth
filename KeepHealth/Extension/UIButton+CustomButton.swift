@@ -51,7 +51,7 @@ extension UIButton {
     button.layer.cornerRadius = cornerRadius
     button.setImage(UIImage(systemName: buttonImageName), for: .normal)
     button.semanticContentAttribute = .forceRightToLeft
-    button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+    button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
     button.tintColor = tintColor
     button.translatesAutoresizingMaskIntoConstraints = false
     return button

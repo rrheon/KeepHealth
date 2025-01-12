@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		EE4CE1422D30179100DE3054 /* DietModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CE1412D30179100DE3054 /* DietModel.swift */; };
+		EE4CE1542D31F92200DE3054 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CE1532D31F92200DE3054 /* CalendarViewController.swift */; };
+		EE4CE1572D31F95E00DE3054 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = EE4CE1562D31F95E00DE3054 /* FSCalendar */; };
+		EE4CE1602D33CEFB00DE3054 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = EE4CE15F2D33CEFB00DE3054 /* FloatingPanel */; };
 		EE58E6502D2D2D76000C4760 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6372D2D2D76000C4760 /* Notification+Name.swift */; };
 		EE58E6512D2D2D76000C4760 /* UIButton+CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6382D2D2D76000C4760 /* UIButton+CustomButton.swift */; };
 		EE58E6522D2D2D76000C4760 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6392D2D2D76000C4760 /* UIColor+Ext.swift */; };
@@ -70,6 +73,7 @@
 
 /* Begin PBXFileReference section */
 		EE4CE1412D30179100DE3054 /* DietModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietModel.swift; sourceTree = "<group>"; };
+		EE4CE1532D31F92200DE3054 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		EE58E5032D2C081A000C4760 /* KeepHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeepHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE58E5192D2C081B000C4760 /* KeepHealthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeepHealthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE58E5232D2C081B000C4760 /* KeepHealthUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeepHealthUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,11 +119,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE4CE1602D33CEFB00DE3054 /* FloatingPanel in Frameworks */,
 				EE58E6DA2D2EC2B4000C4760 /* RxCocoa in Frameworks */,
 				EE58E6E12D2EC2C0000C4760 /* Then in Frameworks */,
 				EE58E6D72D2EC2A2000C4760 /* RxFlow in Frameworks */,
 				EE58E6E92D2FB966000C4760 /* SnapKit in Frameworks */,
 				EE58E6DE2D2EC2B4000C4760 /* RxSwift in Frameworks */,
+				EE4CE1572D31F95E00DE3054 /* FSCalendar in Frameworks */,
 				EE58E6DC2D2EC2B4000C4760 /* RxRelay in Frameworks */,
 				EE58E6D42D2EC26D000C4760 /* RealmSwift in Frameworks */,
 			);
@@ -142,6 +148,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE4CE1442D302BD700DE3054 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EE58E6422D2D2D76000C4760 /* DietViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EE4CE1522D31F90500DE3054 /* Calender */ = {
+			isa = PBXGroup;
+			children = (
+				EE4CE1532D31F92200DE3054 /* CalendarViewController.swift */,
+			);
+			path = Calender;
+			sourceTree = "<group>";
+		};
 		EE58E4FA2D2C081A000C4760 = {
 			isa = PBXGroup;
 			children = (
@@ -196,7 +218,6 @@
 			isa = PBXGroup;
 			children = (
 				EE58E63F2D2D2D76000C4760 /* DietFlow.swift */,
-				EE58E6422D2D2D76000C4760 /* DietViewModel.swift */,
 				EE58E6412D2D2D76000C4760 /* DietListViewController.swift */,
 				EE58E6402D2D2D76000C4760 /* DietListCell.swift */,
 			);
@@ -215,10 +236,11 @@
 		EE58E6472D2D2D76000C4760 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				EE58E6432D2D2D76000C4760 /* DietScene */,
 				EE58E6462D2D2D76000C4760 /* ScoreScene */,
+				EE58E6432D2D2D76000C4760 /* DietScene */,
 				EE58E63E2D2D2D76000C4760 /* AddDietScene */,
 				EE58E6EE2D2FC378000C4760 /* PopupScene */,
+				EE4CE1522D31F90500DE3054 /* Calender */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -232,6 +254,7 @@
 				EE58E63A2D2D2D76000C4760 /* Extension */,
 				EE58E63C2D2D2D76000C4760 /* Model */,
 				EE58E6472D2D2D76000C4760 /* Scenes */,
+				EE4CE1442D302BD700DE3054 /* ViewModel */,
 				EE58E64A2D2D2D76000C4760 /* Assets.xcassets */,
 				EE58E64B2D2D2D76000C4760 /* Info.plist */,
 				EE58E64D2D2D2D76000C4760 /* LaunchScreen.storyboard */,
@@ -273,6 +296,8 @@
 				EE58E6DD2D2EC2B4000C4760 /* RxSwift */,
 				EE58E6E02D2EC2C0000C4760 /* Then */,
 				EE58E6E82D2FB966000C4760 /* SnapKit */,
+				EE4CE1562D31F95E00DE3054 /* FSCalendar */,
+				EE4CE15F2D33CEFB00DE3054 /* FloatingPanel */,
 			);
 			productName = KeepHealth;
 			productReference = EE58E5032D2C081A000C4760 /* KeepHealth.app */;
@@ -362,6 +387,8 @@
 				EE58E6D82D2EC2B4000C4760 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				EE58E6DF2D2EC2C0000C4760 /* XCRemoteSwiftPackageReference "Then" */,
 				EE58E6E72D2FB966000C4760 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				EE4CE1552D31F95E00DE3054 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				EE4CE15E2D33CEFB00DE3054 /* XCRemoteSwiftPackageReference "FloatingPanel" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EE58E5042D2C081A000C4760 /* Products */;
@@ -418,6 +445,7 @@
 				EE58E6552D2D2D76000C4760 /* DietFlow.swift in Sources */,
 				EE58E6562D2D2D76000C4760 /* DietListCell.swift in Sources */,
 				EE58E6572D2D2D76000C4760 /* DietListViewController.swift in Sources */,
+				EE4CE1542D31F92200DE3054 /* CalendarViewController.swift in Sources */,
 				EE58E6582D2D2D76000C4760 /* DietViewModel.swift in Sources */,
 				EE58E6592D2D2D76000C4760 /* ScoreFlow.swift in Sources */,
 				EE58E65A2D2D2D76000C4760 /* ScoreViewController.swift in Sources */,
@@ -761,6 +789,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EE4CE1552D31F95E00DE3054 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.4;
+			};
+		};
+		EE4CE15E2D33CEFB00DE3054 /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scenee/FloatingPanel";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.6;
+			};
+		};
 		EE58E6D22D2EC26D000C4760 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -804,6 +848,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EE4CE1562D31F95E00DE3054 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE4CE1552D31F95E00DE3054 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+		EE4CE15F2D33CEFB00DE3054 /* FloatingPanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE4CE15E2D33CEFB00DE3054 /* XCRemoteSwiftPackageReference "FloatingPanel" */;
+			productName = FloatingPanel;
+		};
 		EE58E6D32D2EC26D000C4760 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EE58E6D22D2EC26D000C4760 /* XCRemoteSwiftPackageReference "realm-swift" */;

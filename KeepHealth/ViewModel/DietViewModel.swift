@@ -100,6 +100,7 @@ class DietViewModel: Stepper {
                                         dietContent: managementDietData?.dietContent,
                                         dietRate: managementDietData?.dietRate)
     
+    steps.accept(AppStep.dismissIsRequired)
     steps.accept(AppStep.popupIsRequired(popupType: .confirmEdit))
   }
 

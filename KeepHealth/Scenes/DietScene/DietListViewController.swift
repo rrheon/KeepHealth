@@ -67,6 +67,8 @@ class DietListViewController: UIViewController {
     setupCollectionView()
     
     self.notificationToken = dietVM?.updateNewData()
+    
+    selectDateButton.addTarget(self, action: #selector(presnetCalendar), for: .touchUpInside)
   } // viewDidLoad
   
   
@@ -86,7 +88,7 @@ class DietListViewController: UIViewController {
       selectDateButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
       selectDateButton.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -10),
       selectDateButton.heightAnchor.constraint(equalToConstant: 40),
-      selectDateButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 100),
+      selectDateButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 120),
       
       dietCollectionView.topAnchor.constraint(equalTo: selectDateButton.bottomAnchor, constant: 20),
       dietCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
@@ -107,6 +109,10 @@ class DietListViewController: UIViewController {
     NotificationCenter.default.post(name: .navToAddDietEvent, object: nil)
   }
   
+  @objc func presnetCalendar(){
+    dietVM?.steps.accept(DietStep.calenderIsRequired)
+    
+  }
   
   /// 식단 collectinoView 설정
   func setupCollectionView(){

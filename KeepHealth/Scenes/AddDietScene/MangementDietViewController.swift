@@ -264,9 +264,10 @@ class MangementDietViewController: UIViewController {
     dietVM?.steps.accept(AppStep.popupIsRequired(popupType: .delete))
   }
   
-  /// 편집 시 데이터 추가
+  /// 편집 시 데이터 추가, 네비게이션 오른쪽 버튼 추가
   func updateEditDietScreen(data: DietEntity){
     dietContentTextView.text = data.dietContent
+    dietContentTextView.textColor = .black
     
     selectDietTypeSegment.selectedSegmentIndex = DietType.fromString(data.dietType ?? "") ?? 0
     selectDietRateSegment.selectedSegmentIndex = RateTitle.fromString(data.dietRate ?? "") ?? 0

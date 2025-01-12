@@ -14,6 +14,7 @@ import RxRelay
 
 enum DietStep: Step {
   case dietListIsRequired
+  case calenderIsRequired                        // 캘린더화면
 }
 
 
@@ -43,6 +44,8 @@ class DietFlow: Flow {
     switch step {
     case .dietListIsRequired:
       return setDietScreen()
+    case .calenderIsRequired:
+      return presentCalendarScreen()
     }
   }
   
@@ -54,5 +57,14 @@ class DietFlow: Flow {
     vc.dietVM = viewModel
     self.rootViewController.pushViewController(vc, animated: false)
     return .one(flowContributor: .contribute(withNextPresentable: vc, withNextStepper: viewModel))
+  }
+  
+  
+  /// 캘린더 띄우기
+  /// - Returns: none
+  func presentCalendarScreen() -> FlowContributors {
+    let vc = CalendarViewController()
+    rootViewController.present(vc, animated: true)
+    return .none
   }
 }

@@ -11,6 +11,7 @@ import RxFlow
 import RxCocoa
 import RxSwift
 import RxRelay
+import FloatingPanel
 
 
 /// 화면 이동
@@ -44,7 +45,6 @@ enum AppStep: Step {
   case mainTabIsRequired                          // 메인인화면
   case dietAddIsRequired                          // 식단 추가화면
   case dietEditIsRequired(dietData: DietEntity)  // 식단 편집화면
-  case calenderIsRequired                        // 캘린더화면
   case popupIsRequired(popupType: PopupCase)     // 팝업화면
   case howToUseIsRequired                        // 사용방법 화면
   case dismissIsRequired
@@ -86,7 +86,7 @@ class AppFlow: Flow {
       return dismissCurrnetScene()
     case .popIsRequired:
       return popCurrnetScene()
-    default:
+    case .howToUseIsRequired:
       return .none
     }
   }
@@ -108,6 +108,8 @@ class AppFlow: Flow {
       root2.title = AppStep.TabType.dietList.title
 
       tabBarController.viewControllers = [root1, root2]
+      tabBarController.tabBar.backgroundColor = .white
+      tabBarController.tabBar.tintColor = KHColorList.mainGreen.color
       
       rootViewController.setViewControllers([tabBarController], animated: false)
       rootViewController.navigationBar.isHidden = true

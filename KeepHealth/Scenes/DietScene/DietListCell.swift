@@ -101,6 +101,7 @@ class DietListCell: UICollectionViewCell {
     dietTypeLabel.text = cellData.dietType
     dietContentLabel.text = cellData.dietContent
     rateButton.setTitle(cellData.dietRate, for: .normal)
+    rateButton.backgroundColor = DietRateColor.color(from: cellData.dietRate ?? "Good")
   }
   
 }
