@@ -63,14 +63,15 @@ class DietListViewController: UIViewController {
     self.title = "식단 목록"
 
     setupLayout()
-    
     setupCollectionView()
+    setupBinding()
+    setupActions()
     
     self.notificationToken = dietVM?.updateNewData()
-    
-    selectDateButton.addTarget(self, action: #selector(presnetCalendar), for: .touchUpInside)
   } // viewDidLoad
   
+  
+  // MARK: - functions
   
   /// layout 설정
   func setupLayout(){
@@ -88,7 +89,7 @@ class DietListViewController: UIViewController {
       selectDateButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
       selectDateButton.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -10),
       selectDateButton.heightAnchor.constraint(equalToConstant: 40),
-      selectDateButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 120),
+      selectDateButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 140),
       
       dietCollectionView.topAnchor.constraint(equalTo: selectDateButton.bottomAnchor, constant: 20),
       dietCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
@@ -109,9 +110,10 @@ class DietListViewController: UIViewController {
     NotificationCenter.default.post(name: .navToAddDietEvent, object: nil)
   }
   
+  
+  /// 캘린더 띄우기
   @objc func presnetCalendar(){
     dietVM?.steps.accept(DietStep.calenderIsRequired)
-    
   }
   
   /// 식단 collectinoView 설정
@@ -123,8 +125,25 @@ class DietListViewController: UIViewController {
 
     dietCollectionView.rx.setDelegate(self)
       .disposed(by: disposeBag)
+  }
+  
+  
+  /// binding
+  func setupBinding(){
+    // 선택한 날짜 바인딩
+    dietVM?.selectedDate
+      .asDriver(onErrorJustReturn: "Today")
+      .drive { [weak self] selectedDate in
+        
+        // 오늘 날짜가 선택된 경우 Today로 타이틀 변경
+        let btnTitle: String = selectedDate == self?.dietVM?.getConvertedDate() ? "Today" : selectedDate
+        self?.selectDateButton.setTitle(btnTitle, for: .normal)
+
+        self?.dietVM?.dietList.accept(RealmManager.shared.fetchSomeDateDiet(dietDate: selectedDate))
+      }
+      .disposed(by: disposeBag)
     
-    // 바인딩
+    // collectionView에 식단리스트 바인딩
     dietVM?.dietList
       .asDriver(onErrorJustReturn: [])
       .drive(dietCollectionView.rx.items(
@@ -133,10 +152,16 @@ class DietListViewController: UIViewController {
           print(#fileID, #function, #line," - \(content)")
 
           cell.updateCellUI(with: content)
+          
+          // 없으면 없는 이미지 뷰 호출
         }
         .disposed(by: disposeBag)
-    
-    // 터치 시 액션
+  }
+  
+  
+  /// actions 설정
+  func setupActions(){
+    // collectionView 터치 시 액션
     dietCollectionView.rx.modelSelected(DietEntity.self)
       .throttle(.seconds(1), scheduler: MainScheduler.instance)
       .subscribe(onNext: { [weak self] item in
@@ -145,7 +170,9 @@ class DietListViewController: UIViewController {
                                         userInfo: ["dietData": item])
       })
       .disposed(by: disposeBag)
-
+    
+    // 날짜선택버튼 action
+    selectDateButton.addTarget(self, action: #selector(presnetCalendar), for: .touchUpInside)
   }
 }
 

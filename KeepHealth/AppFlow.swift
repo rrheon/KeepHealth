@@ -11,7 +11,6 @@ import RxFlow
 import RxCocoa
 import RxSwift
 import RxRelay
-import FloatingPanel
 
 
 /// 화면 이동
@@ -45,6 +44,7 @@ enum AppStep: Step {
   case mainTabIsRequired                          // 메인인화면
   case dietAddIsRequired                          // 식단 추가화면
   case dietEditIsRequired(dietData: DietEntity)  // 식단 편집화면
+  case calenderIsRequired                        // 캘린더화면
   case popupIsRequired(popupType: PopupCase)     // 팝업화면
   case howToUseIsRequired                        // 사용방법 화면
   case dismissIsRequired
@@ -86,7 +86,7 @@ class AppFlow: Flow {
       return dismissCurrnetScene()
     case .popIsRequired:
       return popCurrnetScene()
-    case .howToUseIsRequired:
+    default:
       return .none
     }
   }

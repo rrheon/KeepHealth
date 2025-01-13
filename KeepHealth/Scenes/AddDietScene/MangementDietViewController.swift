@@ -254,7 +254,7 @@ class MangementDietViewController: UIViewController {
     let dietTpye: String = DietType.fromIndex(selectDietTypeSegment.selectedSegmentIndex)
     let dietRate: String = RateTitle.fromIndex(selectDietRateSegment.selectedSegmentIndex)
     let dietContent: String = dietContentTextView.text
-    let dietDate: String? = dietVM?.getCurrentDate()
+    let dietDate: String? = dietVM?.getConvertedDate()
     
     dietVM?.managementDietData = DietManagementModel(dietTpye, dietRate, dietContent, dietDate, nil)
   }

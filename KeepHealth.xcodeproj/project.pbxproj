@@ -11,6 +11,7 @@
 		EE4CE1542D31F92200DE3054 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CE1532D31F92200DE3054 /* CalendarViewController.swift */; };
 		EE4CE1572D31F95E00DE3054 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = EE4CE1562D31F95E00DE3054 /* FSCalendar */; };
 		EE4CE1602D33CEFB00DE3054 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = EE4CE15F2D33CEFB00DE3054 /* FloatingPanel */; };
+		EE4CE16E2D34EA6400DE3054 /* DateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CE16C2D34EA6400DE3054 /* DateProtocol.swift */; };
 		EE58E6502D2D2D76000C4760 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6372D2D2D76000C4760 /* Notification+Name.swift */; };
 		EE58E6512D2D2D76000C4760 /* UIButton+CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6382D2D2D76000C4760 /* UIButton+CustomButton.swift */; };
 		EE58E6522D2D2D76000C4760 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6392D2D2D76000C4760 /* UIColor+Ext.swift */; };
@@ -74,6 +75,7 @@
 /* Begin PBXFileReference section */
 		EE4CE1412D30179100DE3054 /* DietModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietModel.swift; sourceTree = "<group>"; };
 		EE4CE1532D31F92200DE3054 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		EE4CE16C2D34EA6400DE3054 /* DateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateProtocol.swift; sourceTree = "<group>"; };
 		EE58E5032D2C081A000C4760 /* KeepHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeepHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE58E5192D2C081B000C4760 /* KeepHealthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeepHealthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE58E5232D2C081B000C4760 /* KeepHealthUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeepHealthUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +166,14 @@
 			path = Calender;
 			sourceTree = "<group>";
 		};
+		EE4CE16D2D34EA6400DE3054 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				EE4CE16C2D34EA6400DE3054 /* DateProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		EE58E4FA2D2C081A000C4760 = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +261,7 @@
 				EE58E64E2D2D2D76000C4760 /* SceneDelegate.swift */,
 				EE58E6482D2D2D76000C4760 /* AppDelegate.swift */,
 				EE58E6492D2D2D76000C4760 /* AppFlow.swift */,
+				EE4CE16D2D34EA6400DE3054 /* Protocol */,
 				EE58E63A2D2D2D76000C4760 /* Extension */,
 				EE58E63C2D2D2D76000C4760 /* Model */,
 				EE58E6472D2D2D76000C4760 /* Scenes */,
@@ -452,6 +463,7 @@
 				EE58E65B2D2D2D76000C4760 /* AppDelegate.swift in Sources */,
 				EE58E65C2D2D2D76000C4760 /* AppFlow.swift in Sources */,
 				EE4CE1422D30179100DE3054 /* DietModel.swift in Sources */,
+				EE4CE16E2D34EA6400DE3054 /* DateProtocol.swift in Sources */,
 				EE58E6A22D2E49A0000C4760 /* DietEntity.swift in Sources */,
 				EE58E65D2D2D2D76000C4760 /* SceneDelegate.swift in Sources */,
 			);

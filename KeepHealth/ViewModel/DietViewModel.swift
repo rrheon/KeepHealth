@@ -19,14 +19,17 @@ class DietViewModel: Stepper {
   static let shared = DietViewModel()
   var steps: PublishRelay<Step> = PublishRelay()
 
-  // collectionView 표시를 위한 식단 리스트
+  /// collectionView 표시를 위한 식단 리스트
   var dietList: BehaviorRelay<[DietEntity]> = BehaviorRelay<[DietEntity]>(value: [])
   
-  // 개별 식단 데이터
+  /// 개별 식단 데이터
   var dietData: DietEntity? = nil
   
-  // 식단 관리를 위한 데이터 - 추가, 편집
+  /// 식단 관리를 위한 데이터 - 추가, 편집
   var managementDietData: DietManagementModel? = nil
+  
+  /// 캘린더에서 선택된 날짜
+  var selectedDate: BehaviorRelay<String> = BehaviorRelay(value: "Today")
   
   init() {
     self.dietList.accept(RealmManager.shared.fetchSomeDateDiet())
@@ -36,25 +39,19 @@ class DietViewModel: Stepper {
     self.steps.accept(step)
   }
   
-  
-  /// 현재날짜 가져오기
-  func getCurrentDate() -> String{
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd"
-    return formatter.string(from: Date())
-  }
-  
-  // 변경사항 체크
+  /// 데이터 변경사항 체크
+  /// - Returns: NotificationToken
   func updateNewData() -> NotificationToken {
     let realm = try! Realm()
     
-    // 데이터베이스 변경을 감지하는 토큰 (강한 참조 유지 필요)
-    return realm.observe { notification, realm in
+      return realm.observe { notification, realm in
       switch notification {
       case .didChange:
         print("Realm 데이터가 변경되었습니다.")
-        // 예: UI 업데이트 또는 데이터 재로딩
-        self.dietList.accept(RealmManager.shared.fetchSomeDateDiet())
+        
+        let date: String = self.selectedDate.value
+        
+        self.dietList.accept(RealmManager.shared.fetchSomeDateDiet(dietDate: date))
         return
       case .refreshRequired:
         print("Realm 데이터가 새로고침되었습니다.")
@@ -86,7 +83,7 @@ class DietViewModel: Stepper {
                                     dietType: managementDietData?.dietType,
                                     dietContent: managementDietData?.dietContent,
                                     dietRate: managementDietData?.dietRate,
-                                    dietDate: getCurrentDate())
+                                    dietDate: getConvertedDate())
     
     steps.accept(AppStep.dismissIsRequired)
     steps.accept(AppStep.popupIsRequired(popupType: .confirmAdd))
@@ -123,3 +120,5 @@ class DietViewModel: Stepper {
   }
 
 }
+
+extension DietViewModel: DateHelper {}

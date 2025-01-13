@@ -12,7 +12,7 @@ import RealmSwift
 /// 식단 CRUD Manager
 class RealmManager {
   static let shared = RealmManager()
-  
+ 
   // CREATE
   
   /// 새로운 식단 생성
@@ -42,12 +42,16 @@ class RealmManager {
   
   // READ
   
-  /// 식단데이터 모두 읽어오기
+  /// 식단데이터 읽어오기
+  /// - Parameter dietDate: 원하는 식단 날짜 / 미 입력 시 오늘 날짜
   /// - Returns: [DietEntity]
-  func fetchSomeDateDiet() -> [DietEntity]{
+  func fetchSomeDateDiet(dietDate: String = "Today") -> [DietEntity]{
     let realm = try! Realm()
-    // Access all dogs in the realm
-    return realm.objects(DietEntity.self).map { $0 }
+    let dietEntity = realm.objects(DietEntity.self)
+
+    let specificDate: String = dietDate == "Today" ? getConvertedDate() : dietDate
+  
+    return dietEntity.where { $0.dietDate == specificDate}.map { $0 }
   }
   
   // UPDATE
@@ -85,3 +89,5 @@ class RealmManager {
     }
   }
 }
+
+extension RealmManager: DateHelper {}

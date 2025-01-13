@@ -11,10 +11,14 @@ import RxFlow
 import RxCocoa
 import RxSwift
 import RxRelay
+import FloatingPanel
 
+
+/// 식단 Step
 enum DietStep: Step {
-  case dietListIsRequired
-  case calenderIsRequired                        // 캘린더화면
+  case dietListIsRequired     // 식단 목록 초기세팅
+  case calenderIsRequired     // 캘린더화면
+  case dismissIsRequired      // 현재 화면 닫기
 }
 
 
@@ -40,12 +44,14 @@ class DietFlow: Flow {
   
   func navigate(to step: any RxFlow.Step) -> RxFlow.FlowContributors {
     guard let step = step as? DietStep else { return .none }
-
+    
     switch step {
     case .dietListIsRequired:
       return setDietScreen()
     case .calenderIsRequired:
       return presentCalendarScreen()
+    case .dismissIsRequired:
+      return dismissCurrnetScene()
     }
   }
   
@@ -64,7 +70,48 @@ class DietFlow: Flow {
   /// - Returns: none
   func presentCalendarScreen() -> FlowContributors {
     let vc = CalendarViewController()
+    showBottomSheet(bottomSheetVC: vc, size: 300)
+
     rootViewController.present(vc, animated: true)
     return .none
   }
+  
+  
+  /// 현재 화면 dismiss
+  /// - Returns: FlowContributors
+  func dismissCurrnetScene() -> FlowContributors {
+    rootViewController.dismiss(animated: true)
+    return .none
+  }
 }
+
+protocol ShowBottomSheet {
+  func showBottomSheet(bottomSheetVC: UIViewController, size: Double)
+}
+
+extension ShowBottomSheet {
+  func showBottomSheet(bottomSheetVC: UIViewController, size: Double){
+    if #available(iOS 15.0, *) {
+      if let sheet = bottomSheetVC.sheetPresentationController {
+        if #available(iOS 16.0, *) {
+          sheet.detents = [.custom(resolver: { context in
+            return size
+          })]
+        } else {
+          // Fallback on earlier versions
+        }
+        sheet.largestUndimmedDetentIdentifier = nil
+        sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+        sheet.prefersEdgeAttachedInCompactHeight = true
+        sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+        sheet.preferredCornerRadius = 20
+      }
+    } else {
+      // Fallback on earlier versions
+      bottomSheetVC.modalPresentationStyle = .overFullScreen
+      bottomSheetVC.preferredContentSize = CGSize(width: UIScreen.main.bounds.width, height: size)
+    }
+  }
+}
+
+extension DietFlow: ShowBottomSheet {}
