@@ -1,6 +1,15 @@
 {
-  "originHash" : "92a5d4814268d8d906f30fc019e33257a128b3f15e994912eaa0ede2e3ed1df5",
+  "originHash" : "c605b4191bd0a1254df836753593f8e6445fc8a40e8da3334190815bbb2ac147",
   "pins" : [
+    {
+      "identity" : "charts",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ChartsOrg/Charts",
+      "state" : {
+        "revision" : "dd9c72e3d7e751e769971092a6bd72d39198ae63",
+        "version" : "5.1.0"
+      }
+    },
     {
       "identity" : "floatingpanel",
       "kind" : "remoteSourceControl",

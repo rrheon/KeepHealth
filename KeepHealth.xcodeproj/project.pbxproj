@@ -12,6 +12,7 @@
 		EE4CE1572D31F95E00DE3054 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = EE4CE1562D31F95E00DE3054 /* FSCalendar */; };
 		EE4CE1602D33CEFB00DE3054 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = EE4CE15F2D33CEFB00DE3054 /* FloatingPanel */; };
 		EE4CE16E2D34EA6400DE3054 /* DateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CE16C2D34EA6400DE3054 /* DateProtocol.swift */; };
+		EE4CE1722D35020700DE3054 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = EE4CE1712D35020700DE3054 /* DGCharts */; };
 		EE58E6502D2D2D76000C4760 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6372D2D2D76000C4760 /* Notification+Name.swift */; };
 		EE58E6512D2D2D76000C4760 /* UIButton+CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6382D2D2D76000C4760 /* UIButton+CustomButton.swift */; };
 		EE58E6522D2D2D76000C4760 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6392D2D2D76000C4760 /* UIColor+Ext.swift */; };
@@ -40,6 +41,7 @@
 		EE58E6E92D2FB966000C4760 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EE58E6E82D2FB966000C4760 /* SnapKit */; };
 		EE58E6EF2D2FC378000C4760 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6EC2D2FC378000C4760 /* PopupView.swift */; };
 		EE58E6F02D2FC378000C4760 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6ED2D2FC378000C4760 /* PopupViewController.swift */; };
+		EED1269A2D355681003DBF38 /* DietScoreEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED126992D355681003DBF38 /* DietScoreEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,7 @@
 		EE58E6E22D2FB723000C4760 /* UICollectionViewCell+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Ext.swift"; sourceTree = "<group>"; };
 		EE58E6EC2D2FC378000C4760 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		EE58E6ED2D2FC378000C4760 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		EED126992D355681003DBF38 /* DietScoreEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietScoreEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -123,6 +126,7 @@
 			files = (
 				EE4CE1602D33CEFB00DE3054 /* FloatingPanel in Frameworks */,
 				EE58E6DA2D2EC2B4000C4760 /* RxCocoa in Frameworks */,
+				EE4CE1722D35020700DE3054 /* DGCharts in Frameworks */,
 				EE58E6E12D2EC2C0000C4760 /* Then in Frameworks */,
 				EE58E6D72D2EC2A2000C4760 /* RxFlow in Frameworks */,
 				EE58E6E92D2FB966000C4760 /* SnapKit in Frameworks */,
@@ -210,6 +214,7 @@
 			children = (
 				EE4CE1412D30179100DE3054 /* DietModel.swift */,
 				EE58E63B2D2D2D76000C4760 /* DietCellModel.swift */,
+				EED126992D355681003DBF38 /* DietScoreEntity.swift */,
 				EE58E6A12D2E49A0000C4760 /* DietEntity.swift */,
 				EE58E69F2D2E4891000C4760 /* RealmManager.swift */,
 			);
@@ -309,6 +314,7 @@
 				EE58E6E82D2FB966000C4760 /* SnapKit */,
 				EE4CE1562D31F95E00DE3054 /* FSCalendar */,
 				EE4CE15F2D33CEFB00DE3054 /* FloatingPanel */,
+				EE4CE1712D35020700DE3054 /* DGCharts */,
 			);
 			productName = KeepHealth;
 			productReference = EE58E5032D2C081A000C4760 /* KeepHealth.app */;
@@ -400,6 +406,7 @@
 				EE58E6E72D2FB966000C4760 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				EE4CE1552D31F95E00DE3054 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				EE4CE15E2D33CEFB00DE3054 /* XCRemoteSwiftPackageReference "FloatingPanel" */,
+				EE4CE1702D35020700DE3054 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EE58E5042D2C081A000C4760 /* Products */;
@@ -466,6 +473,7 @@
 				EE4CE16E2D34EA6400DE3054 /* DateProtocol.swift in Sources */,
 				EE58E6A22D2E49A0000C4760 /* DietEntity.swift in Sources */,
 				EE58E65D2D2D2D76000C4760 /* SceneDelegate.swift in Sources */,
+				EED1269A2D355681003DBF38 /* DietScoreEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -817,6 +825,14 @@
 				minimumVersion = 2.8.6;
 			};
 		};
+		EE4CE1702D35020700DE3054 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ChartsOrg/Charts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 		EE58E6D22D2EC26D000C4760 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -869,6 +885,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EE4CE15E2D33CEFB00DE3054 /* XCRemoteSwiftPackageReference "FloatingPanel" */;
 			productName = FloatingPanel;
+		};
+		EE4CE1712D35020700DE3054 /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE4CE1702D35020700DE3054 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
 		};
 		EE58E6D32D2EC26D000C4760 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -19,6 +19,8 @@ enum ScoreStep: Step {
 
 /// 점수 Flow
 class ScoreFlow: Flow {
+  var viewModel: DietViewModel
+
   var root: Presentable {
     return self.rootViewController
   }
@@ -32,6 +34,7 @@ class ScoreFlow: Flow {
   
   init() {
     print(#fileID, #function, #line, "- ")
+    self.viewModel = DietViewModel.shared
   }
   
   func navigate(to step: any RxFlow.Step) -> RxFlow.FlowContributors {
@@ -48,7 +51,8 @@ class ScoreFlow: Flow {
   /// - Returns: FlowContributors
   private func setScoreScreen() -> FlowContributors {
     let vc = ScoreViewController()
+    vc.dietVM = self.viewModel
     self.rootViewController.pushViewController(vc, animated: false)
-    return .one(flowContributor: .contribute(withNext: vc))
+    return .one(flowContributor: .contribute(withNextPresentable: vc, withNextStepper: viewModel))
   }
 }

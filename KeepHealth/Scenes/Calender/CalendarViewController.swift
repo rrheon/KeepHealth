@@ -164,7 +164,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
   
   /// 완료버튼 액션 / 캘린더 닫고 선택한 날짜로 식단 목록 변경
   @objc func onCompleteBtnTapped(){
-    guard let selectedDate = selectDate else { return }
+    let selectedDate = selectDate ?? DietViewModel.shared.getConvertedDate()
     
     DietViewModel.shared.selectedDate.accept(selectedDate)
     DietViewModel.shared.steps.accept(DietStep.dismissIsRequired)
