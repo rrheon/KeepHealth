@@ -56,6 +56,13 @@ class DietListViewController: UIViewController {
     return addButton
   }()
   
+  /// 식단데이터가 없을 때 라벨
+  private lazy var noDataLabel = UILabel().then {
+    $0.text = "❌ 해당 날짜에 식단이 없습니다 ❌"
+    $0.font = .boldSystemFont(ofSize: 24)
+    $0.textColor = .black
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -78,7 +85,8 @@ class DietListViewController: UIViewController {
     [
       selectDateButton,
       dietCollectionView,
-      addButton
+      addButton,
+      noDataLabel
     ].forEach {
       view.addSubview($0)
       $0.translatesAutoresizingMaskIntoConstraints = false
@@ -99,8 +107,13 @@ class DietListViewController: UIViewController {
       addButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
       addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
       addButton.widthAnchor.constraint(equalToConstant: 50),
-      addButton.heightAnchor.constraint(equalToConstant: 50)
+      addButton.heightAnchor.constraint(equalToConstant: 50),
+      
+      noDataLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      noDataLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
     ])
+    
+    noDataLabel.isHidden = true
   }
   
   /// 식단 추가 화면으로 이동
@@ -152,10 +165,17 @@ class DietListViewController: UIViewController {
           print(#fileID, #function, #line," - \(content)")
 
           cell.updateCellUI(with: content)
-          
-          // 없으면 없는 이미지 뷰 호출
         }
         .disposed(by: disposeBag)
+    
+    // 데이터 유무에 따라 UI 변경
+    dietVM?.dietList
+      .asDriver(onErrorJustReturn: [])
+      .drive(onNext: { [weak self] dietData in
+        self?.dietCollectionView.isHidden = dietData.isEmpty
+        self?.noDataLabel.isHidden = !dietData.isEmpty
+      })
+      .disposed(by: disposeBag)
   }
   
   

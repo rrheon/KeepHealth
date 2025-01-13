@@ -45,10 +45,14 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
   /// 달력에서 선택한 날짜
   private var selectDate: String?
   
+  /// 달력에서 현재 표시되는 달
+  var currentPage: Date = Date()
+
   /// 이전 버튼
   private lazy var previousMonthButton = UIButton().then {
     $0.setImage(UIImage(systemName: "chevron.left"), for: .normal)
     $0.tintColor = .black
+    $0.addTarget(self, action: #selector(moveToPrevMonth), for: .touchUpInside)
   }
   
   
@@ -56,6 +60,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
   private lazy var nextMonthButton = UIButton().then {
     $0.setImage(UIImage(systemName: "chevron.right"), for: .normal)
     $0.tintColor = .black
+    $0.addTarget(self, action: #selector(moveToNextMonth), for: .touchUpInside)
   }
   
   
@@ -163,6 +168,30 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
     
     DietViewModel.shared.selectedDate.accept(selectedDate)
     DietViewModel.shared.steps.accept(DietStep.dismissIsRequired)
+  }
+  
+  
+  /// 캘린더 이전달/ 다음달 이동
+  /// - Parameter isPrev: 이전달로 이동 여부
+  private func scrollCalendar(isPrev: Bool) {
+    let cal = Calendar.current
+    var dateComponents = DateComponents()
+    dateComponents.month = isPrev ? -1 : 1
+    
+    currentPage = cal.date(byAdding: dateComponents, to: currentPage) ?? currentPage
+    calendar?.setCurrentPage(currentPage, animated: true)
+  }
+
+  
+  /// 이전달로 이동
+  @objc func moveToPrevMonth(){
+    scrollCalendar(isPrev: true)
+  }
+  
+  
+  /// 다음달로 이동
+  @objc func moveToNextMonth(){
+    scrollCalendar(isPrev: false)
   }
 }
 
