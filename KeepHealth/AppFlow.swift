@@ -12,7 +12,6 @@ import RxCocoa
 import RxSwift
 import RxRelay
 
-
 /// 화면 이동
 enum AppStep: Step {
   
@@ -47,8 +46,12 @@ enum AppStep: Step {
   case calenderIsRequired                        // 캘린더화면
   case popupIsRequired(popupType: PopupCase)     // 팝업화면
   case howToUseIsRequired                        // 사용방법 화면
-  case dismissIsRequired
-  case popIsRequired
+  case dismissIsRequired                         // 현재화면 dismiss
+  case popIsRequired                             // 현재화면 pop
+  case bottomSheetIsRequired                    // bottomSheet
+  case cameraIsRequired                         // 카메라 사용
+  case photoIsRequired                         // 카메라 사용
+
 }
 
 
@@ -86,6 +89,12 @@ class AppFlow: Flow {
       return dismissCurrnetScene()
     case .popIsRequired:
       return popCurrnetScene()
+    case .bottomSheetIsRequired:
+      return presentBottomSheet()
+    case .cameraIsRequired:
+      return presentCameraScreen()
+    case .photoIsRequired:
+      return presentPhotoScreen()
     default:
       return .none
     }
@@ -162,6 +171,37 @@ class AppFlow: Flow {
     rootViewController.popViewController(animated: true)
     return .none
   }
+  
+  
+  /// bottomSheet 띄우기
+  /// - Returns: none
+  func presentBottomSheet() -> FlowContributors{
+    let vc = BottomSheetViewController()
+    showBottomSheet(bottomSheetVC: vc, size: 300)
+    rootViewController.present(vc, animated: true)
+    return .none
+  }
+  
+  
+  /// 카메라 띄우기, vc를 받아서 델리게이트 설정? 아님 프로토콜로?
+  /// - Returns: none
+  func presentPhotoScreen() -> FlowContributors {
+    let photoLibrary: UIImagePickerController = UIImagePickerController()
+    photoLibrary.sourceType = .photoLibrary  // 사진 보관함 사용
+    photoLibrary.allowsEditing = true
+    rootViewController.present(photoLibrary, animated: true)
+    return .none
+  }
+  
+  func presentCameraScreen() -> FlowContributors {
+    let camera: UIImagePickerController = UIImagePickerController()
+    camera.sourceType = .photoLibrary
+    camera.allowsEditing = true
+    camera.cameraDevice = .rear
+    camera.cameraCaptureMode = .photo
+    rootViewController.present(camera, animated: true)
+      return .none
+  }
 }
 
 
@@ -191,3 +231,4 @@ class AppStepper: Stepper {
   }
 }
 
+extension AppFlow: ShowBottomSheet {}

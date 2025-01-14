@@ -25,7 +25,6 @@ class ScoreViewController: UIViewController {
   
   /// 점수라벨
   private lazy var scoreLabel = UILabel().then {
-    $0.text = "식단 점수\n20"
     $0.numberOfLines = 2
     $0.textAlignment = .center
     $0.textColor = .black
@@ -64,10 +63,29 @@ class ScoreViewController: UIViewController {
   
   /// 바인딩 설정
   func setupBinding(){
+    // 파이차트 바인딩
     dietVM?.chartCount
       .asDriver()
       .drive(onNext: { [weak self] chartCount in
         self?.updatePieChart(with: chartCount)
+      })
+      .disposed(by: disposeBag)
+    
+    // 식단 점수 바인딩
+    dietVM?.chartRate
+      .asDriver(onErrorJustReturn: nil)
+      .drive(onNext: { [weak self] rate in
+        guard let _rate = rate else { return }
+        self?.dietVM?.updateDietScore(_rate)
+      })
+      .disposed(by: disposeBag)
+    
+    // 식단 점수 UI
+    dietVM?.totalDietScore
+      .asDriver(onErrorJustReturn: 0)
+      .drive(onNext: { [weak self] score in
+        guard let _score = score else { return }
+        self?.scoreLabel.text = "식단 점수\n\(_score)"
       })
       .disposed(by: disposeBag)
   }

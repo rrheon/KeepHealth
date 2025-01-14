@@ -12,6 +12,7 @@ import RxCocoa
 import RxSwift
 import RxRelay
 import RealmSwift
+import Photos
 
 
 /// 식단 ViewModel
@@ -29,6 +30,9 @@ class DietViewModel: Stepper {
   /// 점수화면 - 차트 평가 entity
   var chartRate: BehaviorRelay<DietScoreEntity?> = BehaviorRelay<DietScoreEntity?>(value: nil)
   
+  /// 점수화면 - 식단 점수
+  var totalDietScore: BehaviorRelay<Int?> = BehaviorRelay<Int?>(value: nil)
+  
   /// 식단리스트화면 - collectionView 표시를 위한 식단 리스트
   var dietList: BehaviorRelay<[DietEntity]> = BehaviorRelay<[DietEntity]>(value: [])
   
@@ -45,7 +49,7 @@ class DietViewModel: Stepper {
     self.dietList.accept(RealmManager.shared.fetchSomeDateDiet())
     
     self.chartRate.accept(RealmManager.shared.fetchDietScoreEntity())
-    
+
     bindToChartCount()
   }
   
@@ -56,15 +60,36 @@ class DietViewModel: Stepper {
 
   /// 차트에 바인딩
   func bindToChartCount() {
-    let chartRate = chartRate.value
+    let chartRate: DietScoreEntity? = chartRate.value
     
-    let good = Double(chartRate?.countGood ?? 0)
-    let normal = Double(chartRate?.countNormal ?? 0)
-    let bad = Double(chartRate?.countBad ?? 0)
+    let good: Double = Double(chartRate?.countGood ?? 0)
+    let normal: Double = Double(chartRate?.countNormal ?? 0)
+    let bad: Double = Double(chartRate?.countBad ?? 0)
     
     self.chartCount.accept([good, normal, bad])
   }
   
+  /// 차트 및 점수 업데이트
+  /// - Parameter entity: 식단
+  func updateDietChartAndScore(entity: DietScoreEntity) {
+    let updatedChartCount = [
+      Double(entity.countGood),
+      Double(entity.countNormal),
+      Double(entity.countBad)
+    ]
+    // 차트 업데이트
+    DietViewModel.shared.chartCount.accept(updatedChartCount)
+    
+    // 점수 업데이트
+    updateDietScore(entity)
+  }
+
+  
+  /// 식단 점수 업데이트
+  func updateDietScore(_ entity: DietScoreEntity){
+    let totalScore: Int = Int((entity.countGood * 3 + entity.countNormal) - entity.countBad)
+    DietViewModel.shared.totalDietScore.accept(totalScore)
+  }
   
   /// 데이터 변경사항 체크
   /// - Returns: NotificationToken
@@ -156,7 +181,21 @@ class DietViewModel: Stepper {
     steps.accept(AppStep.dismissIsRequired)
     steps.accept(AppStep.popIsRequired)
   }
-
+  
+  /// 갤러리 접근 허용여부에 따른 action
+  /// - Returns: none
+  func checkAuthBeforePresentPhotoScreen() {
+    PHPhotoLibrary.requestAuthorization { [weak self] status in
+      switch status {
+      case .authorized:
+        DietViewModel.shared.steps.accept(AppStep.photoIsRequired)
+      case .denied, .restricted, .notDetermined:
+        print("Permission Denied or Restricted")
+      default:
+        break
+      }
+    }
+  }
 }
 
 extension DietViewModel: DateHelper {}

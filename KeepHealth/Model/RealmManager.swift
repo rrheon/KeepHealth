@@ -158,13 +158,9 @@ class RealmManager {
       }
     }
     
+    // 차트 및 점수 업데이트
     if let entity = updatingEntitiy.first {
-      let updatedChartCount = [
-        Double(entity.countGood),
-        Double(entity.countNormal),
-        Double(entity.countBad)
-      ]
-      DietViewModel.shared.chartCount.accept(updatedChartCount)
+      DietViewModel.shared.updateDietChartAndScore(entity: entity)
     }
   }
 }

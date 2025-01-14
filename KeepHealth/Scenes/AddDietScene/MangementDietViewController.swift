@@ -102,6 +102,8 @@ class MangementDietViewController: UIViewController {
     addDietButton.addTarget(self, action: #selector(managementDietAction), for: .touchUpInside)
     addDietButton.isEnabled = false
     
+    addDietImageButton.addTarget(self, action: #selector(presentBottomSheet), for: .touchUpInside)
+    
     setupNavigationItem()
     
     // 개별 데이터가 있으면 편집
@@ -300,10 +302,18 @@ class MangementDietViewController: UIViewController {
   @objc private func backButtonTapped() {
     dietVM?.steps.accept(AppStep.popIsRequired)
   }
+  
+  /// bottomSheet 띄우기
+  @objc func presentBottomSheet(){
+    dietVM?.steps.accept(AppStep.bottomSheetIsRequired)
+  }
 }
 
+// MARK: - Extension
+
+// textview 높이 동적조절
+
 extension MangementDietViewController: UITextViewDelegate {
-  // MARK: textview 높이 동적조절
   func textViewDidChange(_ textView: UITextView) {
     let size = CGSize(width: view.frame.width, height: .infinity)
     let estimatedSize = textView.sizeThatFits(size)
@@ -344,4 +354,9 @@ extension MangementDietViewController: UITextViewDelegate {
       addDietButton.backgroundColor = KHColorList.mainGray.color
     }
   }
+}
+
+extension MangementDietViewController: UIImagePickerControllerDelegate,
+                                        UINavigationControllerDelegate{
+  
 }

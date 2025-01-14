@@ -21,7 +21,6 @@
 		EE58E6552D2D2D76000C4760 /* DietFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E63F2D2D2D76000C4760 /* DietFlow.swift */; };
 		EE58E6562D2D2D76000C4760 /* DietListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6402D2D2D76000C4760 /* DietListCell.swift */; };
 		EE58E6572D2D2D76000C4760 /* DietListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6412D2D2D76000C4760 /* DietListViewController.swift */; };
-		EE58E6582D2D2D76000C4760 /* DietViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6422D2D2D76000C4760 /* DietViewModel.swift */; };
 		EE58E6592D2D2D76000C4760 /* ScoreFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6442D2D2D76000C4760 /* ScoreFlow.swift */; };
 		EE58E65A2D2D2D76000C4760 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6452D2D2D76000C4760 /* ScoreViewController.swift */; };
 		EE58E65B2D2D2D76000C4760 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6482D2D2D76000C4760 /* AppDelegate.swift */; };
@@ -42,6 +41,8 @@
 		EE58E6EF2D2FC378000C4760 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6EC2D2FC378000C4760 /* PopupView.swift */; };
 		EE58E6F02D2FC378000C4760 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6ED2D2FC378000C4760 /* PopupViewController.swift */; };
 		EED1269A2D355681003DBF38 /* DietScoreEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED126992D355681003DBF38 /* DietScoreEntity.swift */; };
+		EED126AA2D362D89003DBF38 /* DietViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED126A82D362D89003DBF38 /* DietViewModel.swift */; };
+		EED126AD2D362D9C003DBF38 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED126AC2D362D9C003DBF38 /* BottomSheetViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,7 +90,6 @@
 		EE58E63F2D2D2D76000C4760 /* DietFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietFlow.swift; sourceTree = "<group>"; };
 		EE58E6402D2D2D76000C4760 /* DietListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietListCell.swift; sourceTree = "<group>"; };
 		EE58E6412D2D2D76000C4760 /* DietListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietListViewController.swift; sourceTree = "<group>"; };
-		EE58E6422D2D2D76000C4760 /* DietViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewModel.swift; sourceTree = "<group>"; };
 		EE58E6442D2D2D76000C4760 /* ScoreFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreFlow.swift; sourceTree = "<group>"; };
 		EE58E6452D2D2D76000C4760 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		EE58E6482D2D2D76000C4760 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +104,8 @@
 		EE58E6EC2D2FC378000C4760 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		EE58E6ED2D2FC378000C4760 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		EED126992D355681003DBF38 /* DietScoreEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietScoreEntity.swift; sourceTree = "<group>"; };
+		EED126A82D362D89003DBF38 /* DietViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewModel.swift; sourceTree = "<group>"; };
+		EED126AC2D362D9C003DBF38 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -154,14 +156,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EE4CE1442D302BD700DE3054 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				EE58E6422D2D2D76000C4760 /* DietViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		EE4CE1522D31F90500DE3054 /* Calender */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +250,7 @@
 				EE58E63E2D2D2D76000C4760 /* AddDietScene */,
 				EE58E6EE2D2FC378000C4760 /* PopupScene */,
 				EE4CE1522D31F90500DE3054 /* Calender */,
+				EED126AB2D362D91003DBF38 /* BottomSheet */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -270,7 +265,7 @@
 				EE58E63A2D2D2D76000C4760 /* Extension */,
 				EE58E63C2D2D2D76000C4760 /* Model */,
 				EE58E6472D2D2D76000C4760 /* Scenes */,
-				EE4CE1442D302BD700DE3054 /* ViewModel */,
+				EED126A92D362D89003DBF38 /* ViewModel */,
 				EE58E64A2D2D2D76000C4760 /* Assets.xcassets */,
 				EE58E64B2D2D2D76000C4760 /* Info.plist */,
 				EE58E64D2D2D2D76000C4760 /* LaunchScreen.storyboard */,
@@ -285,6 +280,22 @@
 				EE58E6EC2D2FC378000C4760 /* PopupView.swift */,
 			);
 			path = PopupScene;
+			sourceTree = "<group>";
+		};
+		EED126A92D362D89003DBF38 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EED126A82D362D89003DBF38 /* DietViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EED126AB2D362D91003DBF38 /* BottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				EED126AC2D362D9C003DBF38 /* BottomSheetViewController.swift */,
+			);
+			path = BottomSheet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -458,13 +469,14 @@
 				EE58E6A02D2E4891000C4760 /* RealmManager.swift in Sources */,
 				EE58E6E32D2FB723000C4760 /* UICollectionViewCell+Ext.swift in Sources */,
 				EE58E6522D2D2D76000C4760 /* UIColor+Ext.swift in Sources */,
+				EED126AD2D362D9C003DBF38 /* BottomSheetViewController.swift in Sources */,
 				EE58E6532D2D2D76000C4760 /* DietCellModel.swift in Sources */,
 				EE58E6542D2D2D76000C4760 /* MangementDietViewController.swift in Sources */,
 				EE58E6552D2D2D76000C4760 /* DietFlow.swift in Sources */,
 				EE58E6562D2D2D76000C4760 /* DietListCell.swift in Sources */,
 				EE58E6572D2D2D76000C4760 /* DietListViewController.swift in Sources */,
+				EED126AA2D362D89003DBF38 /* DietViewModel.swift in Sources */,
 				EE4CE1542D31F92200DE3054 /* CalendarViewController.swift in Sources */,
-				EE58E6582D2D2D76000C4760 /* DietViewModel.swift in Sources */,
 				EE58E6592D2D2D76000C4760 /* ScoreFlow.swift in Sources */,
 				EE58E65A2D2D2D76000C4760 /* ScoreViewController.swift in Sources */,
 				EE58E65B2D2D2D76000C4760 /* AppDelegate.swift in Sources */,
