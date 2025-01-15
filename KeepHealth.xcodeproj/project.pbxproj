@@ -9,15 +9,12 @@
 /* Begin PBXBuildFile section */
 		EE4CE1422D30179100DE3054 /* DietModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CE1412D30179100DE3054 /* DietModel.swift */; };
 		EE4CE1542D31F92200DE3054 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CE1532D31F92200DE3054 /* CalendarViewController.swift */; };
-		EE4CE1572D31F95E00DE3054 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = EE4CE1562D31F95E00DE3054 /* FSCalendar */; };
-		EE4CE1602D33CEFB00DE3054 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = EE4CE15F2D33CEFB00DE3054 /* FloatingPanel */; };
 		EE4CE16E2D34EA6400DE3054 /* DateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CE16C2D34EA6400DE3054 /* DateProtocol.swift */; };
-		EE4CE1722D35020700DE3054 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = EE4CE1712D35020700DE3054 /* DGCharts */; };
 		EE58E6502D2D2D76000C4760 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6372D2D2D76000C4760 /* Notification+Name.swift */; };
 		EE58E6512D2D2D76000C4760 /* UIButton+CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6382D2D2D76000C4760 /* UIButton+CustomButton.swift */; };
 		EE58E6522D2D2D76000C4760 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6392D2D2D76000C4760 /* UIColor+Ext.swift */; };
 		EE58E6532D2D2D76000C4760 /* DietCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E63B2D2D2D76000C4760 /* DietCellModel.swift */; };
-		EE58E6542D2D2D76000C4760 /* MangementDietViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E63D2D2D2D76000C4760 /* MangementDietViewController.swift */; };
+		EE58E6542D2D2D76000C4760 /* ManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E63D2D2D2D76000C4760 /* ManagementViewController.swift */; };
 		EE58E6552D2D2D76000C4760 /* DietFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E63F2D2D2D76000C4760 /* DietFlow.swift */; };
 		EE58E6562D2D2D76000C4760 /* DietListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6402D2D2D76000C4760 /* DietListCell.swift */; };
 		EE58E6572D2D2D76000C4760 /* DietListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6412D2D2D76000C4760 /* DietListViewController.swift */; };
@@ -30,16 +27,30 @@
 		EE58E6602D2D2D76000C4760 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE58E64D2D2D2D76000C4760 /* LaunchScreen.storyboard */; };
 		EE58E6A02D2E4891000C4760 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E69F2D2E4891000C4760 /* RealmManager.swift */; };
 		EE58E6A22D2E49A0000C4760 /* DietEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6A12D2E49A0000C4760 /* DietEntity.swift */; };
-		EE58E6D42D2EC26D000C4760 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EE58E6D32D2EC26D000C4760 /* RealmSwift */; };
-		EE58E6D72D2EC2A2000C4760 /* RxFlow in Frameworks */ = {isa = PBXBuildFile; productRef = EE58E6D62D2EC2A2000C4760 /* RxFlow */; };
-		EE58E6DA2D2EC2B4000C4760 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = EE58E6D92D2EC2B4000C4760 /* RxCocoa */; };
-		EE58E6DC2D2EC2B4000C4760 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = EE58E6DB2D2EC2B4000C4760 /* RxRelay */; };
-		EE58E6DE2D2EC2B4000C4760 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EE58E6DD2D2EC2B4000C4760 /* RxSwift */; };
-		EE58E6E12D2EC2C0000C4760 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = EE58E6E02D2EC2C0000C4760 /* Then */; };
 		EE58E6E32D2FB723000C4760 /* UICollectionViewCell+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6E22D2FB723000C4760 /* UICollectionViewCell+Ext.swift */; };
-		EE58E6E92D2FB966000C4760 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EE58E6E82D2FB966000C4760 /* SnapKit */; };
 		EE58E6EF2D2FC378000C4760 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6EC2D2FC378000C4760 /* PopupView.swift */; };
 		EE58E6F02D2FC378000C4760 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6ED2D2FC378000C4760 /* PopupViewController.swift */; };
+		EED075772D368227001CC272 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = EED075762D368227001CC272 /* DGCharts */; };
+		EED0757A2D368234001CC272 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = EED075792D368234001CC272 /* FSCalendar */; };
+		EED0757D2D36823D001CC272 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EED0757C2D36823D001CC272 /* SnapKit */; };
+		EED075802D368246001CC272 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = EED0757F2D368246001CC272 /* Then */; };
+		EED075832D368259001CC272 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = EED075822D368259001CC272 /* RxCocoa */; };
+		EED075852D368259001CC272 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = EED075842D368259001CC272 /* RxRelay */; };
+		EED075872D368259001CC272 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EED075862D368259001CC272 /* RxSwift */; };
+		EED0758A2D368265001CC272 /* RxFlow in Frameworks */ = {isa = PBXBuildFile; productRef = EED075892D368265001CC272 /* RxFlow */; };
+		EED0758D2D368282001CC272 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EED0758C2D368282001CC272 /* RealmSwift */; };
+		EED0758E2D36829F001CC272 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = EED0758C2D368282001CC272 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		EED075912D368334001CC272 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = EED075902D368334001CC272 /* FloatingPanel */; };
+		EED075932D36C6C1001CC272 /* DietImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED075922D36C6C1001CC272 /* DietImageCollectionViewCell.swift */; };
+		EED0759C2D376FDD001CC272 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = EED0759B2D376FDD001CC272 /* Auth */; };
+		EED0759E2D376FDD001CC272 /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = EED0759D2D376FDD001CC272 /* Functions */; };
+		EED075A02D376FDD001CC272 /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = EED0759F2D376FDD001CC272 /* PostgREST */; };
+		EED075A22D376FDD001CC272 /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = EED075A12D376FDD001CC272 /* Realtime */; };
+		EED075A42D376FDD001CC272 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = EED075A32D376FDD001CC272 /* Storage */; };
+		EED075A62D376FDD001CC272 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = EED075A52D376FDD001CC272 /* Supabase */; };
+		EED075AF2D377526001CC272 /* Supabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED075AC2D377526001CC272 /* Supabase.swift */; };
+		EED075B02D377526001CC272 /* SupabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED075AD2D377526001CC272 /* SupabaseManager.swift */; };
+		EED075B22D377542001CC272 /* DietModelForSupabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED075B12D377542001CC272 /* DietModelForSupabase.swift */; };
 		EED1269A2D355681003DBF38 /* DietScoreEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED126992D355681003DBF38 /* DietScoreEntity.swift */; };
 		EED126AA2D362D89003DBF38 /* DietViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED126A82D362D89003DBF38 /* DietViewModel.swift */; };
 		EED126AD2D362D9C003DBF38 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED126AC2D362D9C003DBF38 /* BottomSheetViewController.swift */; };
@@ -69,6 +80,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				EED0758E2D36829F001CC272 /* RealmSwift in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,7 +98,7 @@
 		EE58E6382D2D2D76000C4760 /* UIButton+CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+CustomButton.swift"; sourceTree = "<group>"; };
 		EE58E6392D2D2D76000C4760 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		EE58E63B2D2D2D76000C4760 /* DietCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietCellModel.swift; sourceTree = "<group>"; };
-		EE58E63D2D2D2D76000C4760 /* MangementDietViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangementDietViewController.swift; sourceTree = "<group>"; };
+		EE58E63D2D2D2D76000C4760 /* ManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementViewController.swift; sourceTree = "<group>"; };
 		EE58E63F2D2D2D76000C4760 /* DietFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietFlow.swift; sourceTree = "<group>"; };
 		EE58E6402D2D2D76000C4760 /* DietListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietListCell.swift; sourceTree = "<group>"; };
 		EE58E6412D2D2D76000C4760 /* DietListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietListViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +115,10 @@
 		EE58E6E22D2FB723000C4760 /* UICollectionViewCell+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Ext.swift"; sourceTree = "<group>"; };
 		EE58E6EC2D2FC378000C4760 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		EE58E6ED2D2FC378000C4760 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		EED075922D36C6C1001CC272 /* DietImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		EED075AC2D377526001CC272 /* Supabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supabase.swift; sourceTree = "<group>"; };
+		EED075AD2D377526001CC272 /* SupabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseManager.swift; sourceTree = "<group>"; };
+		EED075B12D377542001CC272 /* DietModelForSupabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietModelForSupabase.swift; sourceTree = "<group>"; };
 		EED126992D355681003DBF38 /* DietScoreEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietScoreEntity.swift; sourceTree = "<group>"; };
 		EED126A82D362D89003DBF38 /* DietViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewModel.swift; sourceTree = "<group>"; };
 		EED126AC2D362D9C003DBF38 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
@@ -126,16 +142,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE4CE1602D33CEFB00DE3054 /* FloatingPanel in Frameworks */,
-				EE58E6DA2D2EC2B4000C4760 /* RxCocoa in Frameworks */,
-				EE4CE1722D35020700DE3054 /* DGCharts in Frameworks */,
-				EE58E6E12D2EC2C0000C4760 /* Then in Frameworks */,
-				EE58E6D72D2EC2A2000C4760 /* RxFlow in Frameworks */,
-				EE58E6E92D2FB966000C4760 /* SnapKit in Frameworks */,
-				EE58E6DE2D2EC2B4000C4760 /* RxSwift in Frameworks */,
-				EE4CE1572D31F95E00DE3054 /* FSCalendar in Frameworks */,
-				EE58E6DC2D2EC2B4000C4760 /* RxRelay in Frameworks */,
-				EE58E6D42D2EC26D000C4760 /* RealmSwift in Frameworks */,
+				EED0758A2D368265001CC272 /* RxFlow in Frameworks */,
+				EED075912D368334001CC272 /* FloatingPanel in Frameworks */,
+				EED075852D368259001CC272 /* RxRelay in Frameworks */,
+				EED075A42D376FDD001CC272 /* Storage in Frameworks */,
+				EED0757D2D36823D001CC272 /* SnapKit in Frameworks */,
+				EED0758D2D368282001CC272 /* RealmSwift in Frameworks */,
+				EED075772D368227001CC272 /* DGCharts in Frameworks */,
+				EED075A02D376FDD001CC272 /* PostgREST in Frameworks */,
+				EED075A22D376FDD001CC272 /* Realtime in Frameworks */,
+				EED0759E2D376FDD001CC272 /* Functions in Frameworks */,
+				EED075832D368259001CC272 /* RxCocoa in Frameworks */,
+				EED0757A2D368234001CC272 /* FSCalendar in Frameworks */,
+				EED075A62D376FDD001CC272 /* Supabase in Frameworks */,
+				EED075802D368246001CC272 /* Then in Frameworks */,
+				EED0759C2D376FDD001CC272 /* Auth in Frameworks */,
+				EED075872D368259001CC272 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,16 +233,18 @@
 				EED126992D355681003DBF38 /* DietScoreEntity.swift */,
 				EE58E6A12D2E49A0000C4760 /* DietEntity.swift */,
 				EE58E69F2D2E4891000C4760 /* RealmManager.swift */,
+				EED075AE2D377526001CC272 /* Supabase */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		EE58E63E2D2D2D76000C4760 /* AddDietScene */ = {
+		EE58E63E2D2D2D76000C4760 /* ManagementDietScene */ = {
 			isa = PBXGroup;
 			children = (
-				EE58E63D2D2D2D76000C4760 /* MangementDietViewController.swift */,
+				EE58E63D2D2D2D76000C4760 /* ManagementViewController.swift */,
+				EED075922D36C6C1001CC272 /* DietImageCollectionViewCell.swift */,
 			);
-			path = AddDietScene;
+			path = ManagementDietScene;
 			sourceTree = "<group>";
 		};
 		EE58E6432D2D2D76000C4760 /* DietScene */ = {
@@ -247,7 +271,7 @@
 			children = (
 				EE58E6462D2D2D76000C4760 /* ScoreScene */,
 				EE58E6432D2D2D76000C4760 /* DietScene */,
-				EE58E63E2D2D2D76000C4760 /* AddDietScene */,
+				EE58E63E2D2D2D76000C4760 /* ManagementDietScene */,
 				EE58E6EE2D2FC378000C4760 /* PopupScene */,
 				EE4CE1522D31F90500DE3054 /* Calender */,
 				EED126AB2D362D91003DBF38 /* BottomSheet */,
@@ -280,6 +304,16 @@
 				EE58E6EC2D2FC378000C4760 /* PopupView.swift */,
 			);
 			path = PopupScene;
+			sourceTree = "<group>";
+		};
+		EED075AE2D377526001CC272 /* Supabase */ = {
+			isa = PBXGroup;
+			children = (
+				EED075AC2D377526001CC272 /* Supabase.swift */,
+				EED075AD2D377526001CC272 /* SupabaseManager.swift */,
+				EED075B12D377542001CC272 /* DietModelForSupabase.swift */,
+			);
+			path = Supabase;
 			sourceTree = "<group>";
 		};
 		EED126A92D362D89003DBF38 /* ViewModel */ = {
@@ -316,16 +350,22 @@
 			);
 			name = KeepHealth;
 			packageProductDependencies = (
-				EE58E6D32D2EC26D000C4760 /* RealmSwift */,
-				EE58E6D62D2EC2A2000C4760 /* RxFlow */,
-				EE58E6D92D2EC2B4000C4760 /* RxCocoa */,
-				EE58E6DB2D2EC2B4000C4760 /* RxRelay */,
-				EE58E6DD2D2EC2B4000C4760 /* RxSwift */,
-				EE58E6E02D2EC2C0000C4760 /* Then */,
-				EE58E6E82D2FB966000C4760 /* SnapKit */,
-				EE4CE1562D31F95E00DE3054 /* FSCalendar */,
-				EE4CE15F2D33CEFB00DE3054 /* FloatingPanel */,
-				EE4CE1712D35020700DE3054 /* DGCharts */,
+				EED075762D368227001CC272 /* DGCharts */,
+				EED075792D368234001CC272 /* FSCalendar */,
+				EED0757C2D36823D001CC272 /* SnapKit */,
+				EED0757F2D368246001CC272 /* Then */,
+				EED075822D368259001CC272 /* RxCocoa */,
+				EED075842D368259001CC272 /* RxRelay */,
+				EED075862D368259001CC272 /* RxSwift */,
+				EED075892D368265001CC272 /* RxFlow */,
+				EED0758C2D368282001CC272 /* RealmSwift */,
+				EED075902D368334001CC272 /* FloatingPanel */,
+				EED0759B2D376FDD001CC272 /* Auth */,
+				EED0759D2D376FDD001CC272 /* Functions */,
+				EED0759F2D376FDD001CC272 /* PostgREST */,
+				EED075A12D376FDD001CC272 /* Realtime */,
+				EED075A32D376FDD001CC272 /* Storage */,
+				EED075A52D376FDD001CC272 /* Supabase */,
 			);
 			productName = KeepHealth;
 			productReference = EE58E5032D2C081A000C4760 /* KeepHealth.app */;
@@ -410,14 +450,15 @@
 			mainGroup = EE58E4FA2D2C081A000C4760;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				EE58E6D22D2EC26D000C4760 /* XCRemoteSwiftPackageReference "realm-swift" */,
-				EE58E6D52D2EC2A2000C4760 /* XCRemoteSwiftPackageReference "RxFlow" */,
-				EE58E6D82D2EC2B4000C4760 /* XCRemoteSwiftPackageReference "RxSwift" */,
-				EE58E6DF2D2EC2C0000C4760 /* XCRemoteSwiftPackageReference "Then" */,
-				EE58E6E72D2FB966000C4760 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				EE4CE1552D31F95E00DE3054 /* XCRemoteSwiftPackageReference "FSCalendar" */,
-				EE4CE15E2D33CEFB00DE3054 /* XCRemoteSwiftPackageReference "FloatingPanel" */,
-				EE4CE1702D35020700DE3054 /* XCRemoteSwiftPackageReference "Charts" */,
+				EED075752D368227001CC272 /* XCRemoteSwiftPackageReference "Charts" */,
+				EED075782D368234001CC272 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				EED0757B2D36823D001CC272 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				EED0757E2D368246001CC272 /* XCRemoteSwiftPackageReference "Then" */,
+				EED075812D368259001CC272 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				EED075882D368265001CC272 /* XCRemoteSwiftPackageReference "RxFlow" */,
+				EED0758B2D368282001CC272 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				EED0758F2D368334001CC272 /* XCRemoteSwiftPackageReference "FloatingPanel" */,
+				EED0759A2D376FDD001CC272 /* XCRemoteSwiftPackageReference "supabase-swift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EE58E5042D2C081A000C4760 /* Products */;
@@ -468,10 +509,14 @@
 				EE58E6F02D2FC378000C4760 /* PopupViewController.swift in Sources */,
 				EE58E6A02D2E4891000C4760 /* RealmManager.swift in Sources */,
 				EE58E6E32D2FB723000C4760 /* UICollectionViewCell+Ext.swift in Sources */,
+				EED075AF2D377526001CC272 /* Supabase.swift in Sources */,
+				EED075B22D377542001CC272 /* DietModelForSupabase.swift in Sources */,
+				EED075B02D377526001CC272 /* SupabaseManager.swift in Sources */,
+				EED075932D36C6C1001CC272 /* DietImageCollectionViewCell.swift in Sources */,
 				EE58E6522D2D2D76000C4760 /* UIColor+Ext.swift in Sources */,
 				EED126AD2D362D9C003DBF38 /* BottomSheetViewController.swift in Sources */,
 				EE58E6532D2D2D76000C4760 /* DietCellModel.swift in Sources */,
-				EE58E6542D2D2D76000C4760 /* MangementDietViewController.swift in Sources */,
+				EE58E6542D2D2D76000C4760 /* ManagementViewController.swift in Sources */,
 				EE58E6552D2D2D76000C4760 /* DietFlow.swift in Sources */,
 				EE58E6562D2D2D76000C4760 /* DietListCell.swift in Sources */,
 				EE58E6572D2D2D76000C4760 /* DietListViewController.swift in Sources */,
@@ -537,12 +582,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YQC68LN7U3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KeepHealth/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "식단사진 촬영을 위해 카메라에 접근을 허용해주세요!";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "식단사진 선택을 위해 갤러리에 접근을 허용해주세요!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -568,12 +616,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YQC68LN7U3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KeepHealth/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "식단사진 촬영을 위해 카메라에 접근을 허용해주세요!";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "식단사진 선택을 위해 갤러리에 접근을 허용해주세요!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -821,23 +872,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		EE4CE1552D31F95E00DE3054 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.8.4;
-			};
-		};
-		EE4CE15E2D33CEFB00DE3054 /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/scenee/FloatingPanel";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.8.6;
-			};
-		};
-		EE4CE1702D35020700DE3054 /* XCRemoteSwiftPackageReference "Charts" */ = {
+		EED075752D368227001CC272 /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ChartsOrg/Charts";
 			requirement = {
@@ -845,39 +880,15 @@
 				minimumVersion = 5.1.0;
 			};
 		};
-		EE58E6D22D2EC26D000C4760 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		EED075782D368234001CC272 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-swift.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		EE58E6D52D2EC2A2000C4760 /* XCRemoteSwiftPackageReference "RxFlow" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/RxSwiftCommunity/RxFlow";
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.13.1;
+				minimumVersion = 2.8.4;
 			};
 		};
-		EE58E6D82D2EC2B4000C4760 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.8.0;
-			};
-		};
-		EE58E6DF2D2EC2C0000C4760 /* XCRemoteSwiftPackageReference "Then" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/devxoul/Then";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
-		EE58E6E72D2FB966000C4760 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		EED0757B2D36823D001CC272 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -885,58 +896,136 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		EED0757E2D368246001CC272 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		EED075812D368259001CC272 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.8.0;
+			};
+		};
+		EED075882D368265001CC272 /* XCRemoteSwiftPackageReference "RxFlow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxFlow";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.13.1;
+			};
+		};
+		EED0758B2D368282001CC272 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		EED0758F2D368334001CC272 /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scenee/FloatingPanel";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.6;
+			};
+		};
+		EED0759A2D376FDD001CC272 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EE4CE1562D31F95E00DE3054 /* FSCalendar */ = {
+		EED075762D368227001CC272 /* DGCharts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EE4CE1552D31F95E00DE3054 /* XCRemoteSwiftPackageReference "FSCalendar" */;
-			productName = FSCalendar;
-		};
-		EE4CE15F2D33CEFB00DE3054 /* FloatingPanel */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EE4CE15E2D33CEFB00DE3054 /* XCRemoteSwiftPackageReference "FloatingPanel" */;
-			productName = FloatingPanel;
-		};
-		EE4CE1712D35020700DE3054 /* DGCharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EE4CE1702D35020700DE3054 /* XCRemoteSwiftPackageReference "Charts" */;
+			package = EED075752D368227001CC272 /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = DGCharts;
 		};
-		EE58E6D32D2EC26D000C4760 /* RealmSwift */ = {
+		EED075792D368234001CC272 /* FSCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EE58E6D22D2EC26D000C4760 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = RealmSwift;
+			package = EED075782D368234001CC272 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
 		};
-		EE58E6D62D2EC2A2000C4760 /* RxFlow */ = {
+		EED0757C2D36823D001CC272 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EE58E6D52D2EC2A2000C4760 /* XCRemoteSwiftPackageReference "RxFlow" */;
-			productName = RxFlow;
+			package = EED0757B2D36823D001CC272 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
-		EE58E6D92D2EC2B4000C4760 /* RxCocoa */ = {
+		EED0757F2D368246001CC272 /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EE58E6D82D2EC2B4000C4760 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-		EE58E6DB2D2EC2B4000C4760 /* RxRelay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EE58E6D82D2EC2B4000C4760 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxRelay;
-		};
-		EE58E6DD2D2EC2B4000C4760 /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EE58E6D82D2EC2B4000C4760 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
-		};
-		EE58E6E02D2EC2C0000C4760 /* Then */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EE58E6DF2D2EC2C0000C4760 /* XCRemoteSwiftPackageReference "Then" */;
+			package = EED0757E2D368246001CC272 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
 		};
-		EE58E6E82D2FB966000C4760 /* SnapKit */ = {
+		EED075822D368259001CC272 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EE58E6E72D2FB966000C4760 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
+			package = EED075812D368259001CC272 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		EED075842D368259001CC272 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED075812D368259001CC272 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		EED075862D368259001CC272 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED075812D368259001CC272 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		EED075892D368265001CC272 /* RxFlow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED075882D368265001CC272 /* XCRemoteSwiftPackageReference "RxFlow" */;
+			productName = RxFlow;
+		};
+		EED0758C2D368282001CC272 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED0758B2D368282001CC272 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		EED075902D368334001CC272 /* FloatingPanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED0758F2D368334001CC272 /* XCRemoteSwiftPackageReference "FloatingPanel" */;
+			productName = FloatingPanel;
+		};
+		EED0759B2D376FDD001CC272 /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED0759A2D376FDD001CC272 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		EED0759D2D376FDD001CC272 /* Functions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED0759A2D376FDD001CC272 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Functions;
+		};
+		EED0759F2D376FDD001CC272 /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED0759A2D376FDD001CC272 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		EED075A12D376FDD001CC272 /* Realtime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED0759A2D376FDD001CC272 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Realtime;
+		};
+		EED075A32D376FDD001CC272 /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED0759A2D376FDD001CC272 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
+		};
+		EED075A52D376FDD001CC272 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED0759A2D376FDD001CC272 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

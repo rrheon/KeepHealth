@@ -7,9 +7,12 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
 import RxFlow
 import RxRelay
 import Then
+import PhotosUI
 
 
 /// 식단 페이지 종류
@@ -26,8 +29,10 @@ enum ManageDietVCType {
 }
 
 /// 식단 관리 VC
-class MangementDietViewController: UIViewController {
+class ManagementViewController: UIViewController {
   var dietVM: DietViewModel? = nil
+  
+  let disposeBag: DisposeBag = DisposeBag()
   
   private lazy var selectDietTypeSegment: UISegmentedControl = {
     let control = UISegmentedControl(items: [DietType.morning.rawValue,
@@ -45,7 +50,7 @@ class MangementDietViewController: UIViewController {
     $0.textColor = .black
   }
   
-  /// 식단 추가 버튼
+  /// 식단사진 추가 버튼
   private lazy var addDietImageButton = UIButton().then {
     $0.setTitle("+", for: .normal)
     $0.setTitleColor(.black, for: .normal)
@@ -54,6 +59,19 @@ class MangementDietViewController: UIViewController {
     $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
   }
   
+  
+  /// 식단사진 collectionview
+  private lazy var dietImageCollectionView: UICollectionView = {
+    let flowLayout = UICollectionViewFlowLayout()
+    flowLayout.scrollDirection = .horizontal
+    flowLayout.minimumLineSpacing = 10
+    
+    let view = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+    view.backgroundColor = .clear
+    view.clipsToBounds = false
+    return view
+  }()
+
   private lazy var dietContentTitleLabel = UILabel().then {
     $0.text = "식단내용"
     $0.font = .boldSystemFont(ofSize: 18)
@@ -63,6 +81,7 @@ class MangementDietViewController: UIViewController {
   private lazy var dietContentTextView = UITextView().then {
     $0.text = "식단을 입력해주세요."
     $0.textColor = .lightGray
+    $0.backgroundColor = .white
     $0.layer.borderColor = UIColor.lightGray.cgColor
     $0.layer.borderWidth = 1.0
     $0.layer.cornerRadius = 10
@@ -83,7 +102,7 @@ class MangementDietViewController: UIViewController {
   
   private lazy var addDietButton = UIButton.makeKFMainButton(buttonTitle: "식단 추가하기",
                                                              backgroundColor: KHColorList.mainGray.color)
-
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -93,18 +112,21 @@ class MangementDietViewController: UIViewController {
     self.view.backgroundColor = KHColorList.backgroundGray.color
     
     setupLayout()
-
+    
+    // 노티피케이션 등록
     registerNotifications()
     
-    dietContentTextView.delegate = self
-    dietContentTextView.isScrollEnabled = false
+    // delegate 및 collectionView 셀 등록
+    addDelegateAndRegisterCell()
     
-    addDietButton.addTarget(self, action: #selector(managementDietAction), for: .touchUpInside)
-    addDietButton.isEnabled = false
+    // 버튼액션 추가
+    addButtonActions()
     
-    addDietImageButton.addTarget(self, action: #selector(presentBottomSheet), for: .touchUpInside)
-    
+    // 네비게이션바 아이템 설정
     setupNavigationItem()
+    
+    // 바인딩 설정
+    setupBindings()
     
     // 개별 데이터가 있으면 편집
     if let data: DietEntity = dietVM?.dietData {
@@ -118,6 +140,14 @@ class MangementDietViewController: UIViewController {
     NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
   }
   
+  // 화면에서 나갈 때 vm에 저장된 식단 이미지 없애주기, 카메라 사진 찍을 때 탐
+  override func viewDidDisappear(_ animated: Bool) {
+    if let vc = self.navigationController?.topViewController as? ManagementViewController {
+      dietVM?.dietImages.accept([])
+    }
+   
+  }
+  
   
   /// layout 설정
   func setupLayout(){
@@ -125,6 +155,7 @@ class MangementDietViewController: UIViewController {
       selectDietTypeSegment,
       dietImageTitleLabel,
       addDietImageButton,
+      dietImageCollectionView,
       dietContentTitleLabel,
       dietContentTextView,
       dietRatingTitleLabel,
@@ -153,6 +184,11 @@ class MangementDietViewController: UIViewController {
       addDietImageButton.heightAnchor.constraint(equalToConstant: 42),
       addDietImageButton.widthAnchor.constraint(equalToConstant: 42),
       
+      dietImageCollectionView.topAnchor.constraint(equalTo: addDietImageButton.topAnchor),
+      dietImageCollectionView.leadingAnchor.constraint(equalTo: addDietImageButton.trailingAnchor, constant: 10),
+      dietImageCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      dietImageCollectionView.heightAnchor.constraint(equalToConstant: 42),
+      
       // 식단내용 제목 라벨
       dietContentTitleLabel.topAnchor.constraint(equalTo: addDietImageButton.bottomAnchor, constant: 40),
       dietContentTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
@@ -175,15 +211,59 @@ class MangementDietViewController: UIViewController {
       selectDietRateSegment.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
       selectDietRateSegment.heightAnchor.constraint(equalToConstant: 50),
       
+      // 식단 등록 버튼
       addDietButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
       addDietButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
       addDietButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
       addDietButton.heightAnchor.constraint(equalToConstant: 50)
     ])
+    
+    // textView 스크롤 비활성화
+    dietContentTextView.isScrollEnabled = false
+
+    // 식단추가버튼 처음에 비활성화
+    addDietButton.isEnabled = false
   }
   
   
   // MARK: - functions
+  
+  
+  /// delegate 및 collectionView 셀 등록
+  func addDelegateAndRegisterCell(){
+    dietContentTextView.delegate = self
+    
+    dietImageCollectionView.rx.setDelegate(self)
+      .disposed(by: disposeBag)
+    
+    dietImageCollectionView.register(
+      DietImageCollectionViewCell.self,
+      forCellWithReuseIdentifier: DietImageCollectionViewCell.cellID
+    )
+  }
+  
+  
+  /// 바인딩 설정
+  func setupBindings() {
+  #warning("사진추가 갯수 제한, 사진 갯수, 리얼앰 저장")
+    dietVM?.dietImages
+      .asDriver(onErrorJustReturn: [])
+      .drive(dietImageCollectionView.rx.items(
+        cellIdentifier: DietImageCollectionViewCell.cellID,
+        cellType: DietImageCollectionViewCell.self)) { index, content, cell in
+          cell.bindImage(with: content)
+        }
+        .disposed(by: disposeBag)
+  }
+  
+  /// 버튼 actions 등록
+  func addButtonActions(){
+    // 식단추가버튼 액션등록
+    addDietButton.addTarget(self, action: #selector(managementDietAction), for: .touchUpInside)
+    
+    // 식단이미지추가버튼 액션등록
+    addDietImageButton.addTarget(self, action: #selector(presentBottomSheet), for: .touchUpInside)
+  }
   
   /// 노티피케이션 및 탭 재스쳐 등록
   fileprivate func registerNotifications() {
@@ -296,7 +376,7 @@ class MangementDietViewController: UIViewController {
     
     navigationItem.leftBarButtonItem?.tintColor = .black
   }
-
+  
   
   /// 뒤로가기 버튼 탭
   @objc private func backButtonTapped() {
@@ -313,7 +393,7 @@ class MangementDietViewController: UIViewController {
 
 // textview 높이 동적조절
 
-extension MangementDietViewController: UITextViewDelegate {
+extension ManagementViewController: UITextViewDelegate {
   func textViewDidChange(_ textView: UITextView) {
     let size = CGSize(width: view.frame.width, height: .infinity)
     let estimatedSize = textView.sizeThatFits(size)
@@ -343,7 +423,6 @@ extension MangementDietViewController: UITextViewDelegate {
     }
   }
   
-  
   func textViewDidChangeSelection(_ textView: UITextView) {
     // 텍스트가 비어있지 않은 경우 버튼 활성화
     if textView.text != "식단을 입력해주세요." && textView.text != "" {
@@ -356,7 +435,70 @@ extension MangementDietViewController: UITextViewDelegate {
   }
 }
 
-extension MangementDietViewController: UIImagePickerControllerDelegate,
-                                        UINavigationControllerDelegate{
-  
+#warning("로직 따로 빼기")
+// 사진 촬영 후 이미지 처리
+extension ManagementViewController: UIImagePickerControllerDelegate,
+                                    UINavigationControllerDelegate{
+  func imagePickerController(
+    _ picker: UIImagePickerController,
+    didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]
+  ) {
+    dietVM?.steps.accept(AppStep.dismissIsRequired)
+
+    // 임시 배열 생성
+    var selectedImages: [UIImage] = []
+    
+    if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+      
+      selectedImages.append(image)
+      
+      self.dietVM?.managementImages(with: selectedImages)
+    }
+  }
+}
+
+#warning("로직 따로 빼기")
+// 사진 선택 후 이미지 처리
+extension ManagementViewController: PHPickerViewControllerDelegate {
+  func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+    dietVM?.steps.accept(AppStep.dismissIsRequired)
+
+    // 임시 배열 생성
+    var selectedImages: [UIImage] = []
+    
+    // DispatchGroup 사용
+    let dispatchGroup: DispatchGroup = DispatchGroup()
+    
+    for result in results {
+      dispatchGroup.enter()  // 시작
+      result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] (image, error) in
+        guard let self = self else {
+          dispatchGroup.leave()
+          return
+        }
+        
+        if let image = image as? UIImage {
+          selectedImages.append(image)
+        }
+        // 종료
+        dispatchGroup.leave()
+      }
+    }
+    
+    // 모든 이미지 로딩 완료 후 호출
+    dispatchGroup.notify(queue: .main) {
+      self.dietVM?.managementImages(with: selectedImages)
+      print("현재 저장된 이미지 개수: \(selectedImages.count)")
+    }
+  }
+}
+
+
+// collectionView cell의 크기
+extension ManagementViewController: UICollectionViewDelegateFlowLayout {
+  func collectionView(_ collectionView: UICollectionView,
+                      layout collectionViewLayout: UICollectionViewLayout,
+                      sizeForItemAt indexPath: IndexPath) -> CGSize {
+    return CGSize(width: 50, height: 50)
+  }
 }

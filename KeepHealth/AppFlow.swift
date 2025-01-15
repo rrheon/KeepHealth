@@ -11,6 +11,7 @@ import RxFlow
 import RxCocoa
 import RxSwift
 import RxRelay
+import PhotosUI
 
 /// 화면 이동
 enum AppStep: Step {
@@ -50,7 +51,7 @@ enum AppStep: Step {
   case popIsRequired                             // 현재화면 pop
   case bottomSheetIsRequired                    // bottomSheet
   case cameraIsRequired                         // 카메라 사용
-  case photoIsRequired                         // 카메라 사용
+  case photoIsRequired                         //  앨범 사용
 
 }
 
@@ -139,7 +140,7 @@ class AppFlow: Flow {
   func navToAddDietScreen(dietData: DietEntity? = nil) -> FlowContributors {
     print(#fileID, #function, #line," - <#comment#>")
 
-    let vc = MangementDietViewController()
+    let vc = ManagementViewController()
     viewModel.dietData = dietData
     vc.dietVM = self.viewModel
     self.rootViewController.pushViewController(vc, animated: true)
@@ -183,24 +184,40 @@ class AppFlow: Flow {
   }
   
   
-  /// 카메라 띄우기, vc를 받아서 델리게이트 설정? 아님 프로토콜로?
+  /// 앨범 띄우기
   /// - Returns: none
   func presentPhotoScreen() -> FlowContributors {
-    let photoLibrary: UIImagePickerController = UIImagePickerController()
-    photoLibrary.sourceType = .photoLibrary  // 사진 보관함 사용
-    photoLibrary.allowsEditing = true
-    rootViewController.present(photoLibrary, animated: true)
+    var config: PHPickerConfiguration = PHPickerConfiguration()
+    // 최대 3개까지 선택가능
+    config.selectionLimit = 3
+    config.filter = .images
+    
+    let photoPicker = PHPickerViewController(configuration: config)
+    
+    let vc = rootViewController.viewControllers.compactMap { $0 as? ManagementViewController }.first
+    photoPicker.delegate = vc
+    
+    rootViewController.present(photoPicker, animated: true)
     return .none
   }
   
+  
+  /// 카메라 회면으로 이동
+  /// - Returns: description
   func presentCameraScreen() -> FlowContributors {
     let camera: UIImagePickerController = UIImagePickerController()
-    camera.sourceType = .photoLibrary
+    camera.sourceType = .camera
     camera.allowsEditing = true
     camera.cameraDevice = .rear
     camera.cameraCaptureMode = .photo
+    
+    let vc = rootViewController.viewControllers.compactMap { $0 as? ManagementViewController }.first
+    camera.delegate = vc
+    camera.modalPresentationStyle = .overFullScreen
     rootViewController.present(camera, animated: true)
-      return .none
+    
+    print(#fileID, #function, #line," - \(rootViewController.viewControllers)")
+    return .none
   }
 }
 

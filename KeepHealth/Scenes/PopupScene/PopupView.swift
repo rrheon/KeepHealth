@@ -18,6 +18,7 @@ enum PopupCase {
   case confirmDelte  // 삭제확인 팝업
   case confirmEdit   // 수정확인 팝업
   case delete        // 삭제 팝업
+  case dietImage     // 이미지 권한설정 팝업
   
   
   /// 팝업 title
@@ -29,6 +30,7 @@ enum PopupCase {
     case .confirmDelte: return "식단을 삭제했습니다!"
     case .confirmEdit:  return "식단을 수정했습니다!"
     case .delete:       return "식단을 삭제할까요?"
+    case .dietImage:    return "접근권한을 설정해주세요!"
     }
   }
   
