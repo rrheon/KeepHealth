@@ -1,0 +1,1037 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EE4CE1422D30179100DE3054 /* DietModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CE1412D30179100DE3054 /* DietModel.swift */; };
+		EE4CE1542D31F92200DE3054 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CE1532D31F92200DE3054 /* CalendarViewController.swift */; };
+		EE4CE16E2D34EA6400DE3054 /* DateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4CE16C2D34EA6400DE3054 /* DateProtocol.swift */; };
+		EE58E6502D2D2D76000C4760 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6372D2D2D76000C4760 /* Notification+Name.swift */; };
+		EE58E6512D2D2D76000C4760 /* UIButton+CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6382D2D2D76000C4760 /* UIButton+CustomButton.swift */; };
+		EE58E6522D2D2D76000C4760 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6392D2D2D76000C4760 /* UIColor+Ext.swift */; };
+		EE58E6532D2D2D76000C4760 /* DietCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E63B2D2D2D76000C4760 /* DietCellModel.swift */; };
+		EE58E6542D2D2D76000C4760 /* ManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E63D2D2D2D76000C4760 /* ManagementViewController.swift */; };
+		EE58E6552D2D2D76000C4760 /* DietFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E63F2D2D2D76000C4760 /* DietFlow.swift */; };
+		EE58E6562D2D2D76000C4760 /* DietListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6402D2D2D76000C4760 /* DietListCell.swift */; };
+		EE58E6572D2D2D76000C4760 /* DietListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6412D2D2D76000C4760 /* DietListViewController.swift */; };
+		EE58E6592D2D2D76000C4760 /* ScoreFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6442D2D2D76000C4760 /* ScoreFlow.swift */; };
+		EE58E65A2D2D2D76000C4760 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6452D2D2D76000C4760 /* ScoreViewController.swift */; };
+		EE58E65B2D2D2D76000C4760 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6482D2D2D76000C4760 /* AppDelegate.swift */; };
+		EE58E65C2D2D2D76000C4760 /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6492D2D2D76000C4760 /* AppFlow.swift */; };
+		EE58E65D2D2D2D76000C4760 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E64E2D2D2D76000C4760 /* SceneDelegate.swift */; };
+		EE58E65E2D2D2D76000C4760 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE58E64A2D2D2D76000C4760 /* Assets.xcassets */; };
+		EE58E6602D2D2D76000C4760 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE58E64D2D2D2D76000C4760 /* LaunchScreen.storyboard */; };
+		EE58E6A02D2E4891000C4760 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E69F2D2E4891000C4760 /* RealmManager.swift */; };
+		EE58E6A22D2E49A0000C4760 /* DietEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6A12D2E49A0000C4760 /* DietEntity.swift */; };
+		EE58E6E32D2FB723000C4760 /* UICollectionViewCell+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6E22D2FB723000C4760 /* UICollectionViewCell+Ext.swift */; };
+		EE58E6EF2D2FC378000C4760 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6EC2D2FC378000C4760 /* PopupView.swift */; };
+		EE58E6F02D2FC378000C4760 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6ED2D2FC378000C4760 /* PopupViewController.swift */; };
+		EED075772D368227001CC272 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = EED075762D368227001CC272 /* DGCharts */; };
+		EED0757A2D368234001CC272 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = EED075792D368234001CC272 /* FSCalendar */; };
+		EED0757D2D36823D001CC272 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EED0757C2D36823D001CC272 /* SnapKit */; };
+		EED075802D368246001CC272 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = EED0757F2D368246001CC272 /* Then */; };
+		EED075832D368259001CC272 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = EED075822D368259001CC272 /* RxCocoa */; };
+		EED075852D368259001CC272 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = EED075842D368259001CC272 /* RxRelay */; };
+		EED075872D368259001CC272 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EED075862D368259001CC272 /* RxSwift */; };
+		EED0758A2D368265001CC272 /* RxFlow in Frameworks */ = {isa = PBXBuildFile; productRef = EED075892D368265001CC272 /* RxFlow */; };
+		EED0758D2D368282001CC272 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EED0758C2D368282001CC272 /* RealmSwift */; };
+		EED0758E2D36829F001CC272 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = EED0758C2D368282001CC272 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		EED075912D368334001CC272 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = EED075902D368334001CC272 /* FloatingPanel */; };
+		EED075932D36C6C1001CC272 /* DietImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED075922D36C6C1001CC272 /* DietImageCollectionViewCell.swift */; };
+		EED0759C2D376FDD001CC272 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = EED0759B2D376FDD001CC272 /* Auth */; };
+		EED0759E2D376FDD001CC272 /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = EED0759D2D376FDD001CC272 /* Functions */; };
+		EED075A02D376FDD001CC272 /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = EED0759F2D376FDD001CC272 /* PostgREST */; };
+		EED075A22D376FDD001CC272 /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = EED075A12D376FDD001CC272 /* Realtime */; };
+		EED075A42D376FDD001CC272 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = EED075A32D376FDD001CC272 /* Storage */; };
+		EED075A62D376FDD001CC272 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = EED075A52D376FDD001CC272 /* Supabase */; };
+		EED075AF2D377526001CC272 /* Supabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED075AC2D377526001CC272 /* Supabase.swift */; };
+		EED075B02D377526001CC272 /* SupabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED075AD2D377526001CC272 /* SupabaseManager.swift */; };
+		EED075B22D377542001CC272 /* DietModelForSupabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED075B12D377542001CC272 /* DietModelForSupabase.swift */; };
+		EED075BA2D388B23001CC272 /* UIViewController+Nav.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED075B92D388B23001CC272 /* UIViewController+Nav.swift */; };
+		EED1269A2D355681003DBF38 /* DietScoreEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED126992D355681003DBF38 /* DietScoreEntity.swift */; };
+		EED126AA2D362D89003DBF38 /* DietViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED126A82D362D89003DBF38 /* DietViewModel.swift */; };
+		EED126AD2D362D9C003DBF38 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED126AC2D362D9C003DBF38 /* BottomSheetViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EE58E51A2D2C081B000C4760 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE58E4FB2D2C081A000C4760 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE58E5022D2C081A000C4760;
+			remoteInfo = KeepHealth;
+		};
+		EE58E5242D2C081B000C4760 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE58E4FB2D2C081A000C4760 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE58E5022D2C081A000C4760;
+			remoteInfo = KeepHealth;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EE58E69E2D2E487A000C4760 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EED0758E2D36829F001CC272 /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		EE4CE1412D30179100DE3054 /* DietModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietModel.swift; sourceTree = "<group>"; };
+		EE4CE1532D31F92200DE3054 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		EE4CE16C2D34EA6400DE3054 /* DateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateProtocol.swift; sourceTree = "<group>"; };
+		EE58E5032D2C081A000C4760 /* KeepHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeepHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE58E5192D2C081B000C4760 /* KeepHealthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeepHealthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE58E5232D2C081B000C4760 /* KeepHealthUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeepHealthUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE58E6372D2D2D76000C4760 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
+		EE58E6382D2D2D76000C4760 /* UIButton+CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+CustomButton.swift"; sourceTree = "<group>"; };
+		EE58E6392D2D2D76000C4760 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		EE58E63B2D2D2D76000C4760 /* DietCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietCellModel.swift; sourceTree = "<group>"; };
+		EE58E63D2D2D2D76000C4760 /* ManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementViewController.swift; sourceTree = "<group>"; };
+		EE58E63F2D2D2D76000C4760 /* DietFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietFlow.swift; sourceTree = "<group>"; };
+		EE58E6402D2D2D76000C4760 /* DietListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietListCell.swift; sourceTree = "<group>"; };
+		EE58E6412D2D2D76000C4760 /* DietListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietListViewController.swift; sourceTree = "<group>"; };
+		EE58E6442D2D2D76000C4760 /* ScoreFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreFlow.swift; sourceTree = "<group>"; };
+		EE58E6452D2D2D76000C4760 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
+		EE58E6482D2D2D76000C4760 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EE58E6492D2D2D76000C4760 /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
+		EE58E64A2D2D2D76000C4760 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EE58E64B2D2D2D76000C4760 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE58E64C2D2D2D76000C4760 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EE58E64E2D2D2D76000C4760 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EE58E69F2D2E4891000C4760 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		EE58E6A12D2E49A0000C4760 /* DietEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietEntity.swift; sourceTree = "<group>"; };
+		EE58E6E22D2FB723000C4760 /* UICollectionViewCell+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Ext.swift"; sourceTree = "<group>"; };
+		EE58E6EC2D2FC378000C4760 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
+		EE58E6ED2D2FC378000C4760 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		EED075922D36C6C1001CC272 /* DietImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		EED075AC2D377526001CC272 /* Supabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supabase.swift; sourceTree = "<group>"; };
+		EED075AD2D377526001CC272 /* SupabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseManager.swift; sourceTree = "<group>"; };
+		EED075B12D377542001CC272 /* DietModelForSupabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietModelForSupabase.swift; sourceTree = "<group>"; };
+		EED075B92D388B23001CC272 /* UIViewController+Nav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Nav.swift"; sourceTree = "<group>"; };
+		EED126992D355681003DBF38 /* DietScoreEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietScoreEntity.swift; sourceTree = "<group>"; };
+		EED126A82D362D89003DBF38 /* DietViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewModel.swift; sourceTree = "<group>"; };
+		EED126AC2D362D9C003DBF38 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		EE58E51C2D2C081B000C4760 /* KeepHealthTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = KeepHealthTests;
+			sourceTree = "<group>";
+		};
+		EE58E5262D2C081B000C4760 /* KeepHealthUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = KeepHealthUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EE58E5002D2C081A000C4760 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EED0758A2D368265001CC272 /* RxFlow in Frameworks */,
+				EED075912D368334001CC272 /* FloatingPanel in Frameworks */,
+				EED075852D368259001CC272 /* RxRelay in Frameworks */,
+				EED075A42D376FDD001CC272 /* Storage in Frameworks */,
+				EED0757D2D36823D001CC272 /* SnapKit in Frameworks */,
+				EED0758D2D368282001CC272 /* RealmSwift in Frameworks */,
+				EED075772D368227001CC272 /* DGCharts in Frameworks */,
+				EED075A02D376FDD001CC272 /* PostgREST in Frameworks */,
+				EED075A22D376FDD001CC272 /* Realtime in Frameworks */,
+				EED0759E2D376FDD001CC272 /* Functions in Frameworks */,
+				EED075832D368259001CC272 /* RxCocoa in Frameworks */,
+				EED0757A2D368234001CC272 /* FSCalendar in Frameworks */,
+				EED075A62D376FDD001CC272 /* Supabase in Frameworks */,
+				EED075802D368246001CC272 /* Then in Frameworks */,
+				EED0759C2D376FDD001CC272 /* Auth in Frameworks */,
+				EED075872D368259001CC272 /* RxSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE58E5162D2C081B000C4760 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE58E5202D2C081B000C4760 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EE4CE1522D31F90500DE3054 /* Calender */ = {
+			isa = PBXGroup;
+			children = (
+				EE4CE1532D31F92200DE3054 /* CalendarViewController.swift */,
+			);
+			path = Calender;
+			sourceTree = "<group>";
+		};
+		EE4CE16D2D34EA6400DE3054 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				EE4CE16C2D34EA6400DE3054 /* DateProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		EE58E4FA2D2C081A000C4760 = {
+			isa = PBXGroup;
+			children = (
+				EE58E64F2D2D2D76000C4760 /* KeepHealth */,
+				EE58E51C2D2C081B000C4760 /* KeepHealthTests */,
+				EE58E5262D2C081B000C4760 /* KeepHealthUITests */,
+				EE58E5042D2C081A000C4760 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EE58E5042D2C081A000C4760 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE58E5032D2C081A000C4760 /* KeepHealth.app */,
+				EE58E5192D2C081B000C4760 /* KeepHealthTests.xctest */,
+				EE58E5232D2C081B000C4760 /* KeepHealthUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EE58E63A2D2D2D76000C4760 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EE58E6372D2D2D76000C4760 /* Notification+Name.swift */,
+				EE58E6382D2D2D76000C4760 /* UIButton+CustomButton.swift */,
+				EE58E6392D2D2D76000C4760 /* UIColor+Ext.swift */,
+				EE58E6E22D2FB723000C4760 /* UICollectionViewCell+Ext.swift */,
+				EED075B92D388B23001CC272 /* UIViewController+Nav.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		EE58E63C2D2D2D76000C4760 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EE4CE1412D30179100DE3054 /* DietModel.swift */,
+				EE58E63B2D2D2D76000C4760 /* DietCellModel.swift */,
+				EED126992D355681003DBF38 /* DietScoreEntity.swift */,
+				EE58E6A12D2E49A0000C4760 /* DietEntity.swift */,
+				EE58E69F2D2E4891000C4760 /* RealmManager.swift */,
+				EED075AE2D377526001CC272 /* Supabase */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EE58E63E2D2D2D76000C4760 /* ManagementDietScene */ = {
+			isa = PBXGroup;
+			children = (
+				EE58E63D2D2D2D76000C4760 /* ManagementViewController.swift */,
+				EED075922D36C6C1001CC272 /* DietImageCollectionViewCell.swift */,
+			);
+			path = ManagementDietScene;
+			sourceTree = "<group>";
+		};
+		EE58E6432D2D2D76000C4760 /* DietScene */ = {
+			isa = PBXGroup;
+			children = (
+				EE58E63F2D2D2D76000C4760 /* DietFlow.swift */,
+				EE58E6412D2D2D76000C4760 /* DietListViewController.swift */,
+				EE58E6402D2D2D76000C4760 /* DietListCell.swift */,
+			);
+			path = DietScene;
+			sourceTree = "<group>";
+		};
+		EE58E6462D2D2D76000C4760 /* ScoreScene */ = {
+			isa = PBXGroup;
+			children = (
+				EE58E6442D2D2D76000C4760 /* ScoreFlow.swift */,
+				EE58E6452D2D2D76000C4760 /* ScoreViewController.swift */,
+			);
+			path = ScoreScene;
+			sourceTree = "<group>";
+		};
+		EE58E6472D2D2D76000C4760 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				EE58E6462D2D2D76000C4760 /* ScoreScene */,
+				EE58E6432D2D2D76000C4760 /* DietScene */,
+				EE58E63E2D2D2D76000C4760 /* ManagementDietScene */,
+				EE58E6EE2D2FC378000C4760 /* PopupScene */,
+				EE4CE1522D31F90500DE3054 /* Calender */,
+				EED126AB2D362D91003DBF38 /* BottomSheet */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		EE58E64F2D2D2D76000C4760 /* KeepHealth */ = {
+			isa = PBXGroup;
+			children = (
+				EE58E64E2D2D2D76000C4760 /* SceneDelegate.swift */,
+				EE58E6482D2D2D76000C4760 /* AppDelegate.swift */,
+				EE58E6492D2D2D76000C4760 /* AppFlow.swift */,
+				EE4CE16D2D34EA6400DE3054 /* Protocol */,
+				EE58E63A2D2D2D76000C4760 /* Extension */,
+				EE58E63C2D2D2D76000C4760 /* Model */,
+				EE58E6472D2D2D76000C4760 /* Scenes */,
+				EED126A92D362D89003DBF38 /* ViewModel */,
+				EE58E64A2D2D2D76000C4760 /* Assets.xcassets */,
+				EE58E64B2D2D2D76000C4760 /* Info.plist */,
+				EE58E64D2D2D2D76000C4760 /* LaunchScreen.storyboard */,
+			);
+			path = KeepHealth;
+			sourceTree = "<group>";
+		};
+		EE58E6EE2D2FC378000C4760 /* PopupScene */ = {
+			isa = PBXGroup;
+			children = (
+				EE58E6ED2D2FC378000C4760 /* PopupViewController.swift */,
+				EE58E6EC2D2FC378000C4760 /* PopupView.swift */,
+			);
+			path = PopupScene;
+			sourceTree = "<group>";
+		};
+		EED075AE2D377526001CC272 /* Supabase */ = {
+			isa = PBXGroup;
+			children = (
+				EED075AC2D377526001CC272 /* Supabase.swift */,
+				EED075AD2D377526001CC272 /* SupabaseManager.swift */,
+				EED075B12D377542001CC272 /* DietModelForSupabase.swift */,
+			);
+			path = Supabase;
+			sourceTree = "<group>";
+		};
+		EED126A92D362D89003DBF38 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EED126A82D362D89003DBF38 /* DietViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EED126AB2D362D91003DBF38 /* BottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				EED126AC2D362D9C003DBF38 /* BottomSheetViewController.swift */,
+			);
+			path = BottomSheet;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EE58E5022D2C081A000C4760 /* KeepHealth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE58E52C2D2C081B000C4760 /* Build configuration list for PBXNativeTarget "KeepHealth" */;
+			buildPhases = (
+				EE58E4FF2D2C081A000C4760 /* Sources */,
+				EE58E5002D2C081A000C4760 /* Frameworks */,
+				EE58E5012D2C081A000C4760 /* Resources */,
+				EE58E69E2D2E487A000C4760 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KeepHealth;
+			packageProductDependencies = (
+				EED075762D368227001CC272 /* DGCharts */,
+				EED075792D368234001CC272 /* FSCalendar */,
+				EED0757C2D36823D001CC272 /* SnapKit */,
+				EED0757F2D368246001CC272 /* Then */,
+				EED075822D368259001CC272 /* RxCocoa */,
+				EED075842D368259001CC272 /* RxRelay */,
+				EED075862D368259001CC272 /* RxSwift */,
+				EED075892D368265001CC272 /* RxFlow */,
+				EED0758C2D368282001CC272 /* RealmSwift */,
+				EED075902D368334001CC272 /* FloatingPanel */,
+				EED0759B2D376FDD001CC272 /* Auth */,
+				EED0759D2D376FDD001CC272 /* Functions */,
+				EED0759F2D376FDD001CC272 /* PostgREST */,
+				EED075A12D376FDD001CC272 /* Realtime */,
+				EED075A32D376FDD001CC272 /* Storage */,
+				EED075A52D376FDD001CC272 /* Supabase */,
+			);
+			productName = KeepHealth;
+			productReference = EE58E5032D2C081A000C4760 /* KeepHealth.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EE58E5182D2C081B000C4760 /* KeepHealthTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE58E5312D2C081B000C4760 /* Build configuration list for PBXNativeTarget "KeepHealthTests" */;
+			buildPhases = (
+				EE58E5152D2C081B000C4760 /* Sources */,
+				EE58E5162D2C081B000C4760 /* Frameworks */,
+				EE58E5172D2C081B000C4760 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE58E51B2D2C081B000C4760 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				EE58E51C2D2C081B000C4760 /* KeepHealthTests */,
+			);
+			name = KeepHealthTests;
+			packageProductDependencies = (
+			);
+			productName = KeepHealthTests;
+			productReference = EE58E5192D2C081B000C4760 /* KeepHealthTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EE58E5222D2C081B000C4760 /* KeepHealthUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE58E5342D2C081B000C4760 /* Build configuration list for PBXNativeTarget "KeepHealthUITests" */;
+			buildPhases = (
+				EE58E51F2D2C081B000C4760 /* Sources */,
+				EE58E5202D2C081B000C4760 /* Frameworks */,
+				EE58E5212D2C081B000C4760 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE58E5252D2C081B000C4760 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				EE58E5262D2C081B000C4760 /* KeepHealthUITests */,
+			);
+			name = KeepHealthUITests;
+			packageProductDependencies = (
+			);
+			productName = KeepHealthUITests;
+			productReference = EE58E5232D2C081B000C4760 /* KeepHealthUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EE58E4FB2D2C081A000C4760 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					EE58E5022D2C081A000C4760 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					EE58E5182D2C081B000C4760 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = EE58E5022D2C081A000C4760;
+					};
+					EE58E5222D2C081B000C4760 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = EE58E5022D2C081A000C4760;
+					};
+				};
+			};
+			buildConfigurationList = EE58E4FE2D2C081A000C4760 /* Build configuration list for PBXProject "KeepHealth" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EE58E4FA2D2C081A000C4760;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				EED075752D368227001CC272 /* XCRemoteSwiftPackageReference "Charts" */,
+				EED075782D368234001CC272 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				EED0757B2D36823D001CC272 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				EED0757E2D368246001CC272 /* XCRemoteSwiftPackageReference "Then" */,
+				EED075812D368259001CC272 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				EED075882D368265001CC272 /* XCRemoteSwiftPackageReference "RxFlow" */,
+				EED0758B2D368282001CC272 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				EED0758F2D368334001CC272 /* XCRemoteSwiftPackageReference "FloatingPanel" */,
+				EED0759A2D376FDD001CC272 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = EE58E5042D2C081A000C4760 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EE58E5022D2C081A000C4760 /* KeepHealth */,
+				EE58E5182D2C081B000C4760 /* KeepHealthTests */,
+				EE58E5222D2C081B000C4760 /* KeepHealthUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EE58E5012D2C081A000C4760 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE58E65E2D2D2D76000C4760 /* Assets.xcassets in Resources */,
+				EE58E6602D2D2D76000C4760 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE58E5172D2C081B000C4760 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE58E5212D2C081B000C4760 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EE58E4FF2D2C081A000C4760 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE58E6502D2D2D76000C4760 /* Notification+Name.swift in Sources */,
+				EE58E6512D2D2D76000C4760 /* UIButton+CustomButton.swift in Sources */,
+				EE58E6EF2D2FC378000C4760 /* PopupView.swift in Sources */,
+				EE58E6F02D2FC378000C4760 /* PopupViewController.swift in Sources */,
+				EE58E6A02D2E4891000C4760 /* RealmManager.swift in Sources */,
+				EE58E6E32D2FB723000C4760 /* UICollectionViewCell+Ext.swift in Sources */,
+				EED075AF2D377526001CC272 /* Supabase.swift in Sources */,
+				EED075B22D377542001CC272 /* DietModelForSupabase.swift in Sources */,
+				EED075B02D377526001CC272 /* SupabaseManager.swift in Sources */,
+				EED075932D36C6C1001CC272 /* DietImageCollectionViewCell.swift in Sources */,
+				EE58E6522D2D2D76000C4760 /* UIColor+Ext.swift in Sources */,
+				EED126AD2D362D9C003DBF38 /* BottomSheetViewController.swift in Sources */,
+				EE58E6532D2D2D76000C4760 /* DietCellModel.swift in Sources */,
+				EE58E6542D2D2D76000C4760 /* ManagementViewController.swift in Sources */,
+				EE58E6552D2D2D76000C4760 /* DietFlow.swift in Sources */,
+				EE58E6562D2D2D76000C4760 /* DietListCell.swift in Sources */,
+				EE58E6572D2D2D76000C4760 /* DietListViewController.swift in Sources */,
+				EED126AA2D362D89003DBF38 /* DietViewModel.swift in Sources */,
+				EED075BA2D388B23001CC272 /* UIViewController+Nav.swift in Sources */,
+				EE4CE1542D31F92200DE3054 /* CalendarViewController.swift in Sources */,
+				EE58E6592D2D2D76000C4760 /* ScoreFlow.swift in Sources */,
+				EE58E65A2D2D2D76000C4760 /* ScoreViewController.swift in Sources */,
+				EE58E65B2D2D2D76000C4760 /* AppDelegate.swift in Sources */,
+				EE58E65C2D2D2D76000C4760 /* AppFlow.swift in Sources */,
+				EE4CE1422D30179100DE3054 /* DietModel.swift in Sources */,
+				EE4CE16E2D34EA6400DE3054 /* DateProtocol.swift in Sources */,
+				EE58E6A22D2E49A0000C4760 /* DietEntity.swift in Sources */,
+				EE58E65D2D2D2D76000C4760 /* SceneDelegate.swift in Sources */,
+				EED1269A2D355681003DBF38 /* DietScoreEntity.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE58E5152D2C081B000C4760 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE58E51F2D2C081B000C4760 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EE58E51B2D2C081B000C4760 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE58E5022D2C081A000C4760 /* KeepHealth */;
+			targetProxy = EE58E51A2D2C081B000C4760 /* PBXContainerItemProxy */;
+		};
+		EE58E5252D2C081B000C4760 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE58E5022D2C081A000C4760 /* KeepHealth */;
+			targetProxy = EE58E5242D2C081B000C4760 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EE58E64D2D2D2D76000C4760 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE58E64C2D2D2D76000C4760 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EE58E52D2D2C081B000C4760 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YQC68LN7U3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KeepHealth/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "식단사진 촬영을 위해 카메라에 접근을 허용해주세요!";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "식단사진 선택을 위해 갤러리에 접근을 허용해주세요!";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongheon.KeepHealth;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		EE58E52E2D2C081B000C4760 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YQC68LN7U3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KeepHealth/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "식단사진 촬영을 위해 카메라에 접근을 허용해주세요!";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "식단사진 선택을 위해 갤러리에 접근을 허용해주세요!";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongheon.KeepHealth;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		EE58E52F2D2C081B000C4760 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EE58E5302D2C081B000C4760 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EE58E5322D2C081B000C4760 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongheon.KeepHealthTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeepHealth.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KeepHealth";
+			};
+			name = Debug;
+		};
+		EE58E5332D2C081B000C4760 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongheon.KeepHealthTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeepHealth.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KeepHealth";
+			};
+			name = Release;
+		};
+		EE58E5352D2C081B000C4760 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongheon.KeepHealthUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KeepHealth;
+			};
+			name = Debug;
+		};
+		EE58E5362D2C081B000C4760 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongheon.KeepHealthUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KeepHealth;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EE58E4FE2D2C081A000C4760 /* Build configuration list for PBXProject "KeepHealth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE58E52F2D2C081B000C4760 /* Debug */,
+				EE58E5302D2C081B000C4760 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE58E52C2D2C081B000C4760 /* Build configuration list for PBXNativeTarget "KeepHealth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE58E52D2D2C081B000C4760 /* Debug */,
+				EE58E52E2D2C081B000C4760 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE58E5312D2C081B000C4760 /* Build configuration list for PBXNativeTarget "KeepHealthTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE58E5322D2C081B000C4760 /* Debug */,
+				EE58E5332D2C081B000C4760 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE58E5342D2C081B000C4760 /* Build configuration list for PBXNativeTarget "KeepHealthUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE58E5352D2C081B000C4760 /* Debug */,
+				EE58E5362D2C081B000C4760 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EED075752D368227001CC272 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ChartsOrg/Charts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
+		EED075782D368234001CC272 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.4;
+			};
+		};
+		EED0757B2D36823D001CC272 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		EED0757E2D368246001CC272 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		EED075812D368259001CC272 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.8.0;
+			};
+		};
+		EED075882D368265001CC272 /* XCRemoteSwiftPackageReference "RxFlow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxFlow";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.13.1;
+			};
+		};
+		EED0758B2D368282001CC272 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		EED0758F2D368334001CC272 /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scenee/FloatingPanel";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.6;
+			};
+		};
+		EED0759A2D376FDD001CC272 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EED075762D368227001CC272 /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED075752D368227001CC272 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
+		};
+		EED075792D368234001CC272 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED075782D368234001CC272 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+		EED0757C2D36823D001CC272 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED0757B2D36823D001CC272 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		EED0757F2D368246001CC272 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED0757E2D368246001CC272 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+		EED075822D368259001CC272 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED075812D368259001CC272 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		EED075842D368259001CC272 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED075812D368259001CC272 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		EED075862D368259001CC272 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED075812D368259001CC272 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		EED075892D368265001CC272 /* RxFlow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED075882D368265001CC272 /* XCRemoteSwiftPackageReference "RxFlow" */;
+			productName = RxFlow;
+		};
+		EED0758C2D368282001CC272 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED0758B2D368282001CC272 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		EED075902D368334001CC272 /* FloatingPanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED0758F2D368334001CC272 /* XCRemoteSwiftPackageReference "FloatingPanel" */;
+			productName = FloatingPanel;
+		};
+		EED0759B2D376FDD001CC272 /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED0759A2D376FDD001CC272 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		EED0759D2D376FDD001CC272 /* Functions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED0759A2D376FDD001CC272 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Functions;
+		};
+		EED0759F2D376FDD001CC272 /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED0759A2D376FDD001CC272 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		EED075A12D376FDD001CC272 /* Realtime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED0759A2D376FDD001CC272 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Realtime;
+		};
+		EED075A32D376FDD001CC272 /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED0759A2D376FDD001CC272 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
+		};
+		EED075A52D376FDD001CC272 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED0759A2D376FDD001CC272 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = EE58E4FB2D2C081A000C4760 /* Project object */;
+}
