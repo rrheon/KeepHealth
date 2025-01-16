@@ -152,20 +152,19 @@ class DietListViewController: UIViewController {
   func setupBinding(){
     // 선택한 날짜 바인딩
     dietVM?.selectedDate
-      .asDriver(onErrorJustReturn: "Today")
-      .drive { [weak self] selectedDate in
-        
+      .asDriver()
+      .drive(with: self, onNext: { vc, selectedDate in
         // 오늘 날짜가 선택된 경우 Today로 타이틀 변경
-        let btnTitle: String = selectedDate == self?.dietVM?.getConvertedDate() ? "Today" : selectedDate
-        self?.selectDateButton.setTitle(btnTitle, for: .normal)
+        let btnTitle: String = selectedDate == self.dietVM?.getConvertedDate() ? "Today" : selectedDate
+        self.selectDateButton.setTitle(btnTitle, for: .normal)
 
-        self?.dietVM?.dietList.accept(RealmManager.shared.fetchSomeDateDiet(dietDate: selectedDate))
-      }
+        self.dietVM?.dietList.accept(RealmManager.shared.fetchSomeDateDiet(dietDate: selectedDate))
+      })
       .disposed(by: disposeBag)
     
     // collectionView에 식단리스트 바인딩
     dietVM?.dietList
-      .asDriver(onErrorJustReturn: [])
+      .asDriver()
       .drive(dietCollectionView.rx.items(
         cellIdentifier: DietListCell.cellID,
         cellType: DietListCell.self)) { index, content, cell in
@@ -177,7 +176,7 @@ class DietListViewController: UIViewController {
     
     // 데이터 유무에 따라 UI 변경
     dietVM?.dietList
-      .asDriver(onErrorJustReturn: [])
+      .asDriver()
       .drive(onNext: { [weak self] dietData in
         self?.dietCollectionView.isHidden = dietData.isEmpty
         self?.noDataLabel.isHidden = !dietData.isEmpty

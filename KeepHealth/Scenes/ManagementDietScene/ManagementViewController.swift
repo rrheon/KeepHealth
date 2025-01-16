@@ -129,18 +129,12 @@ class ManagementViewController: UIViewController {
     
     // 바인딩 설정
     setupBindings()
-    
+  
     // 개별 데이터가 있으면 편집
     if let data: DietEntity = dietVM?.dietData {
       updateEditDietScreen(data: data)
     }
   }// viewDidLoad
-  
-  // 노티피케이션 해제
-  deinit {
-    NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-    NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-  }
   
 #warning("supabase test용")
   override func viewDidDisappear(_ animated: Bool) {
@@ -252,16 +246,14 @@ class ManagementViewController: UIViewController {
   /// 바인딩 설정
   func setupBindings() {
     dietVM?.dietImages
-      .asDriver(onErrorJustReturn: [])
+      .asDriver()
       .drive(dietImageCollectionView.rx.items(
         cellIdentifier: DietImageCollectionViewCell.cellID,
         cellType: DietImageCollectionViewCell.self)) { index, content, cell in
           cell.bindImage(with: content, index: index)
           print(#fileID, #function, #line," - \(index)}")
-
         }
         .disposed(by: disposeBag)
-
   }
   
   /// 버튼 actions 등록
@@ -275,45 +267,40 @@ class ManagementViewController: UIViewController {
   
   /// 노티피케이션 및 탭 재스쳐 등록
   fileprivate func registerNotifications() {
+
     // 키보드 보이기 전
-    NotificationCenter.default.addObserver(self,
-                                           selector: #selector(keyboardWillShow),
-                                           name: UIResponder.keyboardWillShowNotification,
-                                           object: nil)
-    
+    NotificationCenter.default.rx
+      .notification(UIResponder.keyboardWillShowNotification)
+      .subscribe(onNext: { notification in
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+          if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= keyboardSize.height - 40
+          }
+        }
+      })
+      .disposed(by: disposeBag)
+
     // 키보드 들어가기 전
-    NotificationCenter.default.addObserver(self,
-                                           selector: #selector(keyboardWillHide),
-                                           name: UIResponder.keyboardWillHideNotification,
-                                           object: nil)
-    
+    NotificationCenter.default.rx
+      .notification(UIResponder.keyboardWillHideNotification)
+      .subscribe(onNext: { _ in
+        if self.view.frame.origin.y != 0 {
+          self.view.frame.origin.y = 0
+        }
+      })
+      .disposed(by: disposeBag)
+       
     // 탭 제스쳐
-    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
-                                                             action: #selector(dismissKeyboard))
-    view.addGestureRecognizer(tap)
+    let tapBackground = UITapGestureRecognizer()
+    tapBackground.rx.event
+        .subscribe(onNext: { [weak self] _ in
+            self?.view.endEditing(true)
+        })
+        .disposed(by: disposeBag)
+   
+    view.addGestureRecognizer(tapBackground)
   }
   
-  /// 키보드 올라갈 때 높이 조절
-  /// - Parameter notification:notification
-  @objc func keyboardWillShow(notification: NSNotification) {
-    if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-      if self.view.frame.origin.y == 0 {
-        self.view.frame.origin.y -= keyboardSize.height - 40
-      }
-    }
-  }
-  
-  /// 키보드 내려갈 때 높이 조절
-  /// - Parameter notification: notification
-  @objc func keyboardWillHide(notification: NSNotification) {
-    if self.view.frame.origin.y != 0 {
-      self.view.frame.origin.y = 0
-    }
-  }
-  
-  @objc func dismissKeyboard() {
-    view.endEditing(true)
-  }
   
   /// 화면이 사라질 때 네비게이션 바 숨기기
   /// - Parameter animated: 애니메이션 여부

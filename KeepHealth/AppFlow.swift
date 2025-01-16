@@ -156,6 +156,7 @@ class AppFlow: Flow {
   func presentPopupScreen(popupType: PopupCase) -> FlowContributors {
     let vc = PopupViewController(popupType: popupType)
     vc.modalPresentationStyle = .overFullScreen
+    vc.modalTransitionStyle = .crossDissolve
     rootViewController.present(vc, animated: false)
     return .none
   }

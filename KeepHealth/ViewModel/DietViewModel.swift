@@ -54,11 +54,10 @@ class DietViewModel: Stepper {
     
     bindToChartCount()
     
-    
+
     // 비동기 함수 호출을 위해 Task 사용
     Task {
       do {
-        try await SupabaseManager.shared.deleteDataFromSupabase()
         try await SupabaseManager.shared.fetchFromSupabase()
       }catch {
         dump(error)

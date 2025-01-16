@@ -21,14 +21,14 @@ class SupabaseManager {
   /// 서버랑 접근하는 유형
   var contactType: ContactToServerCaes? = nil
   
+  
   /// Supabase에서 모든 데이터 가져오기
   func fetchFromSupabase() async throws {
     let diets: [DietEntityToServer] = try await supabase
-      .from("Diet")
+      .from("diets")
       .select()
       .execute()
       .value
-    print("Diets: \(diets)")
     
   }
   
@@ -37,7 +37,7 @@ class SupabaseManager {
     guard let _dietEntity = dietEntity else { return }
     
     try await supabase
-      .from("Diet")
+      .from("diets")
       .insert(_dietEntity)
       .execute()
   }
@@ -47,7 +47,7 @@ class SupabaseManager {
     guard let _dietEntity = dietEntity else { return }
 
     try await supabase
-      .from("Diet")
+      .from("diets")
       .update(_dietEntity)
       .eq("dietID", value: _dietEntity.dietID)
       .execute()
@@ -57,7 +57,7 @@ class SupabaseManager {
   func deleteDataFromSupabase() async throws {
     guard let _dietEntity = dietEntity?.dietID else { return }
     try await supabase
-      .from("Diet")
+      .from("diets")
       .delete()
       .eq("dietID", value: _dietEntity)
       .execute()

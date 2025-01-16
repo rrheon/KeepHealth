@@ -18,6 +18,7 @@ extension UISegmentedControl {
       let background = UIImage(color: KHColorList.selectedGreen.color, size: CGSize(width: 2, height: 30))
       let selectedBackground = UIImage(color: KHColorList.mainGreen.color, size: CGSize(width: 2, height: 30))
       let divider = UIImage(color: .black, size: CGSize(width: 2, height: 30))
+      self.selectedSegmentIndex = 0
       self.setBackgroundImage(background, for: .normal, barMetrics: .default)
       self.setBackgroundImage(selectedBackground, for: .selected, barMetrics: .default)
       self.setDividerImage(divider, forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)

@@ -54,6 +54,7 @@
 		EED075BA2D388B23001CC272 /* UIViewController+Nav.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED075B92D388B23001CC272 /* UIViewController+Nav.swift */; };
 		EED075CE2D38DD0C001CC272 /* UIsegmentControl+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED075CD2D38DD0C001CC272 /* UIsegmentControl+Ext.swift */; };
 		EED075D02D38E148001CC272 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED075CF2D38E148001CC272 /* UIImage+Ext.swift */; };
+		EED075D22D38FD76001CC272 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = EED075D12D38FD76001CC272 /* Config.xcconfig */; };
 		EED1269A2D355681003DBF38 /* DietScoreEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED126992D355681003DBF38 /* DietScoreEntity.swift */; };
 		EED126AA2D362D89003DBF38 /* DietViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED126A82D362D89003DBF38 /* DietViewModel.swift */; };
 		EED126AD2D362D9C003DBF38 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED126AC2D362D9C003DBF38 /* BottomSheetViewController.swift */; };
@@ -125,6 +126,7 @@
 		EED075B92D388B23001CC272 /* UIViewController+Nav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Nav.swift"; sourceTree = "<group>"; };
 		EED075CD2D38DD0C001CC272 /* UIsegmentControl+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIsegmentControl+Ext.swift"; sourceTree = "<group>"; };
 		EED075CF2D38E148001CC272 /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
+		EED075D12D38FD76001CC272 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		EED126992D355681003DBF38 /* DietScoreEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietScoreEntity.swift; sourceTree = "<group>"; };
 		EED126A82D362D89003DBF38 /* DietViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewModel.swift; sourceTree = "<group>"; };
 		EED126AC2D362D9C003DBF38 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				EED126A92D362D89003DBF38 /* ViewModel */,
 				EE58E64A2D2D2D76000C4760 /* Assets.xcassets */,
 				EE58E64B2D2D2D76000C4760 /* Info.plist */,
+				EED075D12D38FD76001CC272 /* Config.xcconfig */,
 				EE58E64D2D2D2D76000C4760 /* LaunchScreen.storyboard */,
 			);
 			path = KeepHealth;
@@ -495,6 +498,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EED075D22D38FD76001CC272 /* Config.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +593,7 @@
 /* Begin XCBuildConfiguration section */
 		EE58E52D2D2C081B000C4760 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EED075D12D38FD76001CC272 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -603,6 +608,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -623,6 +629,7 @@
 		};
 		EE58E52E2D2C081B000C4760 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EED075D12D38FD76001CC272 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -637,6 +644,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -657,6 +665,7 @@
 		};
 		EE58E52F2D2C081B000C4760 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EED075D12D38FD76001CC272 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -720,6 +729,7 @@
 		};
 		EE58E5302D2C081B000C4760 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EED075D12D38FD76001CC272 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;

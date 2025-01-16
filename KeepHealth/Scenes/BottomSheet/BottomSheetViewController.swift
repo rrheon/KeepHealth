@@ -46,20 +46,7 @@ class BottomSheetViewController: UIViewController{
     $0.distribution = .fillEqually
     $0.spacing = 1
   }
-  /*
-   1. 사진 촬영하기
-      1-1 설정 확인
-      1-2 카메라 접근
-      1-3 식단추가화면에 이미지 추가
-   
-   2. 앨범에서 선택하기
-      2-1 설정 확인
-      2-2 앨범 접근
-      2-3 식단추가화면에 이미지 추가
-   
-   3. 닫기
-   
-   */
+
   override func viewDidLoad() {
     super.viewDidLoad()
     

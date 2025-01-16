@@ -1,0 +1,12 @@
+//
+//  Config.xcconfig
+//  
+//
+//  Created by 최용헌 on 1/16/25.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+
+SUPABASE_KEY = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRjdHl6cnRlYWVubHVkaXRwb3B1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzY5MjA3ODYsImV4cCI6MjA1MjQ5Njc4Nn0.AbdwFtHaY2A5f-ajpdFbr1CwbqAqjDtGBuupo94tw3Y
