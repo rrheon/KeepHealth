@@ -21,20 +21,16 @@ class ManagementViewController: UIViewController {
   
   let disposeBag: DisposeBag = DisposeBag()
   
-  
-  /// 식단 종류 segment
   private lazy var selectDietTypeSegment: UISegmentedControl = {
     let control = UISegmentedControl(items: [DietType.morning.rawValue,
                                              DietType.lunch.rawValue,
                                              DietType.dinner.rawValue])
-
-    control.setLayout(backgorundColor: KHColorList.mainGreen.color)
+    control.layer.cornerRadius = 30
+    control.selectedSegmentIndex = 0
     control.addTarget(self, action: #selector(selectSegment(sender: )), for: .valueChanged)
     return control
   }()
   
-  
-  /// 식단사진추가 제목 라벨
   private lazy var dietImageTitleLabel = UILabel().then {
     $0.text = "식단사진 추가하기"
     $0.font = .boldSystemFont(ofSize: 18)
@@ -63,16 +59,12 @@ class ManagementViewController: UIViewController {
     return view
   }()
 
-  
-  /// 식단내용 제목 라벨
   private lazy var dietContentTitleLabel = UILabel().then {
     $0.text = "식단내용"
     $0.font = .boldSystemFont(ofSize: 18)
     $0.textColor = .black
   }
   
-  
-  /// 식단내용 TextView
   private lazy var dietContentTextView = UITextView().then {
     $0.text = "식단을 입력해주세요."
     $0.textColor = .lightGray
@@ -80,28 +72,21 @@ class ManagementViewController: UIViewController {
     $0.layer.borderColor = UIColor.lightGray.cgColor
     $0.layer.borderWidth = 1.0
     $0.layer.cornerRadius = 10
-    $0.tintColor = .black
-    $0.textContainerInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
   }
   
-  
-  /// 식단평가 제목 타이틀
   private lazy var dietRatingTitleLabel = UILabel().then {
     $0.text = "식단 평가하기"
     $0.font = .boldSystemFont(ofSize: 18)
     $0.textColor = .black
   }
   
-  
-  /// 식단평가 segmentcontrol
   private lazy var selectDietRateSegment: UISegmentedControl = {
     let control = UISegmentedControl(items: ["Good", "Normal", "Bad"])
-    control.setLayout(backgorundColor: KHColorList.mainGreen.color)
+    control.layer.cornerRadius = 30
+    control.selectedSegmentIndex = 0
     return control
   }()
   
-  
-  /// 식단추가버튼
   private lazy var addDietButton = UIButton.makeKFMainButton(buttonTitle: "식단 추가하기",
                                                              backgroundColor: KHColorList.mainGray.color)
   
@@ -174,8 +159,8 @@ class ManagementViewController: UIViewController {
     NSLayoutConstraint.activate([
       // 식단 타입 세그먼트
       selectDietTypeSegment.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
-      selectDietTypeSegment.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-      selectDietTypeSegment.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+      selectDietTypeSegment.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+      selectDietTypeSegment.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
       selectDietTypeSegment.heightAnchor.constraint(equalToConstant: 50),
       
       // 식단이미지 제목 라벨
@@ -186,14 +171,13 @@ class ManagementViewController: UIViewController {
       // 식단이미지 추가 버튼
       addDietImageButton.topAnchor.constraint(equalTo: dietImageTitleLabel.bottomAnchor, constant: 20),
       addDietImageButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-      addDietImageButton.heightAnchor.constraint(equalToConstant: 70),
-      addDietImageButton.widthAnchor.constraint(equalToConstant: 70),
+      addDietImageButton.heightAnchor.constraint(equalToConstant: 42),
+      addDietImageButton.widthAnchor.constraint(equalToConstant: 42),
       
-      // 식단이미지 collectionview
       dietImageCollectionView.topAnchor.constraint(equalTo: addDietImageButton.topAnchor),
       dietImageCollectionView.leadingAnchor.constraint(equalTo: addDietImageButton.trailingAnchor, constant: 10),
       dietImageCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      dietImageCollectionView.heightAnchor.constraint(equalToConstant: 70),
+      dietImageCollectionView.heightAnchor.constraint(equalToConstant: 42),
       
       // 식단내용 제목 라벨
       dietContentTitleLabel.topAnchor.constraint(equalTo: addDietImageButton.bottomAnchor, constant: 40),
@@ -213,8 +197,8 @@ class ManagementViewController: UIViewController {
       
       // 식단평가 세그먼트
       selectDietRateSegment.topAnchor.constraint(equalTo: dietRatingTitleLabel.bottomAnchor, constant: 10),
-      selectDietRateSegment.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-      selectDietRateSegment.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+      selectDietRateSegment.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+      selectDietRateSegment.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
       selectDietRateSegment.heightAnchor.constraint(equalToConstant: 50),
       
       // 식단 등록 버튼
@@ -256,12 +240,9 @@ class ManagementViewController: UIViewController {
       .drive(dietImageCollectionView.rx.items(
         cellIdentifier: DietImageCollectionViewCell.cellID,
         cellType: DietImageCollectionViewCell.self)) { index, content, cell in
-          cell.bindImage(with: content, index: index)
-          print(#fileID, #function, #line," - \(index)}")
-
+          cell.bindImage(with: content)
         }
         .disposed(by: disposeBag)
-
   }
   
   /// 버튼 actions 등록
@@ -338,8 +319,7 @@ class ManagementViewController: UIViewController {
   
   /// 식단 추가 수정 action
   @objc func managementDietAction(){
-    guard let navTitle: String = self.navigationItem.title,
-          let popupType: PopupCase = dietVM?.getPopupCase(navTitle) else { return }
+    guard let popupType: PopupCase = dietVM?.getPopupCase(self.title ?? "") else { return }
     dietVM?.steps.accept(AppStep.popupIsRequired(popupType: popupType))
     
     let dietTpye: String = DietType.fromIndex(selectDietTypeSegment.selectedSegmentIndex)
@@ -503,6 +483,6 @@ extension ManagementViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView,
                       layout collectionViewLayout: UICollectionViewLayout,
                       sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: 70, height: 70)
+    return CGSize(width: 50, height: 50)
   }
 }

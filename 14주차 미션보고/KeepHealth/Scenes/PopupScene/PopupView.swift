@@ -178,7 +178,7 @@ class PopupView: UIView {
     switch popupType {
     case .add:    return DietViewModel.shared.makeNewDiet()
     case .edit:   return DietViewModel.shared.editDiet()
-    case .delete: return DietViewModel.shared.deleteDiet()
+    case .delete: return DietViewModel.shared.deleteDeit()
     default:      return DietViewModel.shared.confirmButtonAction()
     }
   }

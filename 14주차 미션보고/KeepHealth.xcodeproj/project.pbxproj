@@ -52,8 +52,6 @@
 		EED075B02D377526001CC272 /* SupabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED075AD2D377526001CC272 /* SupabaseManager.swift */; };
 		EED075B22D377542001CC272 /* DietModelForSupabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED075B12D377542001CC272 /* DietModelForSupabase.swift */; };
 		EED075BA2D388B23001CC272 /* UIViewController+Nav.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED075B92D388B23001CC272 /* UIViewController+Nav.swift */; };
-		EED075CE2D38DD0C001CC272 /* UIsegmentControl+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED075CD2D38DD0C001CC272 /* UIsegmentControl+Ext.swift */; };
-		EED075D02D38E148001CC272 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED075CF2D38E148001CC272 /* UIImage+Ext.swift */; };
 		EED1269A2D355681003DBF38 /* DietScoreEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED126992D355681003DBF38 /* DietScoreEntity.swift */; };
 		EED126AA2D362D89003DBF38 /* DietViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED126A82D362D89003DBF38 /* DietViewModel.swift */; };
 		EED126AD2D362D9C003DBF38 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED126AC2D362D9C003DBF38 /* BottomSheetViewController.swift */; };
@@ -123,8 +121,6 @@
 		EED075AD2D377526001CC272 /* SupabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseManager.swift; sourceTree = "<group>"; };
 		EED075B12D377542001CC272 /* DietModelForSupabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietModelForSupabase.swift; sourceTree = "<group>"; };
 		EED075B92D388B23001CC272 /* UIViewController+Nav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Nav.swift"; sourceTree = "<group>"; };
-		EED075CD2D38DD0C001CC272 /* UIsegmentControl+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIsegmentControl+Ext.swift"; sourceTree = "<group>"; };
-		EED075CF2D38E148001CC272 /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		EED126992D355681003DBF38 /* DietScoreEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietScoreEntity.swift; sourceTree = "<group>"; };
 		EED126A82D362D89003DBF38 /* DietViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewModel.swift; sourceTree = "<group>"; };
 		EED126AC2D362D9C003DBF38 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
@@ -228,8 +224,6 @@
 				EE58E6392D2D2D76000C4760 /* UIColor+Ext.swift */,
 				EE58E6E22D2FB723000C4760 /* UICollectionViewCell+Ext.swift */,
 				EED075B92D388B23001CC272 /* UIViewController+Nav.swift */,
-				EED075CD2D38DD0C001CC272 /* UIsegmentControl+Ext.swift */,
-				EED075CF2D38E148001CC272 /* UIImage+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -515,7 +509,6 @@
 				EE58E6502D2D2D76000C4760 /* Notification+Name.swift in Sources */,
 				EE58E6512D2D2D76000C4760 /* UIButton+CustomButton.swift in Sources */,
 				EE58E6EF2D2FC378000C4760 /* PopupView.swift in Sources */,
-				EED075CE2D38DD0C001CC272 /* UIsegmentControl+Ext.swift in Sources */,
 				EE58E6F02D2FC378000C4760 /* PopupViewController.swift in Sources */,
 				EE58E6A02D2E4891000C4760 /* RealmManager.swift in Sources */,
 				EE58E6E32D2FB723000C4760 /* UICollectionViewCell+Ext.swift in Sources */,
@@ -540,7 +533,6 @@
 				EE4CE1422D30179100DE3054 /* DietModel.swift in Sources */,
 				EE4CE16E2D34EA6400DE3054 /* DateProtocol.swift in Sources */,
 				EE58E6A22D2E49A0000C4760 /* DietEntity.swift in Sources */,
-				EED075D02D38E148001CC272 /* UIImage+Ext.swift in Sources */,
 				EE58E65D2D2D2D76000C4760 /* SceneDelegate.swift in Sources */,
 				EED1269A2D355681003DBF38 /* DietScoreEntity.swift in Sources */,
 			);

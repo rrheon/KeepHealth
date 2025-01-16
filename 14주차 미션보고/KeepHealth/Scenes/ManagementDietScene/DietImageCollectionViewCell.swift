@@ -13,22 +13,13 @@ import Then
 /// 식단 이미지 셀
 class DietImageCollectionViewCell: UICollectionViewCell {
   
-  var cellNumber: Int? = nil
-  
   /// 식단 사진
-  private lazy var dietImageView: UIImageView = UIImageView().then {
-    $0.layer.cornerRadius = 10
-  }
+  private lazy var dietImageView: UIImageView = UIImageView()
   
   /// 식단사진 제거 버튼
   private lazy var deleteDietImageButton = UIButton().then {
     $0.setImage(UIImage(systemName: "xmark"), for: .normal)
     $0.tintColor = .black
-    $0.backgroundColor = .white
-    $0.layer.cornerRadius = 10
-    $0.layer.borderWidth = 1
-    $0.layer.borderColor = UIColor.black.cgColor
-    $0.addTarget(self, action: #selector(onDeleteImageBtnTapped), for: .touchUpInside)
   }
 
   override init(frame: CGRect) {
@@ -55,22 +46,13 @@ class DietImageCollectionViewCell: UICollectionViewCell {
     // 이미지삭제 버튼
     deleteDietImageButton.snp.makeConstraints {
       $0.top.equalToSuperview()
-      $0.trailing.equalTo(dietImageView.snp.trailing)
-      $0.height.width.equalTo(25)
+      $0.trailing.equalTo(dietImageView.snp.trailing).offset(-10)
+      $0.height.width.equalTo(15)
     }
   }
   
   /// 식단사진 설정
-  func bindImage(with image: UIImage, index: Int){
+  func bindImage(with image: UIImage){
     dietImageView.image = image
-    cellNumber = index
-  }
-  
-  
-  /// 셀 지우기 - 등록한 사진 지우기
-  /// - Parameter sender: UIButton
-  @objc func onDeleteImageBtnTapped(_ sender: UIButton){
-    guard let _cellNumber = cellNumber else { return }
-    DietViewModel.shared.deleteDietImage(with: _cellNumber)
   }
 }

@@ -197,7 +197,7 @@ class DietViewModel: Stepper {
 
   
   /// 식단 삭제
-  func deleteDiet(){
+  func deleteDeit(){
     if let deletingDietID = dietData?.dietID,
        let dietRate = RateTitle(rawValue: dietData?.dietRate ?? "Good"){
       RealmManager.shared.deleteCurrentDiet(dietUUID: deletingDietID, rateTitle: dietRate)
@@ -207,14 +207,6 @@ class DietViewModel: Stepper {
     }
   }
   
-  
-  /// 식단 사진 지우기
-  /// - Parameter cellNumber: 셀 넘버
-  func deleteDietImage(with cellNumber: Int){
-    var images: [UIImage] =  DietViewModel.shared.dietImages.value
-    images.remove(at: cellNumber)
-    DietViewModel.shared.dietImages.accept(images)
-  }
   
   /// 확인버튼 액션 - 팝업닫고 push된 화면 닫기
   func confirmButtonAction(){

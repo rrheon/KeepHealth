@@ -30,7 +30,6 @@ enum AppStep: Step {
         return UITabBarItem(title: "식단", image: UIImage(systemName: "fork.knife"),
                             selectedImage: UIImage(systemName: "housefork.knife.circle.fill"))
       }
-      
     }
     
     var title: String {
@@ -121,7 +120,6 @@ class AppFlow: Flow {
       tabBarController.viewControllers = [root1, root2]
       tabBarController.tabBar.backgroundColor = .white
       tabBarController.tabBar.tintColor = KHColorList.mainGreen.color
-      tabBarController.tabBar.unselectedItemTintColor = KHColorList.mainGray.color
       
       rootViewController.setViewControllers([tabBarController], animated: false)
       rootViewController.navigationBar.isHidden = true
