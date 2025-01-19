@@ -1,0 +1,34 @@
+"Score_Navigation_title" = "Meal Score";
+"DietList_Navigation_title" = "Meal List";
+"AddDiet_Navigation_title" = "Add Meal";
+"EditDiet_Navigation_title" = "Edit Meal";
+
+"ManagementDiet_DietType_title_Morning" = "Morning";
+"ManagementDiet_DietType_title_Lunch" = "Lunch";
+"ManagementDiet_DietType_title_Dinner" = "Dinner";
+"NoMealList" = "❌ 해당 날짜에 식단이 없습니다 ❌";
+
+"ManagementDiet_AddDietTitle" = "Add Meal Picture";
+"ManagementDiet_DietContent" = "Meal Content";
+"ManagementDiet_DietContent_TextView" = "Enter your Meal Content";
+"ManagementDiet_DietRateTile" = "Rate your Meal";
+"ManagementDiet_ButtonTitle" = "Add your Meal";
+
+"PopupTitle_Add" = "Would you like to add the meal plan?";
+"PopupTitle_Delete" = "Would you like to delete the meal plan?";
+"PopupTitle_Edit" = "Would you like to edit the meal plan?";
+"PopupTitle_Confirm_Access" = "Permission is required!";
+
+"PopupTitle_Confirm_Add" = "The meal plan has been added!";
+"PopupTitle_Confirm_Delete" = "The meal plan has been deleted!";
+"PopupTitle_Confirm_Edit" = "The meal plan has been edited!";
+
+"PopupTitle_Button_Add" = "Add";
+"PopupTitle_Button_Edit" = "Edit";
+"PopupTitle_Button_Delete" = "Delete";
+"PopupTitle_Button_Cancel" = "Cancel";
+"PopupTitle_Button_Confirm" = "Confirm";
+
+"BottomSheet_Button_Camera" = "Take a photo";
+"BottomSheet_Button_Photo" = "Select from album";
+"BottomSheet_Button_Cancel" = "Close";

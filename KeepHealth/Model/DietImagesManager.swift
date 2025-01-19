@@ -15,7 +15,7 @@ class DietImagesManager {
   /// - Parameter images: [이미지이름(PK + index)) : 이미지]
   static func saveImagesToDocumentDirectory(images: [(imageName: String, image: UIImage)]) {
     
-    // 반복적으로 이미지 저장
+    // 이미지 배열 저장
     for (imageName, image) in images {
       // 1. 이미지를 저장할 경로 설정
       guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
@@ -61,7 +61,7 @@ class DietImagesManager {
   /// - Returns: 식단 이미지
   static func loadImageFromDocumentDirectory(imageName: String) -> UIImage? {
     
-    // 1. 도큐먼트 폴더 경로가져오기
+    // 1. 폴더 경로가져오기
     let documentDirectory = FileManager.SearchPathDirectory.documentDirectory
     let userDomainMask = FileManager.SearchPathDomainMask.userDomainMask
     let path = NSSearchPathForDirectoriesInDomains(documentDirectory, userDomainMask, true)

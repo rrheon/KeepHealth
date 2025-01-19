@@ -20,21 +20,21 @@ class BottomSheetViewController: UIViewController{
   
   /// 사진촬영 버튼
   private lazy var selectCamearButton = UIButton().then {
-    $0.setTitle("사진 촬영하기", for: .normal)
+    $0.setTitle(NSLocalizedString("BottomSheet_Button_Camera", comment: ""), for: .normal)
     $0.setTitleColor(.black, for: .normal)
     $0.titleLabel?.font = .boldSystemFont(ofSize: 20)
   }
   
   /// 앨범에서 선택 버튼
   private lazy var selectPhotoButton = UIButton().then {
-    $0.setTitle("앨범에서 선택하기", for: .normal)
+    $0.setTitle(NSLocalizedString("BottomSheet_Button_Photo", comment: ""), for: .normal)
     $0.setTitleColor(.black, for: .normal)
     $0.titleLabel?.font = .boldSystemFont(ofSize: 20)
   }
   
   /// 닫기
   private lazy var dismissButton = UIButton().then {
-    $0.setTitle("닫기", for: .normal)
+    $0.setTitle(NSLocalizedString("BottomSheet_Button_Cancel", comment: ""), for: .normal)
     $0.setTitleColor(KHColorList.mainGreen.color, for: .normal)
     $0.titleLabel?.font = .boldSystemFont(ofSize: 20)
   }

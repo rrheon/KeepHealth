@@ -13,6 +13,17 @@ enum DietType: String, CaseIterable {
   case lunch   = "점심"
   case dinner  = "저녁"
   
+  /// Localized string for the enum case
+  var localizedString: String {
+    switch self {
+    case .morning:
+      return NSLocalizedString("ManagementDiet_DietType_title_Morning", comment: "")
+    case .lunch:
+      return NSLocalizedString("ManagementDiet_DietType_title_Lunch", comment: "")
+    case .dinner:
+      return NSLocalizedString("ManagementDiet_DietType_title_Dinner", comment: "")
+    }
+  }
   
   /// 숫자 to 문자열
   /// - Parameter index: 문자열

@@ -66,7 +66,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
   
   /// 선택완료 버튼
   private lazy var selectionCompleteButton = UIButton().then {
-    $0.setTitle("완료", for: .normal)
+    $0.setTitle(NSLocalizedString("PopupTitle_Button_Confirm", comment: ""), for: .normal)
     $0.setTitleColor(KHColorList.mainGreen.color, for: .normal)
     $0.addTarget(self, action: #selector(onCompleteBtnTapped), for: .touchUpInside)
   }

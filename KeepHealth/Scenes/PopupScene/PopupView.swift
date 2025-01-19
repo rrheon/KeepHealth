@@ -24,13 +24,13 @@ enum PopupCase {
   /// 팝업 title
   var titleContent: String {
     switch self {
-    case .add:          return "식단을 추가할까요?"
-    case .edit:         return "식단을 수정할까요?"
-    case .confirmAdd:   return "식단을 추가했습니다!"
-    case .confirmDelte: return "식단을 삭제했습니다!"
-    case .confirmEdit:  return "식단을 수정했습니다!"
-    case .delete:       return "식단을 삭제할까요?"
-    case .dietImage:    return "접근권한을 설정해주세요!"
+    case .add:          return NSLocalizedString("PopupTitle_Add", comment: "")
+    case .edit:         return NSLocalizedString("PopupTitle_Edit", comment: "")
+    case .confirmAdd:   return NSLocalizedString("PopupTitle_Confirm_Add", comment: "")
+    case .confirmDelte: return NSLocalizedString("PopupTitle_Confirm_Delete", comment: "")
+    case .confirmEdit:  return NSLocalizedString("PopupTitle_Confirm_Edit", comment: "")
+    case .delete:       return NSLocalizedString("PopupTitle_Delete", comment: "")
+    case .dietImage:    return NSLocalizedString("PopupTitle_Confirm_Access", comment: "")
     }
   }
   
@@ -38,10 +38,10 @@ enum PopupCase {
   /// 버튼 title
   var buttonContent: String {
     switch self {
-    case .add:      return "추가하기"
-    case .edit:     return "수정하기"
-    case .delete:   return "삭제하기"
-    default:        return "확인"
+    case .add:      return NSLocalizedString("PopupTitle_Button_Add", comment: "")
+    case .edit:     return NSLocalizedString("PopupTitle_Button_Eidt", comment: "")
+    case .delete:   return NSLocalizedString("PopupTitle_Button_Delete", comment: "")
+    default:        return NSLocalizedString("PopupTitle_Button_Confirm", comment: "")
     }
   }
 }
@@ -75,7 +75,7 @@ class PopupView: UIView {
   
   // 팝업 왼쪽 버튼
   private lazy var popupLeftButton = UIButton().then {
-    $0.setTitle("취소", for: .normal)
+    $0.setTitle(NSLocalizedString("PopupTitle_Button_Cancle", comment: ""), for: .normal)
     $0.setTitleColor(.black, for: .normal)
     $0.titleLabel?.font = .boldSystemFont(ofSize: 18)
     $0.layer.cornerRadius = 10
@@ -85,7 +85,7 @@ class PopupView: UIView {
   
   // 팝업 오른쪽 버튼
   private lazy var popupRightButton = UIButton().then {
-    $0.setTitle("추가하기", for: .normal)
+    $0.setTitle(NSLocalizedString("PopupTitle_Button_Add", comment: ""), for: .normal)
     $0.setTitleColor(.white, for: .normal)
     $0.backgroundColor = KHColorList.mainGreen.color
     $0.titleLabel?.font = .boldSystemFont(ofSize: 18)

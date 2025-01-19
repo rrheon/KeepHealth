@@ -50,7 +50,7 @@ class DietListViewController: UIViewController {
     addButton.setTitle("+", for: .normal)
     addButton.setTitleColor(.white, for: .normal)
     addButton.backgroundColor = KHColorList.mainGreen.color
-    addButton.layer.cornerRadius = 25
+    addButton.layer.cornerRadius = 35
     addButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
     addButton.addTarget(self, action: #selector(navToAddDietScene), for: .touchUpInside)
     return addButton
@@ -58,7 +58,7 @@ class DietListViewController: UIViewController {
   
   /// 식단데이터가 없을 때 라벨
   private lazy var noDataLabel = UILabel().then {
-    $0.text = "❌ 해당 날짜에 식단이 없습니다 ❌"
+    $0.text = NSLocalizedString("NoMealList", comment: "")
     $0.font = .boldSystemFont(ofSize: 24)
     $0.textColor = .black
   }
@@ -75,7 +75,7 @@ class DietListViewController: UIViewController {
     super.viewDidLoad()
     
     self.view.backgroundColor = UIColor(hexCode: KHColorList.backgroundGray.rawValue)
-    settingNavigationTitle(title: "식단 목록")
+    settingNavigationTitle(title: NSLocalizedString("DietList_Navigation_title", comment: "") )
     
     setupLayout()
     setupCollectionView()
@@ -112,10 +112,10 @@ class DietListViewController: UIViewController {
       dietCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
       dietCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
       
-      addButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
-      addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-      addButton.widthAnchor.constraint(equalToConstant: 50),
-      addButton.heightAnchor.constraint(equalToConstant: 50),
+      addButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -120),
+      addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+      addButton.widthAnchor.constraint(equalToConstant: 70),
+      addButton.heightAnchor.constraint(equalToConstant: 70),
       
       noDataLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       noDataLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)

@@ -36,7 +36,7 @@ class ManagementViewController: UIViewController {
   
   /// 식단사진추가 제목 라벨
   private lazy var dietImageTitleLabel = UILabel().then {
-    $0.text = "식단사진 추가하기"
+    $0.text = NSLocalizedString("ManagementDiet_AddDietTitle", comment: "")
     $0.font = .boldSystemFont(ofSize: 18)
     $0.textColor = .black
   }
@@ -66,7 +66,7 @@ class ManagementViewController: UIViewController {
   
   /// 식단내용 제목 라벨
   private lazy var dietContentTitleLabel = UILabel().then {
-    $0.text = "식단내용"
+    $0.text = NSLocalizedString("ManagementDiet_DietContent", comment: "")
     $0.font = .boldSystemFont(ofSize: 18)
     $0.textColor = .black
   }
@@ -74,7 +74,7 @@ class ManagementViewController: UIViewController {
   
   /// 식단내용 TextView
   private lazy var dietContentTextView = UITextView().then {
-    $0.text = "식단을 입력해주세요."
+    $0.text = NSLocalizedString("ManagementDiet_DietContent_TextView", comment: "")
     $0.textColor = .lightGray
     $0.backgroundColor = .white
     $0.layer.borderColor = UIColor.lightGray.cgColor
@@ -87,7 +87,7 @@ class ManagementViewController: UIViewController {
   
   /// 식단평가 제목 타이틀
   private lazy var dietRatingTitleLabel = UILabel().then {
-    $0.text = "식단 평가하기"
+    $0.text = NSLocalizedString("ManagementDiet_DietRateTile", comment: "")
     $0.font = .boldSystemFont(ofSize: 18)
     $0.textColor = .black
   }
@@ -102,8 +102,10 @@ class ManagementViewController: UIViewController {
   
   
   /// 식단추가버튼
-  private lazy var addDietButton = UIButton.makeKFMainButton(buttonTitle: "식단 추가하기",
-                                                             backgroundColor: KHColorList.mainGray.color)
+  private lazy var addDietButton = UIButton.makeKFMainButton(
+    buttonTitle: NSLocalizedString("ManagementDiet_ButtonTitle", comment: ""),
+    backgroundColor: KHColorList.mainGray.color
+  )
   
   
   override func viewDidLoad() {
@@ -198,7 +200,7 @@ class ManagementViewController: UIViewController {
       dietContentTextView.topAnchor.constraint(equalTo: dietContentTitleLabel.bottomAnchor, constant: 10),
       dietContentTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
       dietContentTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-      dietContentTextView.heightAnchor.constraint(equalToConstant: 50),
+      dietContentTextView.heightAnchor.constraint(equalToConstant: 100),
       
       // 식단평가 제목라벨
       dietRatingTitleLabel.topAnchor.constraint(equalTo: dietContentTextView.bottomAnchor, constant: 20),
@@ -365,7 +367,7 @@ class ManagementViewController: UIViewController {
     dietVM?.dietImages.accept(imagesArray)
 
     self.title = ManageDietVCType.editDiet.vcTitle
-    addDietButton.setTitle("식단 수정하기", for: .normal)
+    addDietButton.setTitle(NSLocalizedString("PopupTitle_Edit", comment: ""), for: .normal)
     
     navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "trash"),
                                                         style: .plain,
@@ -409,11 +411,11 @@ extension ManagementViewController: UITextViewDelegate {
     let estimatedSize = textView.sizeThatFits(size)
     
     textView.constraints.forEach { (constraint) in
-      // 최소 높이 50, 최대 높이 100으로 제한
-      if estimatedSize.height <= 50 {
-        constraint.constant = 50
-      } else if estimatedSize.height > 100 {
+      // 최소 높이 100, 최대 높이 150으로 제한
+      if estimatedSize.height <= 100 {
         constraint.constant = 100
+      } else if estimatedSize.height > 150 {
+        constraint.constant = 150
         textView.isScrollEnabled = true
       } else {
         constraint.constant = estimatedSize.height
@@ -435,7 +437,7 @@ extension ManagementViewController: UITextViewDelegate {
   
   func textViewDidChangeSelection(_ textView: UITextView) {
     // 텍스트가 비어있지 않은 경우 버튼 활성화
-    if textView.text != "식단을 입력해주세요." && textView.text != "" {
+    if textView.text != NSLocalizedString("ManagementDiet_DietContent_TextView", comment: "") && textView.text != "" {
       addDietButton.isEnabled = true
       addDietButton.backgroundColor = KHColorList.mainGreen.color
     } else {

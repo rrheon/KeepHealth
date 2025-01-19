@@ -28,7 +28,7 @@ class ScoreViewController: UIViewController {
     $0.numberOfLines = 2
     $0.textAlignment = .center
     $0.textColor = .black
-    $0.font = .boldSystemFont(ofSize: 24)
+    $0.font = .boldSystemFont(ofSize: 20)
   }
   
   override func viewDidLoad() {
@@ -49,14 +49,14 @@ class ScoreViewController: UIViewController {
     view.addSubview(myPieChart)
     myPieChart.snp.makeConstraints {
       $0.center.equalToSuperview()
-      $0.size.equalTo(300)
+      $0.size.equalTo(400)
     }
     
     // 점수
     view.addSubview(scoreLabel)
     scoreLabel.snp.makeConstraints {
       $0.centerX.equalTo(myPieChart.snp.centerX)
-      $0.centerY.equalTo(myPieChart.snp.centerY).offset(-20)
+      $0.centerY.equalTo(myPieChart.snp.centerY).offset(-40)
     }
   }
   
@@ -85,7 +85,8 @@ class ScoreViewController: UIViewController {
       .asDriver()
       .compactMap({ $0 })
       .drive(with: self, onNext: { vc, score in
-        self.scoreLabel.text = "식단 점수\n\(score)"
+        let dietScoreTitle: String = NSLocalizedString("ManagementDiet_DietType_title_Morning", comment: "")
+        self.scoreLabel.text = "\(dietScoreTitle)\n\(score)"
       })
       .disposed(by: disposeBag)
   }
@@ -120,7 +121,7 @@ class ScoreViewController: UIViewController {
     myPieChart.legend.horizontalAlignment = .center
     myPieChart.legend.form = .circle
     myPieChart.legend.textColor = .black
-    myPieChart.legend.font = .systemFont(ofSize: 14)
+    myPieChart.legend.font = .systemFont(ofSize: 25)
   }
 }
 

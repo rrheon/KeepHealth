@@ -24,10 +24,12 @@ enum AppStep: Step {
     var tabItem: UITabBarItem {
       switch self {
       case .score:
-        return UITabBarItem(title: "점수", image: UIImage(systemName: "house"),
+        return UITabBarItem(title: NSLocalizedString("Score_Navigation_title", comment: ""),
+                            image: UIImage(systemName: "house"),
                             selectedImage: UIImage(systemName: "house.fill"))
       case .dietList:
-        return UITabBarItem(title: "식단", image: UIImage(systemName: "fork.knife"),
+        return UITabBarItem(title: NSLocalizedString("DietList_Navigation_title", comment: ""),
+                            image: UIImage(systemName: "fork.knife"),
                             selectedImage: UIImage(systemName: "housefork.knife.circle.fill"))
       }
       
@@ -35,8 +37,8 @@ enum AppStep: Step {
     
     var title: String {
       switch self {
-      case .score: return "점수"
-      case .dietList: return "식단"
+      case .score: return NSLocalizedString("Score_Navigation_title", comment: "")
+      case .dietList: return NSLocalizedString("DietList_Navigation_title", comment: "")
       }
     }
   }

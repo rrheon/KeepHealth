@@ -16,10 +16,10 @@ enum ManageDietVCType {
   
   var vcTitle: String {
     switch self {
-    case .dietScore: return "식단 점수"
-    case .dietList:  return "식단 목록"
-    case .addDiet:   return "식단 추가"
-    case .editDiet:  return "식단 수정"
+    case .dietScore: return NSLocalizedString("Score_Navigation_title", comment: "")
+    case .dietList:  return NSLocalizedString("DietList_Navigation_title", comment: "")
+    case .addDiet:   return NSLocalizedString("AddDiet_Navigation_title", comment: "")
+    case .editDiet:  return NSLocalizedString("EditDiet_Navigation_title", comment: "")
     }
   }
 }
