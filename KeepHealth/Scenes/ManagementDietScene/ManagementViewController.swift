@@ -137,16 +137,16 @@ class ManagementViewController: UIViewController {
   }// viewDidLoad
   
 #warning("supabase test용")
-  override func viewDidDisappear(_ animated: Bool) {
-    Task {
-      do {
-        let action = SupabaseManager.shared.selectSupabaseAction()
-        try await action()
-      }catch {
-        dump(error)
-      }
-    }
-  }
+//  override func viewDidDisappear(_ animated: Bool) {
+//    Task {
+//      do {
+//        let action = SupabaseManager.shared.selectSupabaseAction()
+//        try await action()
+//      }catch {
+//        dump(error)
+//      }
+//    }
+//  }
   
   /// layout 설정
   func setupLayout(){
@@ -333,8 +333,10 @@ class ManagementViewController: UIViewController {
     let dietRate: String = RateTitle.fromIndex(selectDietRateSegment.selectedSegmentIndex)
     let dietContent: String = dietContentTextView.text
     let dietDate: String? = dietVM?.getConvertedDate()
+    let dietImages: [UIImage] = dietVM?.dietImages.value ?? [UIImage]()
     
-    dietVM?.managementDietData = DietManagementModel(dietTpye, dietRate, dietContent, dietDate, nil)
+    
+    dietVM?.managementDietData = DietManagementModel(dietTpye, dietRate, dietContent, dietDate, dietImages)
   }
   
   /// 식단 삭제
@@ -350,6 +352,18 @@ class ManagementViewController: UIViewController {
     selectDietTypeSegment.selectedSegmentIndex = DietType.fromString(data.dietType ?? "") ?? 0
     selectDietRateSegment.selectedSegmentIndex = RateTitle.fromString(data.dietRate ?? "") ?? 0
     
+    let convertedImageArray: [String] = Utils.convertListToArray(wtih: data.imagesPathArray)
+    print(#fileID, #function, #line," - \(convertedImageArray)")
+
+    // 이미지 가져오기
+    var imagesArray: [UIImage] = []
+    convertedImageArray.forEach {
+      print($0)
+      imagesArray.append(DietImagesManager.loadImageFromDocumentDirectory(imageName: $0) ?? UIImage())
+    }
+    
+    dietVM?.dietImages.accept(imagesArray)
+
     self.title = ManageDietVCType.editDiet.vcTitle
     addDietButton.setTitle("식단 수정하기", for: .normal)
     
@@ -456,7 +470,7 @@ extension ManagementViewController: UIImagePickerControllerDelegate,
 extension ManagementViewController: PHPickerViewControllerDelegate {
   func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
     dietVM?.steps.accept(AppStep.dismissIsRequired)
-
+    
     // 임시 배열 생성
     var selectedImages: [UIImage] = []
     
@@ -480,6 +494,7 @@ extension ManagementViewController: PHPickerViewControllerDelegate {
     dispatchGroup.notify(queue: .main) {
       self.dietVM?.managementImages(with: selectedImages)
       print("저장된 이미지 개수: \(selectedImages.count)")
+    
     }
   }
 }

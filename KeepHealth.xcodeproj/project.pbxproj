@@ -30,6 +30,9 @@
 		EE58E6E32D2FB723000C4760 /* UICollectionViewCell+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6E22D2FB723000C4760 /* UICollectionViewCell+Ext.swift */; };
 		EE58E6EF2D2FC378000C4760 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6EC2D2FC378000C4760 /* PopupView.swift */; };
 		EE58E6F02D2FC378000C4760 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6ED2D2FC378000C4760 /* PopupViewController.swift */; };
+		EE99EC272D3CCD3C0058C1B6 /* BottomSheetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99EC262D3CCD3C0058C1B6 /* BottomSheetProtocol.swift */; };
+		EE99EC292D3CCEE10058C1B6 /* DietImagesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99EC282D3CCEE10058C1B6 /* DietImagesManager.swift */; };
+		EE99EC2B2D3CD0C90058C1B6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99EC2A2D3CD0C90058C1B6 /* Utils.swift */; };
 		EED075772D368227001CC272 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = EED075762D368227001CC272 /* DGCharts */; };
 		EED0757A2D368234001CC272 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = EED075792D368234001CC272 /* FSCalendar */; };
 		EED0757D2D36823D001CC272 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EED0757C2D36823D001CC272 /* SnapKit */; };
@@ -119,6 +122,9 @@
 		EE58E6E22D2FB723000C4760 /* UICollectionViewCell+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Ext.swift"; sourceTree = "<group>"; };
 		EE58E6EC2D2FC378000C4760 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		EE58E6ED2D2FC378000C4760 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		EE99EC262D3CCD3C0058C1B6 /* BottomSheetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetProtocol.swift; sourceTree = "<group>"; };
+		EE99EC282D3CCEE10058C1B6 /* DietImagesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietImagesManager.swift; sourceTree = "<group>"; };
+		EE99EC2A2D3CD0C90058C1B6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		EED075922D36C6C1001CC272 /* DietImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		EED075AC2D377526001CC272 /* Supabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supabase.swift; sourceTree = "<group>"; };
 		EED075AD2D377526001CC272 /* SupabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseManager.swift; sourceTree = "<group>"; };
@@ -198,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				EE4CE16C2D34EA6400DE3054 /* DateProtocol.swift */,
+				EE99EC262D3CCD3C0058C1B6 /* BottomSheetProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -244,6 +251,8 @@
 				EED126992D355681003DBF38 /* DietScoreEntity.swift */,
 				EE58E6A12D2E49A0000C4760 /* DietEntity.swift */,
 				EE58E69F2D2E4891000C4760 /* RealmManager.swift */,
+				EE99EC282D3CCEE10058C1B6 /* DietImagesManager.swift */,
+				EE99EC2A2D3CD0C90058C1B6 /* Utils.swift */,
 				EED075AE2D377526001CC272 /* Supabase */,
 			);
 			path = Model;
@@ -525,6 +534,7 @@
 				EE58E6E32D2FB723000C4760 /* UICollectionViewCell+Ext.swift in Sources */,
 				EED075AF2D377526001CC272 /* Supabase.swift in Sources */,
 				EED075B22D377542001CC272 /* DietModelForSupabase.swift in Sources */,
+				EE99EC2B2D3CD0C90058C1B6 /* Utils.swift in Sources */,
 				EED075B02D377526001CC272 /* SupabaseManager.swift in Sources */,
 				EED075932D36C6C1001CC272 /* DietImageCollectionViewCell.swift in Sources */,
 				EE58E6522D2D2D76000C4760 /* UIColor+Ext.swift in Sources */,
@@ -536,6 +546,7 @@
 				EE58E6572D2D2D76000C4760 /* DietListViewController.swift in Sources */,
 				EED126AA2D362D89003DBF38 /* DietViewModel.swift in Sources */,
 				EED075BA2D388B23001CC272 /* UIViewController+Nav.swift in Sources */,
+				EE99EC272D3CCD3C0058C1B6 /* BottomSheetProtocol.swift in Sources */,
 				EE4CE1542D31F92200DE3054 /* CalendarViewController.swift in Sources */,
 				EE58E6592D2D2D76000C4760 /* ScoreFlow.swift in Sources */,
 				EE58E65A2D2D2D76000C4760 /* ScoreViewController.swift in Sources */,
@@ -547,6 +558,7 @@
 				EED075D02D38E148001CC272 /* UIImage+Ext.swift in Sources */,
 				EE58E65D2D2D2D76000C4760 /* SceneDelegate.swift in Sources */,
 				EED1269A2D355681003DBF38 /* DietScoreEntity.swift in Sources */,
+				EE99EC292D3CCEE10058C1B6 /* DietImagesManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

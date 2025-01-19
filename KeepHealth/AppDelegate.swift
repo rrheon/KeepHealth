@@ -18,7 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
     
     // Get on-disk location of the default Realm
+    let config = Realm.Configuration(schemaVersion: 2)  // schemaVersion을 1로 올림
+    Realm.Configuration.defaultConfiguration = config
     let realm = try! Realm()
+
     print("Realm is located at:", realm.configuration.fileURL!)
     
     return true

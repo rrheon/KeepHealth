@@ -68,6 +68,7 @@ class DietListViewController: UIViewController {
     print(#fileID, #function, #line," - 나타남")
     
     dietVM?.dietImages.accept([])
+
   }
   
   override func viewDidLoad() {

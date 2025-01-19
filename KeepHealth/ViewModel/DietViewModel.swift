@@ -53,16 +53,6 @@ class DietViewModel: Stepper {
     self.chartRate.accept(RealmManager.shared.fetchDietScoreEntity())
     
     bindToChartCount()
-    
-
-    // 비동기 함수 호출을 위해 Task 사용
-    Task {
-      do {
-        try await SupabaseManager.shared.fetchFromSupabase()
-      }catch {
-        dump(error)
-      }
-    }
   }
 
   func navigate(to step: AppStep){
@@ -79,6 +69,8 @@ class DietViewModel: Stepper {
     let bad: Double = Double(chartRate?.countBad ?? 0)
     
     self.chartCount.accept([good, normal, bad])
+    
+    
   }
   
   /// 차트 및 점수 업데이트
@@ -163,7 +155,7 @@ class DietViewModel: Stepper {
   
   /// 식단 생성
   func makeNewDiet(){
-    RealmManager.shared.makeNewDiet(dietImage: managementDietData?.dietImage,
+    RealmManager.shared.makeNewDiet(dietImages: managementDietData?.dietImage ?? [],
                                                 dietType: managementDietData?.dietType,
                                                 dietContent: managementDietData?.dietContent,
                                                 dietRate: managementDietData?.dietRate,
@@ -185,7 +177,7 @@ class DietViewModel: Stepper {
     }
     
     RealmManager.shared.editCurrentDiet(dietUUID: dietData?.dietID,
-                                        dietImage: managementDietData?.dietImage,
+                                        dietImage: managementDietData?.dietImage ?? [],
                                         dietType: managementDietData?.dietType,
                                         dietContent: managementDietData?.dietContent,
                                         dietRate: managementDietData?.dietRate)
@@ -221,8 +213,7 @@ class DietViewModel: Stepper {
     steps.accept(AppStep.popIsRequired)
   }
   
-#warning("todo - cell 버튼으로 사진제거 , 사진 realm에 저장, 라이트모드 설정")
-  // TODO: 카메라 및 앨범 델리게이트 받아서 추가 화면에 띄우기, realm으로 CRUD 구현, collectionView에 사진 띄우기
+#warning("todo - 사진 realm에 저장")
   /// 갤러리 접근 허용여부에 따른 action
   /// - Returns: none
   func checkAuthBeforePresentPhotoScreen() {

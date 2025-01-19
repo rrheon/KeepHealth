@@ -8,13 +8,14 @@
 import Foundation
 
 import RealmSwift
+import UIKit
 
 /// 식단 CRUD Manager
 class RealmManager {
   static let shared = RealmManager()
   
   let realm = try! Realm()
-
+  
   init(){
     self.createDietScoreEntityIfNeeded()
   }
@@ -28,39 +29,46 @@ class RealmManager {
   ///   - dietContent: 직단 내용
   ///   - dietRate: 식단 평가
   ///   - dietDate: 식단 날짜
-  func makeNewDiet(dietImage: String?,
+  func makeNewDiet(dietImages: [UIImage?] = [],
                    dietType: String?,
                    dietContent: String?,
                    dietRate: String?,
                    dietDate: String?)  {
-      guard let dietRateString = dietRate,
-            let rate = RateTitle(rawValue: dietRateString) else { return }
-      
-      // 새로운 식단 항목 생성
-      let newDiet = DietEntity(dietImage: dietImage,
-                               dietType: dietType,
-                               dietContent: dietContent,
-                               dietRate: dietRate,
-                               dietDate: dietDate)
-
-#warning("supabase test용")
-
-    SupabaseManager.shared.contactType = .create
-    SupabaseManager.shared.dietEntity = DietEntityToServer(dietID: newDiet.dietID.stringValue,
-                                                           dietImage: dietImage,
-                                                           dietType: dietType,
-                                                           dietContent: dietContent,
-                                                           dietRate: dietRate,
-                                                           dietDate: dietDate)
-      // 점수 업데이트
-      updateDietScoreEntity(changeDietRate: rate)
-      
-      // 새로운 식단 항목 추가
-      try! realm.write {
-          realm.add(newDiet)
-      }
+    guard let dietRateString = dietRate,
+          let rate = RateTitle(rawValue: dietRateString) else { return }
+    
+    // 새로운 식단 항목 생성
+    let newDiet = DietEntity(dietType: dietType,
+                             dietContent: dietContent,
+                             dietRate: dietRate,
+                             dietDate: dietDate)
+    
+    // 식단 엔티티에 사진정보를 따로 저장 x, pk + 1~3 으로 찾기
+    var imagesPathArray: [(String, UIImage)] = []
+    var pathArray: [String] = []
+    
+    // 식단 순서, 경로 추가
+    for (index, image) in dietImages.compactMap({ $0 }).enumerated() {
+      let path: String = "\(newDiet.dietID)\(index).png"
+      imagesPathArray.append((path, image))
+      pathArray.append(path)
+    }
+  
+    // 이미지 디렉토리에 저장
+    DietImagesManager.saveImagesToDocumentDirectory(images: imagesPathArray)
+   
+    // 점수 업데이트
+    updateDietScoreEntity(changeDietRate: rate)
+    
+    // 이미지 경로 List<String>으로 변경 후 추가
+    newDiet.imagesPathArray = Utils.convertArrayToList(wtih: pathArray)
+    
+    // 새로운 식단 항목 추가
+    try! realm.write {
+      realm.add(newDiet)
+    }
   }
-
+  
   
   // READ
   
@@ -69,9 +77,9 @@ class RealmManager {
   /// - Returns: [DietEntity]
   func fetchSomeDateDiet(dietDate: String = "Today") -> [DietEntity]{
     let dietEntity = realm.objects(DietEntity.self)
-
+    
     let specificDate: String = dietDate == "Today" ? getConvertedDate() : dietDate
-  
+    
     return dietEntity.where { $0.dietDate == specificDate}.map { $0 }
   }
   
@@ -86,12 +94,12 @@ class RealmManager {
   ///   - dietContent: 식단 내용
   ///   - dietRate: 식단 평가
   func editCurrentDiet(dietUUID: ObjectId?,
-                       dietImage: String?,
+                       dietImage: [UIImage?],
                        dietType: String?,
                        dietContent: String?,
                        dietRate: String?){
     let updatingEntitiy = realm.object(ofType: DietEntity.self, forPrimaryKey: dietUUID)
-
+    
     try! realm.write {
       if let _dietType = dietType {
         updatingEntitiy?.dietType = _dietType
@@ -105,15 +113,6 @@ class RealmManager {
         updatingEntitiy?.dietRate = _dietRate
       }
     }
-
-#warning("supabase test용")
-    SupabaseManager.shared.contactType = .edit
-    SupabaseManager.shared.dietEntity = DietEntityToServer(dietID: dietUUID?.stringValue,
-                                                           dietImage: dietImage,
-                                                           dietType: dietType,
-                                                           dietContent: dietContent,
-                                                           dietRate: dietRate,
-                                                           dietDate: updatingEntitiy?.dietDate)
   }
   
   // DELETE
@@ -127,12 +126,8 @@ class RealmManager {
     updateDietScoreEntity(dietRate: rateTitle)
     
     try! realm.write {
-        realm.delete(deleteEntitiy)
+      realm.delete(deleteEntitiy)
     }
-    
-#warning("supabase test용")
-    SupabaseManager.shared.contactType = .delete
-    SupabaseManager.shared.dietEntity = DietEntityToServer(dietID: dietUUID.stringValue)
   }
   
   
@@ -185,6 +180,7 @@ class RealmManager {
       DietViewModel.shared.updateDietChartAndScore(entity: entity)
     }
   }
+  
 }
 
 extension RealmManager: DateHelper {}
