@@ -29,7 +29,7 @@ class RealmManager {
   ///   - dietContent: 직단 내용
   ///   - dietRate: 식단 평가
   ///   - dietDate: 식단 날짜
-  func makeNewDiet(dietImages: [UIImage?] = [],
+  func makeNewDiet(dietImages: [UIImage?]? = [],
                    dietType: String?,
                    dietContent: String?,
                    dietRate: String?,
@@ -42,26 +42,15 @@ class RealmManager {
                              dietContent: dietContent,
                              dietRate: dietRate,
                              dietDate: dietDate)
-    
-    // 식단 엔티티에 사진정보를 따로 저장 x, pk + 1~3 으로 찾기
-    var imagesPathArray: [(String, UIImage)] = []
-    var pathArray: [String] = []
-    
-    // 식단 순서, 경로 추가
-    for (index, image) in dietImages.compactMap({ $0 }).enumerated() {
-      let path: String = "\(newDiet.dietID)\(index).png"
-      imagesPathArray.append((path, image))
-      pathArray.append(path)
-    }
-  
-    // 이미지 디렉토리에 저장
-    DietImagesManager.saveImagesToDocumentDirectory(images: imagesPathArray)
-   
+
     // 점수 업데이트
     updateDietScoreEntity(changeDietRate: rate)
     
-    // 이미지 경로 List<String>으로 변경 후 추가
-    newDiet.imagesPathArray = Utils.convertArrayToList(wtih: pathArray)
+    // 이미지 디렉토리에 저장, 이미지 경로 List<String>으로 변경 후 추가
+    if let _images = dietImages {
+      newDiet.imagesPathArray = Utils.convertArrayToList(wtih: getImagePaths(with: _images,
+                                                                             dietID: newDiet.dietID))
+    }
     
     // 새로운 식단 항목 추가
     try! realm.write {
@@ -94,7 +83,7 @@ class RealmManager {
   ///   - dietContent: 식단 내용
   ///   - dietRate: 식단 평가
   func editCurrentDiet(dietUUID: ObjectId?,
-                       dietImage: [UIImage?],
+                       dietImage: [UIImage?]?,
                        dietType: String?,
                        dietContent: String?,
                        dietRate: String?){
@@ -111,6 +100,13 @@ class RealmManager {
       
       if let _dietRate = dietRate {
         updatingEntitiy?.dietRate = _dietRate
+      }
+      
+      // 수정된 이미지 다시 넣어주기
+      if let _dietImages = dietImage, let _dietUUID = dietUUID {
+        updatingEntitiy?.imagesPathArray = Utils.convertArrayToList(
+          wtih: getImagePaths(with: _dietImages, dietID: _dietUUID)
+        )
       }
     }
   }
@@ -130,6 +126,29 @@ class RealmManager {
     }
   }
   
+  
+  /// 이미지 저장 후 경로반환
+  /// - Parameters:
+  ///   - images: 식단이미지들
+  ///   - dietID: 식단ID
+  /// - Returns: 이미지 경로들
+  func getImagePaths(with images: [UIImage?], dietID: ObjectId) -> [String]{
+    // 식단 엔티티에 사진정보를 따로 저장 x, pk + 1~3 으로 찾기
+    var imagesPathArray: [(String, UIImage)] = []
+    var pathArray: [String] = []
+    
+    // 식단 순서, 경로 추가
+    for (index, image) in images.compactMap({ $0 }).enumerated() {
+      let path: String = "\(dietID)\(index).png"
+      imagesPathArray.append((path, image))
+      pathArray.append(path)
+    }
+  
+    // 이미지 디렉토리에 저장
+    DietImagesManager.saveImagesToDocumentDirectory(images: imagesPathArray)
+   
+    return pathArray
+  }
   
   /// 점수 Entity 생성
   func createDietScoreEntityIfNeeded() {

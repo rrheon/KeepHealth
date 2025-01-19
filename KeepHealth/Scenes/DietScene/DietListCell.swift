@@ -93,11 +93,7 @@ class DietListCell: UICollectionViewCell {
   
   /// cell UI 업데이트
   func updateCellUI(with cellData: DietEntity){
-//    if cellData.dietImage == nil {
-//      dietImageView.image = UIImage(systemName: "fork.knife")
-//      dietImageView.contentMode = .scaleAspectFit
-//    }
-    
+
     dietTypeLabel.text = cellData.dietType
     dietContentLabel.text = cellData.dietContent
     rateButton.setTitle(cellData.dietRate, for: .normal)
@@ -107,6 +103,7 @@ class DietListCell: UICollectionViewCell {
     if let imagePath: String = cellData.imagesPathArray.first,
        let dietImage: UIImage = DietImagesManager.loadImageFromDocumentDirectory(imageName: imagePath){
       dietImageView.image = dietImage
+      dietImageView.layer.cornerRadius = 25
     }else {
       dietImageView.image = UIImage(systemName: "fork.knife")
     }
