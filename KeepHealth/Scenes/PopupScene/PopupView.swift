@@ -39,7 +39,7 @@ enum PopupCase {
   var buttonContent: String {
     switch self {
     case .add:      return NSLocalizedString("PopupTitle_Button_Add", comment: "")
-    case .edit:     return NSLocalizedString("PopupTitle_Button_Eidt", comment: "")
+    case .edit:     return NSLocalizedString("PopupTitle_Button_Edit", comment: "")
     case .delete:   return NSLocalizedString("PopupTitle_Button_Delete", comment: "")
     default:        return NSLocalizedString("PopupTitle_Button_Confirm", comment: "")
     }
@@ -75,7 +75,7 @@ class PopupView: UIView {
   
   // 팝업 왼쪽 버튼
   private lazy var popupLeftButton = UIButton().then {
-    $0.setTitle(NSLocalizedString("PopupTitle_Button_Cancle", comment: ""), for: .normal)
+    $0.setTitle(NSLocalizedString("PopupTitle_Button_Cancel", comment: ""), for: .normal)
     $0.setTitleColor(.black, for: .normal)
     $0.titleLabel?.font = .boldSystemFont(ofSize: 18)
     $0.layer.cornerRadius = 10

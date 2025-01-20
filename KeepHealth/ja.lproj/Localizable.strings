@@ -1,11 +1,3 @@
-/* 
-  Localizable.strings
-  KeepHealth
-
-  Created by 최용헌 on 1/19/25.
-  
-*/
-
 "Score_Navigation_title" = "食事スコア";
 "DietList_Navigation_title" = "食事リスト";
 "AddDiet_Navigation_title" = "食事を追加";
@@ -14,27 +6,27 @@
 "ManagementDiet_DietType_title_Morning" = "朝食";
 "ManagementDiet_DietType_title_Lunch" = "昼食";
 "ManagementDiet_DietType_title_Dinner" = "夕食";
-"NoMealList" = "❌ 該当の日付に食事がありません ❌";
-"PopupTitle_Confirm_Access" = "権限が必要です！";
+"NoMealList" = "❌該当の日付に食事がありません❌";
 
 "ManagementDiet_AddDietTitle" = "食事写真を追加";
 "ManagementDiet_DietContent" = "食事内容";
-"ManagementDiet_DietContent_TextView" = "食事内容を入力してください。";
+"ManagementDiet_DietContent_TextView" = "食事内容を入力してください";
 "ManagementDiet_DietRateTile" = "食事を評価する";
 "ManagementDiet_ButtonTitle" = "食事を追加";
 
-"PopupTitle_Add" = "食事を追加しますか？";
-"PopupTitle_Delete" = "食事を削除しますか？";
-"PopupTitle_Edit" = "食事を編集しますか？";
+"PopupTitle_Add" = "この食事を追加しますか？";
+"PopupTitle_Delete" = "この食事を削除しますか？";
+"PopupTitle_Edit" = "この食事を編集しますか？";
+"PopupTitle_Confirm_Access" = "権限が必要です！";
 
-"PopupTitle_Confirm_Add" = "食事を追加しました！";
-"PopupTitle_Confirm_Delete" = "食事を削除しました！";
-"PopupTitle_Confirm_Edit" = "食事を編集しました！";
+"PopupTitle_Confirm_Add" = "食事が追加されました！";
+"PopupTitle_Confirm_Delete" = "食事が削除されました！";
+"PopupTitle_Confirm_Edit" = "食事が編集されました！";
 
 "PopupTitle_Button_Add" = "追加";
-"PopupTitle_Button_Eidt" = "編集";
+"PopupTitle_Button_Edit" = "編集";
 "PopupTitle_Button_Delete" = "削除";
-"PopupTitle_Button_Cancle" = "キャンセル";
+"PopupTitle_Button_Cancel" = "キャンセル";
 "PopupTitle_Button_Confirm" = "確認";
 
 "BottomSheet_Button_Camera" = "写真を撮る";

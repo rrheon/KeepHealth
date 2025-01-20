@@ -6,22 +6,22 @@
 "ManagementDiet_DietType_title_Morning" = "Morning";
 "ManagementDiet_DietType_title_Lunch" = "Lunch";
 "ManagementDiet_DietType_title_Dinner" = "Dinner";
-"NoMealList" = "❌ 해당 날짜에 식단이 없습니다 ❌";
+"NoMealList" = "❌No meals available on this date❌";
 
 "ManagementDiet_AddDietTitle" = "Add Meal Picture";
 "ManagementDiet_DietContent" = "Meal Content";
-"ManagementDiet_DietContent_TextView" = "Enter your Meal Content";
-"ManagementDiet_DietRateTile" = "Rate your Meal";
-"ManagementDiet_ButtonTitle" = "Add your Meal";
+"ManagementDiet_DietContent_TextView" = "Enter meal details";
+"ManagementDiet_DietRateTile" = "Rate your meal";
+"ManagementDiet_ButtonTitle" = "Add Meal";
 
-"PopupTitle_Add" = "Would you like to add the meal plan?";
-"PopupTitle_Delete" = "Would you like to delete the meal plan?";
-"PopupTitle_Edit" = "Would you like to edit the meal plan?";
+"PopupTitle_Add" = "Add this meal?";
+"PopupTitle_Delete" = "Delete this meal?";
+"PopupTitle_Edit" = "Edit this meal?";
 "PopupTitle_Confirm_Access" = "Permission is required!";
 
-"PopupTitle_Confirm_Add" = "The meal plan has been added!";
-"PopupTitle_Confirm_Delete" = "The meal plan has been deleted!";
-"PopupTitle_Confirm_Edit" = "The meal plan has been edited!";
+"PopupTitle_Confirm_Add" = "Meal has been added!";
+"PopupTitle_Confirm_Delete" = "Meal has been deleted!";
+"PopupTitle_Confirm_Edit" = "Meal has been edited!";
 
 "PopupTitle_Button_Add" = "Add";
 "PopupTitle_Button_Edit" = "Edit";

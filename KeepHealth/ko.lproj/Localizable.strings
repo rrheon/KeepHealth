@@ -1,4 +1,3 @@
-
 "Score_Navigation_title" = "식단 점수";
 "DietList_Navigation_title" = "식단 목록";
 "AddDiet_Navigation_title" = "식단 추가";
@@ -7,27 +6,27 @@
 "ManagementDiet_DietType_title_Morning" = "아침";
 "ManagementDiet_DietType_title_Lunch" = "점심";
 "ManagementDiet_DietType_title_Dinner" = "저녁";
+"NoMealList" = "❌해당 날짜에 식단이 없습니다❌";
 
-"NoMealList" = "❌ No diet available on this date ❌";
-"ManagementDiet_AddDietTitle" = "식단 사진 추가하기";
+"ManagementDiet_AddDietTitle" = "식단 사진 추가";
 "ManagementDiet_DietContent" = "식단 내용";
-"ManagementDiet_DietContent_TextView" = "식단을 입력해주세요.";
-"ManagementDiet_DietRateTile" = "식단 평가하기";
+"ManagementDiet_DietContent_TextView" = "식단 내용을 입력하세요";
+"ManagementDiet_DietRateTile" = "식단를 평가하기";
 "ManagementDiet_ButtonTitle" = "식단 추가하기";
 
 "PopupTitle_Add" = "식단을 추가할까요?";
 "PopupTitle_Delete" = "식단을 삭제할까요?";
 "PopupTitle_Edit" = "식단을 수정할까요?";
-
-"PopupTitle_Confirm_Add" = "식단을 추가했습니다!";
-"PopupTitle_Confirm_Delete" = "식단을 삭제했습니다!";
-"PopupTitle_Confirm_Edit" = "식단을 수정했습니다";
 "PopupTitle_Confirm_Access" = "권한이 필요합니다!";
 
-"PopupTitle_Button_Add" = "추가하기";
-"PopupTitle_Button_Eidt" = "수정";
+"PopupTitle_Confirm_Add" = "식단이 추가되었습니다!";
+"PopupTitle_Confirm_Delete" = "식단이 삭제되었습니다!";
+"PopupTitle_Confirm_Edit" = "식단이 수정되었습니다!";
+
+"PopupTitle_Button_Add" = "추가";
+"PopupTitle_Button_Edit" = "수정";
 "PopupTitle_Button_Delete" = "삭제";
-"PopupTitle_Button_Cancle" = "취소";
+"PopupTitle_Button_Cancel" = "취소";
 "PopupTitle_Button_Confirm" = "확인";
 
 "BottomSheet_Button_Camera" = "사진 촬영하기";

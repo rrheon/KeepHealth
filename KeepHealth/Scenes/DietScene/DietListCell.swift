@@ -94,7 +94,10 @@ class DietListCell: UICollectionViewCell {
   /// cell UI 업데이트
   func updateCellUI(with cellData: DietEntity){
 
-    dietTypeLabel.text = cellData.dietType
+    if let dietType = cellData.dietType {
+      dietTypeLabel.text = DietType(rawValue: dietType)?.localizedString
+    }
+   
     dietContentLabel.text = cellData.dietContent
     rateButton.setTitle(cellData.dietRate, for: .normal)
     rateButton.backgroundColor = DietRateColor.color(from: cellData.dietRate ?? "Good")

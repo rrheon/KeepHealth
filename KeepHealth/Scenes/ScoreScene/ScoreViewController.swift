@@ -85,7 +85,7 @@ class ScoreViewController: UIViewController {
       .asDriver()
       .compactMap({ $0 })
       .drive(with: self, onNext: { vc, score in
-        let dietScoreTitle: String = NSLocalizedString("ManagementDiet_DietType_title_Morning", comment: "")
+        let dietScoreTitle: String = NSLocalizedString("Score_Navigation_title", comment: "")
         self.scoreLabel.text = "\(dietScoreTitle)\n\(score)"
       })
       .disposed(by: disposeBag)

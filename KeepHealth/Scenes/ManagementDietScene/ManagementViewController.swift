@@ -24,9 +24,9 @@ class ManagementViewController: UIViewController {
   
   /// 식단 종류 segment
   private lazy var selectDietTypeSegment: UISegmentedControl = {
-    let control = UISegmentedControl(items: [DietType.morning.rawValue,
-                                             DietType.lunch.rawValue,
-                                             DietType.dinner.rawValue])
+    let control = UISegmentedControl(items: [DietType.morning.localizedString,
+                                             DietType.lunch.localizedString,
+                                             DietType.dinner.localizedString])
 
     control.setLayout(backgorundColor: KHColorList.mainGreen.color)
     control.addTarget(self, action: #selector(selectSegment(sender: )), for: .valueChanged)
