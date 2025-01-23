@@ -213,7 +213,6 @@ class DietViewModel: Stepper {
     steps.accept(AppStep.popIsRequired)
   }
   
-#warning("todo - 사진 realm에 저장")
   /// 갤러리 접근 허용여부에 따른 action
   /// - Returns: none
   func checkAuthBeforePresentPhotoScreen() {

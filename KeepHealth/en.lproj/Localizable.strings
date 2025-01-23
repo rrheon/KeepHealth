@@ -32,3 +32,5 @@
 "BottomSheet_Button_Camera" = "Take a photo";
 "BottomSheet_Button_Photo" = "Select from album";
 "BottomSheet_Button_Cancel" = "Close";
+
+"DietDetailImage_Title" = "Diet Image";

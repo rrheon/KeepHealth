@@ -32,3 +32,5 @@
 "BottomSheet_Button_Camera" = "사진 촬영하기";
 "BottomSheet_Button_Photo" = "앨범에서 선택하기";
 "BottomSheet_Button_Cancel" = "닫기";
+
+"DietDetailImage_Title" = "식단 사진";

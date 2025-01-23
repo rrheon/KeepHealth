@@ -21,14 +21,15 @@ class SupabaseManager {
   /// 서버랑 접근하는 유형
   var contactType: ContactToServerCaes? = nil
   
-  
   /// Supabase에서 모든 데이터 가져오기
   func fetchFromSupabase() async throws {
-    try await supabase
+    let result: [DietEntityToServer] = try await supabase
       .from("diets")
       .select()
       .execute()
       .value
+    
+    print(result)
   }
   
   /// Supabase에 데이터  추가

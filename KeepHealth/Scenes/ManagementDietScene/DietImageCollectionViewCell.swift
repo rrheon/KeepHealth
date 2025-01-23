@@ -61,9 +61,10 @@ class DietImageCollectionViewCell: UICollectionViewCell {
   }
   
   /// 식단사진 설정
-  func bindImage(with image: UIImage, index: Int){
+  func bindImage(with image: UIImage, index: Int, deleteImageBtn: Bool = false){
     dietImageView.image = image
     cellNumber = index
+    deleteDietImageButton.isHidden = deleteImageBtn
   }
   
   

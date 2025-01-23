@@ -137,19 +137,7 @@ class ManagementViewController: UIViewController {
       updateEditDietScreen(data: data)
     }
   }// viewDidLoad
-  
-#warning("supabase test용")
-//  override func viewDidDisappear(_ animated: Bool) {
-//    Task {
-//      do {
-//        let action = SupabaseManager.shared.selectSupabaseAction()
-//        try await action()
-//      }catch {
-//        dump(error)
-//      }
-//    }
-//  }
-  
+    
   /// layout 설정
   func setupLayout(){
     [
@@ -265,11 +253,20 @@ class ManagementViewController: UIViewController {
     
     // 식단이미지추가버튼 액션등록
     addDietImageButton.addTarget(self, action: #selector(presentBottomSheet), for: .touchUpInside)
+    
+    // 식단이미지 셀 터치 시
+    dietImageCollectionView.rx.modelSelected(UIImage.self)
+      .throttle(.seconds(1), scheduler: MainScheduler.instance)
+      .withUnretained(self)
+      .subscribe(onNext: { vc, item in
+        DietViewModel.shared.steps.accept(AppStep.dietImageDetailIsRequired)
+      })
+      .disposed(by: disposeBag)
   }
   
   /// 노티피케이션 및 탭 재스쳐 등록
   fileprivate func registerNotifications() {
-
+#warning("코드 줄이기, withunretained 쓰기")
     // 키보드 보이기 전
     NotificationCenter.default.rx
       .notification(UIResponder.keyboardWillShowNotification)
@@ -299,7 +296,8 @@ class ManagementViewController: UIViewController {
             self?.view.endEditing(true)
         })
         .disposed(by: disposeBag)
-   
+    
+    tapBackground.cancelsTouchesInView = false
     view.addGestureRecognizer(tapBackground)
   }
   
@@ -437,7 +435,10 @@ extension ManagementViewController: UITextViewDelegate {
   
   func textViewDidChangeSelection(_ textView: UITextView) {
     // 텍스트가 비어있지 않은 경우 버튼 활성화
-    if textView.text != NSLocalizedString("ManagementDiet_DietContent_TextView", comment: "") && textView.text != "" {
+    if textView.text != NSLocalizedString(
+      "ManagementDiet_DietContent_TextView",
+      comment: ""
+    ) && textView.text != "" {
       addDietButton.isEnabled = true
       addDietButton.backgroundColor = KHColorList.mainGreen.color
     } else {
@@ -473,34 +474,42 @@ extension ManagementViewController: PHPickerViewControllerDelegate {
   func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
     dietVM?.steps.accept(AppStep.dismissIsRequired)
     
-    // 임시 배열 생성
-    var selectedImages: [UIImage] = []
-    
-    // DispatchGroup 사용
-    let dispatchGroup: DispatchGroup = DispatchGroup()
+    Task {
+      // 비동기로 이미지를 로드
+      let selectedImages = await loadImages(from: results)
+      
+      // 이미지 처리
+      dietVM?.managementImages(with: selectedImages)
+      print("저장된 이미지 개수: \(selectedImages.count)")
+    }
+  }
+  
+  // 비동기 이미지 로드 함수
+  private func loadImages(from results: [PHPickerResult]) async -> [UIImage] {
+    var images: [UIImage] = []
     
     for result in results {
-      // 시작
-      dispatchGroup.enter()
-      
-      result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] (image, error) in
-        if let image = image as? UIImage {
-          selectedImages.append(image)
-        }
-        // 종료
-        dispatchGroup.leave()
+      if let image = await loadImage(from: result) {
+        images.append(image)
       }
     }
     
-    // 모든 이미지 로딩 완료 후 호출
-    dispatchGroup.notify(queue: .main) {
-      self.dietVM?.managementImages(with: selectedImages)
-      print("저장된 이미지 개수: \(selectedImages.count)")
-    
+    return images
+  }
+  
+  // 단일 이미지 로드 함수
+  private func loadImage(from result: PHPickerResult) async -> UIImage? {
+    await withCheckedContinuation { continuation in
+      result.itemProvider.loadObject(ofClass: UIImage.self) { (object, error) in
+        if let image = object as? UIImage {
+          continuation.resume(returning: image)
+        } else {
+          continuation.resume(returning: nil)
+        }
+      }
     }
   }
 }
-
 
 // collectionView cell의 크기
 extension ManagementViewController: UICollectionViewDelegateFlowLayout {

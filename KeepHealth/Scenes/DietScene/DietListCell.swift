@@ -53,6 +53,12 @@ class DietListCell: UICollectionViewCell {
     fatalError("init(coder:) has not been implemented")
   }
   
+  func prepareForReuse(with cellData: DietEntity) {
+    super.prepareForReuse()
+    
+    updateCellUI(with: cellData)
+  }
+  
   /// layout 설정
   func setupLayout(){
     [
@@ -107,6 +113,7 @@ class DietListCell: UICollectionViewCell {
        let dietImage: UIImage = DietImagesManager.loadImageFromDocumentDirectory(imageName: imagePath){
       dietImageView.image = dietImage
       dietImageView.layer.cornerRadius = 25
+      dietImageView.clipsToBounds = true
     }else {
       dietImageView.image = UIImage(systemName: "fork.knife")
     }

@@ -55,6 +55,7 @@ enum AppStep: Step {
   case bottomSheetIsRequired                    // bottomSheet
   case cameraIsRequired                         // 카메라 사용
   case photoIsRequired                         //  앨범 사용
+  case dietImageDetailIsRequired               // 식단 상세화면
 
 }
 
@@ -99,6 +100,8 @@ class AppFlow: Flow {
       return presentCameraScreen()
     case .photoIsRequired:
       return presentPhotoScreen()
+    case .dietImageDetailIsRequired:
+      return presentDietImageDetailScreen()
     default:
       return .none
     }
@@ -222,6 +225,17 @@ class AppFlow: Flow {
     rootViewController.present(camera, animated: true)
     
     print(#fileID, #function, #line," - \(rootViewController.viewControllers)")
+    return .none
+  }
+  
+  
+  /// 식단 이미지 상세화면으로 이동
+  /// - Returns: .none
+  func presentDietImageDetailScreen() -> FlowContributors {
+    let vc = DietImagesViewController()
+    vc.modalTransitionStyle = .crossDissolve
+    vc.modalPresentationStyle = .overFullScreen
+    rootViewController.present(vc, animated: true)
     return .none
   }
 }

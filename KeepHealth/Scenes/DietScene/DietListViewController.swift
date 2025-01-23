@@ -170,8 +170,7 @@ class DietListViewController: UIViewController {
         cellIdentifier: DietListCell.cellID,
         cellType: DietListCell.self)) { index, content, cell in
           print(#fileID, #function, #line," - \(content)")
-
-          cell.updateCellUI(with: content)
+          cell.prepareForReuse(with: content)
         }
         .disposed(by: disposeBag)
     

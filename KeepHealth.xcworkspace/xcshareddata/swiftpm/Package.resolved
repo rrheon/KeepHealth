@@ -1,5 +1,5 @@
 {
-  "originHash" : "aaacae8468ab8b14b2afb09dd86b608d6333b0aeea477ca2950dc1a384069836",
+  "originHash" : "daa8a38f5e2ae4d63948b6bfe48a364962562a767bfd94c98f8fc20ca8306f22",
   "pins" : [
     {
       "identity" : "charts",
@@ -71,6 +71,15 @@
       "state" : {
         "revision" : "2842e6e84e82eb9a8dac0100ca90d9444b0307f4",
         "version" : "5.7.1"
+      }
+    },
+    {
+      "identity" : "snappinglayout",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/getmimo/SnappingLayout.git",
+      "state" : {
+        "revision" : "888331758bd66b35287a031447dbc28e38f485ae",
+        "version" : "0.1.4"
       }
     },
     {

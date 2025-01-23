@@ -30,6 +30,8 @@
 		EE58E6E32D2FB723000C4760 /* UICollectionViewCell+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6E22D2FB723000C4760 /* UICollectionViewCell+Ext.swift */; };
 		EE58E6EF2D2FC378000C4760 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6EC2D2FC378000C4760 /* PopupView.swift */; };
 		EE58E6F02D2FC378000C4760 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE58E6ED2D2FC378000C4760 /* PopupViewController.swift */; };
+		EE5B93212D413354006DC65D /* DietImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5B93202D413354006DC65D /* DietImagesViewController.swift */; };
+		EE5B93242D421B78006DC65D /* SnappingLayout in Frameworks */ = {isa = PBXBuildFile; productRef = EE5B93232D421B78006DC65D /* SnappingLayout */; };
 		EE99EC272D3CCD3C0058C1B6 /* BottomSheetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99EC262D3CCD3C0058C1B6 /* BottomSheetProtocol.swift */; };
 		EE99EC292D3CCEE10058C1B6 /* DietImagesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99EC282D3CCEE10058C1B6 /* DietImagesManager.swift */; };
 		EE99EC2B2D3CD0C90058C1B6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE99EC2A2D3CD0C90058C1B6 /* Utils.swift */; };
@@ -123,6 +125,7 @@
 		EE58E6E22D2FB723000C4760 /* UICollectionViewCell+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Ext.swift"; sourceTree = "<group>"; };
 		EE58E6EC2D2FC378000C4760 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		EE58E6ED2D2FC378000C4760 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		EE5B93202D413354006DC65D /* DietImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietImagesViewController.swift; sourceTree = "<group>"; };
 		EE99EC262D3CCD3C0058C1B6 /* BottomSheetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetProtocol.swift; sourceTree = "<group>"; };
 		EE99EC282D3CCEE10058C1B6 /* DietImagesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietImagesManager.swift; sourceTree = "<group>"; };
 		EE99EC2A2D3CD0C90058C1B6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -172,6 +175,7 @@
 				EED075A02D376FDD001CC272 /* PostgREST in Frameworks */,
 				EED075A22D376FDD001CC272 /* Realtime in Frameworks */,
 				EED0759E2D376FDD001CC272 /* Functions in Frameworks */,
+				EE5B93242D421B78006DC65D /* SnappingLayout in Frameworks */,
 				EED075832D368259001CC272 /* RxCocoa in Frameworks */,
 				EED0757A2D368234001CC272 /* FSCalendar in Frameworks */,
 				EED075A62D376FDD001CC272 /* Supabase in Frameworks */,
@@ -268,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				EE58E63D2D2D2D76000C4760 /* ManagementViewController.swift */,
+				EE5B93202D413354006DC65D /* DietImagesViewController.swift */,
 				EED075922D36C6C1001CC272 /* DietImageCollectionViewCell.swift */,
 			);
 			path = ManagementDietScene;
@@ -394,6 +399,7 @@
 				EED075A12D376FDD001CC272 /* Realtime */,
 				EED075A32D376FDD001CC272 /* Storage */,
 				EED075A52D376FDD001CC272 /* Supabase */,
+				EE5B93232D421B78006DC65D /* SnappingLayout */,
 			);
 			productName = KeepHealth;
 			productReference = EE58E5032D2C081A000C4760 /* KeepHealth.app */;
@@ -489,6 +495,7 @@
 				EED0758B2D368282001CC272 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				EED0758F2D368334001CC272 /* XCRemoteSwiftPackageReference "FloatingPanel" */,
 				EED0759A2D376FDD001CC272 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				EE5B93222D421B78006DC65D /* XCRemoteSwiftPackageReference "SnappingLayout" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EE58E5042D2C081A000C4760 /* Products */;
@@ -567,6 +574,7 @@
 				EE58E6A22D2E49A0000C4760 /* DietEntity.swift in Sources */,
 				EED075D02D38E148001CC272 /* UIImage+Ext.swift in Sources */,
 				EE58E65D2D2D2D76000C4760 /* SceneDelegate.swift in Sources */,
+				EE5B93212D413354006DC65D /* DietImagesViewController.swift in Sources */,
 				EED1269A2D355681003DBF38 /* DietScoreEntity.swift in Sources */,
 				EE99EC292D3CCEE10058C1B6 /* DietImagesManager.swift in Sources */,
 			);
@@ -930,6 +938,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EE5B93222D421B78006DC65D /* XCRemoteSwiftPackageReference "SnappingLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/getmimo/SnappingLayout.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
+			};
+		};
 		EED075752D368227001CC272 /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ChartsOrg/Charts";
@@ -1005,6 +1021,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EE5B93232D421B78006DC65D /* SnappingLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE5B93222D421B78006DC65D /* XCRemoteSwiftPackageReference "SnappingLayout" */;
+			productName = SnappingLayout;
+		};
 		EED075762D368227001CC272 /* DGCharts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EED075752D368227001CC272 /* XCRemoteSwiftPackageReference "Charts" */;
