@@ -116,7 +116,8 @@ class RealmManager {
   /// 식단 삭제
   /// - Parameter dietUUID: 삭제할 식단 UUID
   func deleteCurrentDiet(dietUUID: ObjectId, rateTitle: RateTitle){
-    guard let deleteEntitiy = realm.object(ofType: DietEntity.self, forPrimaryKey: dietUUID) else { return }
+    guard let deleteEntitiy = realm.object(ofType: DietEntity.self,
+                                           forPrimaryKey: dietUUID) else { return }
     
     // 점수 업데이트
     updateDietScoreEntity(dietRate: rateTitle)

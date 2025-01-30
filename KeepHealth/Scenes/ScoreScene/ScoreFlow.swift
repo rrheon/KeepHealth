@@ -14,11 +14,12 @@ import RxRelay
 
 enum ScoreStep: Step {
   case socreIsRequired
+  case howToUseIsRequired
 }
 
 
 /// 점수 Flow
-class ScoreFlow: Flow {
+class ScoreFlow: Flow, ShowBottomSheet {
   var viewModel: DietViewModel
 
   var root: Presentable {
@@ -43,6 +44,8 @@ class ScoreFlow: Flow {
     switch step {
     case .socreIsRequired:
       return setScoreScreen()
+    case .howToUseIsRequired:
+      return presentHowTouseScreen()
     }
   }
   
@@ -54,5 +57,12 @@ class ScoreFlow: Flow {
     vc.dietVM = self.viewModel
     self.rootViewController.pushViewController(vc, animated: false)
     return .one(flowContributor: .contribute(withNextPresentable: vc, withNextStepper: viewModel))
+  }
+  
+  func presentHowTouseScreen() -> FlowContributors {
+    let vc = HowToUseViewController()
+    showBottomSheet(bottomSheetVC: vc, size: 300)
+    rootViewController.present(vc, animated: true)
+    return .none
   }
 }

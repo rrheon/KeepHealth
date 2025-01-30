@@ -17,45 +17,55 @@ import PhotosUI
 enum AppStep: Step {
   
   /// 점수화면 , 식단 리스트 화면
-  enum TabType: Int {
-    case score    = 0
-    case dietList = 1
-  
+  enum SceneType: Int {
+    case score          = 0
+    case dietList       = 1
+    case managementDiet = 2
+      
+    
+    /// 탭바 아이템
     var tabItem: UITabBarItem {
       switch self {
       case .score:
         return UITabBarItem(title: NSLocalizedString("Score_Navigation_title", comment: ""),
                             image: UIImage(systemName: "house"),
                             selectedImage: UIImage(systemName: "house.fill"))
-      case .dietList:
+      default:
         return UITabBarItem(title: NSLocalizedString("DietList_Navigation_title", comment: ""),
                             image: UIImage(systemName: "fork.knife"),
                             selectedImage: UIImage(systemName: "housefork.knife.circle.fill"))
       }
-      
     }
     
-    var title: String {
+    /// 네비게이션 바 타이틀
+    var navTitle: String {
       switch self {
       case .score: return NSLocalizedString("Score_Navigation_title", comment: "")
-      case .dietList: return NSLocalizedString("DietList_Navigation_title", comment: "")
+      default:     return NSLocalizedString("DietList_Navigation_title", comment: "")
+      }
+    }
+
+    /// 이용방법  내용
+    var howToUseContent: String {
+      switch self {
+      case .score:          return NSLocalizedString("Score_HowToUse_Content", comment: "")
+      case .dietList:       return NSLocalizedString("DietList_HowToUse_Content", comment: "")
+      case .managementDiet: return NSLocalizedString("DietManagement_HowToUse_Content", comment: "")
       }
     }
   }
   
   
-  case mainTabIsRequired                          // 메인인화면
-  case dietAddIsRequired                          // 식단 추가화면
-  case dietEditIsRequired(dietData: DietEntity)  // 식단 편집화면
-  case calenderIsRequired                        // 캘린더화면
-  case popupIsRequired(popupType: PopupCase)     // 팝업화면
-  case howToUseIsRequired                        // 사용방법 화면
-  case dismissIsRequired                         // 현재화면 dismiss
-  case popIsRequired                             // 현재화면 pop
-  case bottomSheetIsRequired                    // bottomSheet
-  case cameraIsRequired                         // 카메라 사용
-  case photoIsRequired                         //  앨범 사용
-  case dietImageDetailIsRequired               // 식단 상세화면
+  case mainTabIsRequired                                      // 메인인화면
+  case dietAddIsRequired                                      // 식단 추가화면
+  case dietEditIsRequired(dietData: DietEntity)               // 식단 편집화면
+  case popupIsRequired(popupType: PopupCase)                  // 팝업화면
+  case dismissIsRequired                                      // 현재화면 dismiss
+  case popIsRequired                                          // 현재화면 pop
+  case managementDietImageIsRequired                          // 식단이미지 bottomSheet
+  case cameraIsRequired                                       // 카메라 사용
+  case photoIsRequired                                        //  앨범 사용
+  case dietImageDetailIsRequired(imageIndex: Int)             // 식단 상세화면
 
 }
 
@@ -94,14 +104,14 @@ class AppFlow: Flow {
       return dismissCurrnetScene()
     case .popIsRequired:
       return popCurrnetScene()
-    case .bottomSheetIsRequired:
-      return presentBottomSheet()
+    case .managementDietImageIsRequired:
+      return presentManagementDietImageBottomSheet()
     case .cameraIsRequired:
       return presentCameraScreen()
     case .photoIsRequired:
       return presentPhotoScreen()
-    case .dietImageDetailIsRequired:
-      return presentDietImageDetailScreen()
+    case .dietImageDetailIsRequired(let index):
+      return presentDietImageDetailScreen(imageIndex: index)
     default:
       return .none
     }
@@ -117,11 +127,11 @@ class AppFlow: Flow {
     Flows.use(scoreFlow, dietListFlow, when: .ready){ [unowned self] (
       root1: UINavigationController, root2: UINavigationController) in
       
-      root1.tabBarItem = AppStep.TabType.score.tabItem
-      root1.title = AppStep.TabType.score.title
+      root1.tabBarItem = AppStep.SceneType.score.tabItem
+      root1.title = AppStep.SceneType.score.navTitle
       
-      root2.tabBarItem = AppStep.TabType.dietList.tabItem
-      root2.title = AppStep.TabType.dietList.title
+      root2.tabBarItem = AppStep.SceneType.dietList.tabItem
+      root2.title = AppStep.SceneType.dietList.navTitle
 
       tabBarController.viewControllers = [root1, root2]
       tabBarController.tabBar.backgroundColor = .white
@@ -182,10 +192,10 @@ class AppFlow: Flow {
   }
   
   
-  /// bottomSheet 띄우기
+  /// 식단 사진 선택 bottomSheet 띄우기
   /// - Returns: none
-  func presentBottomSheet() -> FlowContributors{
-    let vc = BottomSheetViewController()
+  func presentManagementDietImageBottomSheet() -> FlowContributors{
+    let vc = ManagementDietImageViewController()
     showBottomSheet(bottomSheetVC: vc, size: 300)
     rootViewController.present(vc, animated: true)
     return .none
@@ -231,14 +241,15 @@ class AppFlow: Flow {
   
   /// 식단 이미지 상세화면으로 이동
   /// - Returns: .none
-  func presentDietImageDetailScreen() -> FlowContributors {
-    let vc = DietImagesViewController()
+  func presentDietImageDetailScreen(imageIndex: Int) -> FlowContributors {
+    let vc = DietImagesViewController(index: imageIndex)
     vc.modalTransitionStyle = .crossDissolve
     vc.modalPresentationStyle = .overFullScreen
     rootViewController.present(vc, animated: true)
     return .none
   }
-}
+} 
+
 
 
 /// 전체 AppStepper -  리모컨

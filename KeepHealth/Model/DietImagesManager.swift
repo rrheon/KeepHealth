@@ -18,7 +18,8 @@ class DietImagesManager {
     // 이미지 배열 저장
     for (imageName, image) in images {
       // 1. 이미지를 저장할 경로 설정
-      guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+      guard let documentDirectory = FileManager.default.urls(for: .documentDirectory,
+                                                             in: .userDomainMask).first else {
         print("ERROR: Failed to access document directory")
         continue
       }

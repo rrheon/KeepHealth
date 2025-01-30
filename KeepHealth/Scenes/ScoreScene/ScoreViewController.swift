@@ -39,10 +39,10 @@ class ScoreViewController: UIViewController {
     
     setupLayout()
     setupBinding()
-    
+
   } // viewDidLoad
-  
-  
+
+
   /// layout 설정
   private func setupLayout() {
     // 차트

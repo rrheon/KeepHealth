@@ -3,6 +3,11 @@
 "AddDiet_Navigation_title" = "식단 추가";
 "EditDiet_Navigation_title" = "식단 수정";
 
+
+"Score_HowToUse_Content" = "식단점수를 확인해보세요!";
+"DietList_HowToUse_Content" = "식단을 등록하여 식단리스트를 확인해보세요!";
+"DietManagement_HowToUse_Content" = "식단을 추가해보세요!";
+
 "ManagementDiet_DietType_title_Morning" = "아침";
 "ManagementDiet_DietType_title_Lunch" = "점심";
 "ManagementDiet_DietType_title_Dinner" = "저녁";

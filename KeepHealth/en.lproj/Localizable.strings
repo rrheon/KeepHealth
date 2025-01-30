@@ -3,6 +3,10 @@
 "AddDiet_Navigation_title" = "Add Meal";
 "EditDiet_Navigation_title" = "Edit Meal";
 
+"Score_HowToUse_Content" = "Check your diet score!";
+"DietList_HowToUse_Content" = "Register a diet to view your diet list!";
+"DietManagement_HowToUse_Content" = "Add a diet!";
+
 "ManagementDiet_DietType_title_Morning" = "Morning";
 "ManagementDiet_DietType_title_Lunch" = "Lunch";
 "ManagementDiet_DietType_title_Dinner" = "Dinner";

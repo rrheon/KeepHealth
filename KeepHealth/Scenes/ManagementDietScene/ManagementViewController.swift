@@ -27,7 +27,7 @@ class ManagementViewController: UIViewController {
     let control = UISegmentedControl(items: [DietType.morning.localizedString,
                                              DietType.lunch.localizedString,
                                              DietType.dinner.localizedString])
-
+    
     control.setLayout(backgorundColor: KHColorList.mainGreen.color)
     control.addTarget(self, action: #selector(selectSegment(sender: )), for: .valueChanged)
     return control
@@ -62,7 +62,7 @@ class ManagementViewController: UIViewController {
     view.clipsToBounds = false
     return view
   }()
-
+  
   
   /// 식단내용 제목 라벨
   private lazy var dietContentTitleLabel = UILabel().then {
@@ -131,13 +131,13 @@ class ManagementViewController: UIViewController {
     
     // 바인딩 설정
     setupBindings()
-  
+    
     // 개별 데이터가 있으면 편집
     if let data: DietEntity = dietVM?.dietData {
       updateEditDietScreen(data: data)
     }
   }// viewDidLoad
-    
+  
   /// layout 설정
   func setupLayout(){
     [
@@ -210,7 +210,7 @@ class ManagementViewController: UIViewController {
     
     // textView 스크롤 비활성화
     dietContentTextView.isScrollEnabled = false
-
+    
     // 식단추가버튼 처음에 비활성화
     addDietButton.isEnabled = false
   }
@@ -255,13 +255,16 @@ class ManagementViewController: UIViewController {
     addDietImageButton.addTarget(self, action: #selector(presentBottomSheet), for: .touchUpInside)
     
     // 식단이미지 셀 터치 시
-    dietImageCollectionView.rx.modelSelected(UIImage.self)
+    dietImageCollectionView.rx.itemSelected
       .throttle(.seconds(1), scheduler: MainScheduler.instance)
       .withUnretained(self)
-      .subscribe(onNext: { vc, item in
-        DietViewModel.shared.steps.accept(AppStep.dietImageDetailIsRequired)
+      .subscribe(onNext: { vc, indexPath in
+        DietViewModel.shared.steps.accept(AppStep.dietImageDetailIsRequired(imageIndex: indexPath.item))
+        
+        print("Selected image at index: \(indexPath.item)")
       })
       .disposed(by: disposeBag)
+    
   }
   
   /// 노티피케이션 및 탭 재스쳐 등록
@@ -278,7 +281,7 @@ class ManagementViewController: UIViewController {
         }
       })
       .disposed(by: disposeBag)
-
+    
     // 키보드 들어가기 전
     NotificationCenter.default.rx
       .notification(UIResponder.keyboardWillHideNotification)
@@ -288,14 +291,14 @@ class ManagementViewController: UIViewController {
         }
       })
       .disposed(by: disposeBag)
-       
+    
     // 탭 제스쳐
     let tapBackground = UITapGestureRecognizer()
     tapBackground.rx.event
-        .subscribe(onNext: { [weak self] _ in
-            self?.view.endEditing(true)
-        })
-        .disposed(by: disposeBag)
+      .subscribe(onNext: { [weak self] _ in
+        self?.view.endEditing(true)
+      })
+      .disposed(by: disposeBag)
     
     tapBackground.cancelsTouchesInView = false
     view.addGestureRecognizer(tapBackground)
@@ -354,7 +357,7 @@ class ManagementViewController: UIViewController {
     
     let convertedImageArray: [String] = Utils.convertListToArray(wtih: data.imagesPathArray)
     print(#fileID, #function, #line," - \(convertedImageArray)")
-
+    
     // 이미지 가져오기
     var imagesArray: [UIImage] = []
     convertedImageArray.forEach {
@@ -363,7 +366,7 @@ class ManagementViewController: UIViewController {
     }
     
     dietVM?.dietImages.accept(imagesArray)
-
+    
     self.title = ManageDietVCType.editDiet.vcTitle
     addDietButton.setTitle(NSLocalizedString("PopupTitle_Edit", comment: ""), for: .normal)
     
@@ -395,7 +398,7 @@ class ManagementViewController: UIViewController {
   
   /// bottomSheet 띄우기
   @objc func presentBottomSheet(){
-    dietVM?.steps.accept(AppStep.bottomSheetIsRequired)
+    dietVM?.steps.accept(AppStep.managementDietImageIsRequired)
   }
 }
 
@@ -456,7 +459,7 @@ extension ManagementViewController: UIImagePickerControllerDelegate,
     didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]
   ) {
     dietVM?.steps.accept(AppStep.dismissIsRequired)
-
+    
     // 임시 배열 생성
     var selectedImages: [UIImage] = []
     

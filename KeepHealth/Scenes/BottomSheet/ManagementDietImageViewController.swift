@@ -14,7 +14,7 @@ import Then
 
 
 /// bottomSheet VC - 사진 선택 및 촬영
-class BottomSheetViewController: UIViewController{
+class ManagementDietImageViewController: UIViewController{
   
   let disposeBag: DisposeBag = DisposeBag()
   

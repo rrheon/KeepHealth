@@ -14,6 +14,11 @@
 "ManagementDiet_DietRateTile" = "食事を評価する";
 "ManagementDiet_ButtonTitle" = "食事を追加";
 
+"Score_HowToUse_Content" = "食事スコアを確認してください！";
+"DietList_HowToUse_Content" = "食事を登録して食事リストを確認してください！";
+"DietManagement_HowToUse_Content" = "食事を追加してください！";
+
+
 "PopupTitle_Add" = "この食事を追加しますか？";
 "PopupTitle_Delete" = "この食事を削除しますか？";
 "PopupTitle_Edit" = "この食事を編集しますか？";
